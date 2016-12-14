@@ -59,11 +59,11 @@
     <Filter Include="GeneticCars\Model\Data\ShapePoint">
       <UniqueIdentifier>{c7ef4601-1eb8-40ac-ba47-bcfd8817c3ad}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GeneticCars\Model\Data\Wheel">
+      <UniqueIdentifier>{c95daff4-d8ae-408e-9768-7ad06a44bdcc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>GeneticCars\Main</Filter>
-    </ClCompile>
     <ClCompile Include="Chromosome.cpp">
       <Filter>GeneticCars\Model\Data\Chromosome</Filter>
     </ClCompile>
@@ -75,6 +75,12 @@
     </ClCompile>
     <ClCompile Include="BodyShape.cpp">
       <Filter>GeneticCars\Model\Data\BodyShape</Filter>
+    </ClCompile>
+    <ClCompile Include="Wheel.cpp">
+      <Filter>GeneticCars\Model\Data\Wheel</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>GeneticCars\Main</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -89,6 +95,9 @@
     </ClInclude>
     <ClInclude Include="BodyShape.h">
       <Filter>GeneticCars\Model\Data\BodyShape</Filter>
+    </ClInclude>
+    <ClInclude Include="Wheel.h">
+      <Filter>GeneticCars\Model\Data\Wheel</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -2,12 +2,12 @@
 class ShapePoint
 {
 public:
-	ShapePoint(int, int);
+	ShapePoint(float, float);
 	~ShapePoint();
-	int getX();
-	int getY();
+	float getX();
+	float getY();
 private:
-	int x;
-	int y;
+	float x;
+	float y;
 };
 

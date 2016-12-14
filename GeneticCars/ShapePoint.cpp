@@ -2,7 +2,7 @@
 
 
 
-ShapePoint::ShapePoint(int x, int y)
+ShapePoint::ShapePoint(float x, float y)
 {
 	this->x = x;
 	this->y = y;
@@ -13,12 +13,12 @@ ShapePoint::~ShapePoint()
 {
 }
 
-int ShapePoint::getX()
+float ShapePoint::getX()
 {
-	return x
+	return x;
 }
 
-int ShapePoint::getX()
+float ShapePoint::getY()
 {
-	return y
+	return y;
 }
