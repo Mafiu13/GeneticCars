@@ -29,10 +29,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="GeneticCars\Model\EvolutionAlgorithm\Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
     <Filter Include="GeneticCars\Tests">
       <UniqueIdentifier>{98bd6a27-e6a9-46d8-9834-de4625e64b50}</UniqueIdentifier>
     </Filter>
@@ -51,5 +47,57 @@
     <Filter Include="GeneticCars\Model\Data">
       <UniqueIdentifier>{ff1716bf-ad86-493f-8c7b-25db6d620498}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GeneticCars\Model\Data\Car">
+      <UniqueIdentifier>{8ddc0a91-de04-43fe-9fc3-48958c849d9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GeneticCars\Model\Data\Chromosome">
+      <UniqueIdentifier>{22246100-4ba5-46b9-8ceb-6050f82c874e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GeneticCars\Model\Data\BodyShape">
+      <UniqueIdentifier>{8b2a5c67-ad9a-47b4-ae2c-3f9bfb2574e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GeneticCars\Model\Data\ShapePoint">
+      <UniqueIdentifier>{c7ef4601-1eb8-40ac-ba47-bcfd8817c3ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GeneticCars\Model\Data\Wheel">
+      <UniqueIdentifier>{c95daff4-d8ae-408e-9768-7ad06a44bdcc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Chromosome.cpp">
+      <Filter>GeneticCars\Model\Data\Chromosome</Filter>
+    </ClCompile>
+    <ClCompile Include="Car.cpp">
+      <Filter>GeneticCars\Model\Data\Car</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapePoint.cpp">
+      <Filter>GeneticCars\Model\Data\ShapePoint</Filter>
+    </ClCompile>
+    <ClCompile Include="BodyShape.cpp">
+      <Filter>GeneticCars\Model\Data\BodyShape</Filter>
+    </ClCompile>
+    <ClCompile Include="Wheel.cpp">
+      <Filter>GeneticCars\Model\Data\Wheel</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>GeneticCars\Main</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Chromosome.h">
+      <Filter>GeneticCars\Model\Data\Chromosome</Filter>
+    </ClInclude>
+    <ClInclude Include="Car.h">
+      <Filter>GeneticCars\Model\Data\Car</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapePoint.h">
+      <Filter>GeneticCars\Model\Data\ShapePoint</Filter>
+    </ClInclude>
+    <ClInclude Include="BodyShape.h">
+      <Filter>GeneticCars\Model\Data\BodyShape</Filter>
+    </ClInclude>
+    <ClInclude Include="Wheel.h">
+      <Filter>GeneticCars\Model\Data\Wheel</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
