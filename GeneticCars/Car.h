@@ -7,10 +7,10 @@ public:
 	Car(Chromosome);
 	~Car();
 	Chromosome getChromosome();
-	float getFitness();
-	void setFitness(float);
+	float getDistance();
+	void setDistance(float);
 private:
 	Chromosome chromosome;
-	float fitness;
+	float distance;
 };
 

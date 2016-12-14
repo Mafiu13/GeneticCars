@@ -5,7 +5,7 @@
 Car::Car(Chromosome chromosome)
 	:chromosome(chromosome)
 {
-	this->fitness = -1;
+	this->distance = -1;
 }
 
 
@@ -18,12 +18,12 @@ Chromosome Car::getChromosome()
 	return chromosome;
 }
 
-float Car::getFitness()
+float Car::getDistance()
 {
-	return fitness;
+	return distance;
 }
 
-void Car::setFitness(float fitness)
+void Car::setDistance(float distance)
 {
-	this->fitness = fitness;
+	this->distance = distance;
 }
