@@ -1,10 +1,10 @@
 #include "Car_ph.h"
 
-Car_ph::Car_ph(b2Body *wheel1, b2Body *wheel2, b2Body *shapeBody)
+Car_ph::Car_ph(Wheel_ph *a, Wheel_ph *b, BodyShape_ph *c)
 {
-	bodies[0] = wheel1;
-	bodies[1] = wheel2;
-	bodies[2] = shapeBody;
+	wheel_1 = a;
+	wheel_2 = b;
+	bodyShape = c;
 }
 
 Car_ph::~Car_ph()
