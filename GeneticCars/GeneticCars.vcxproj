@@ -149,6 +149,8 @@
     <ClCompile Include="BodyShape.cpp" />
     <ClCompile Include="Car.cpp" />
     <ClCompile Include="Chromosome.cpp" />
+    <ClCompile Include="EvolutionaryService.cpp" />
+    <ClCompile Include="PopulationManager.cpp" />
     <ClCompile Include="ShapePoint.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Wheel.cpp" />
@@ -157,6 +159,8 @@
     <ClInclude Include="BodyShape.h" />
     <ClInclude Include="Car.h" />
     <ClInclude Include="Chromosome.h" />
+    <ClInclude Include="EvolutionaryService.h" />
+    <ClInclude Include="PopulationManager.h" />
     <ClInclude Include="ShapePoint.h" />
     <ClInclude Include="Wheel.h" />
   </ItemGroup>

@@ -22,13 +22,6 @@
     <Filter Include="GeneticCars\Controller\Source Files">
       <UniqueIdentifier>{e23fe0e3-b2dd-4dec-8eea-2adae07b5ecc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GeneticCars\Model\EvolutionAlgorithm">
-      <UniqueIdentifier>{c4c8e2fb-fe7e-453c-bee0-3f0beef7cc76}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GeneticCars\Model\EvolutionAlgorithm\Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="GeneticCars\Tests">
       <UniqueIdentifier>{98bd6a27-e6a9-46d8-9834-de4625e64b50}</UniqueIdentifier>
     </Filter>
@@ -62,6 +55,15 @@
     <Filter Include="GeneticCars\Model\Data\Wheel">
       <UniqueIdentifier>{c95daff4-d8ae-408e-9768-7ad06a44bdcc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GeneticCars\Model\EvolutionaryAlgorithm">
+      <UniqueIdentifier>{c4c8e2fb-fe7e-453c-bee0-3f0beef7cc76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GeneticCars\Model\EvolutionaryAlgorithm\PopulationManager">
+      <UniqueIdentifier>{42939a32-9761-4472-8451-a88b512378a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GeneticCars\Model\EvolutionaryAlgorithm\EvolutionaryService">
+      <UniqueIdentifier>{d8d0ba1b-0302-40dd-9664-cd44652fe039}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Chromosome.cpp">
@@ -82,6 +84,12 @@
     <ClCompile Include="main.cpp">
       <Filter>GeneticCars\Main</Filter>
     </ClCompile>
+    <ClCompile Include="PopulationManager.cpp">
+      <Filter>GeneticCars\Model\EvolutionaryAlgorithm\PopulationManager</Filter>
+    </ClCompile>
+    <ClCompile Include="EvolutionaryService.cpp">
+      <Filter>GeneticCars\Model\EvolutionaryAlgorithm\EvolutionaryService</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Chromosome.h">
@@ -98,6 +106,12 @@
     </ClInclude>
     <ClInclude Include="Wheel.h">
       <Filter>GeneticCars\Model\Data\Wheel</Filter>
+    </ClInclude>
+    <ClInclude Include="PopulationManager.h">
+      <Filter>GeneticCars\Model\EvolutionaryAlgorithm\PopulationManager</Filter>
+    </ClInclude>
+    <ClInclude Include="EvolutionaryService.h">
+      <Filter>GeneticCars\Model\EvolutionaryAlgorithm\EvolutionaryService</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
