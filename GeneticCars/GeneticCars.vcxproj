@@ -147,22 +147,32 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BodyShape.cpp" />
+    <ClCompile Include="BodyShape_ph.cpp" />
     <ClCompile Include="Car.cpp" />
+    <ClCompile Include="Car_ph.cpp" />
     <ClCompile Include="Chromosome.cpp" />
+    <ClCompile Include="Drawing.cpp" />
     <ClCompile Include="EvolutionaryService.cpp" />
     <ClCompile Include="PopulationManager.cpp" />
-    <ClCompile Include="ShapePoint.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Track_ph.cpp" />
     <ClCompile Include="Wheel.cpp" />
+    <ClCompile Include="Wheel_ph.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BodyShape.h" />
+    <ClInclude Include="BodyShape_ph.h" />
     <ClInclude Include="Car.h" />
+    <ClInclude Include="Car_ph.h" />
     <ClInclude Include="Chromosome.h" />
+    <ClInclude Include="Drawing.h" />
     <ClInclude Include="EvolutionaryService.h" />
+    <ClInclude Include="const.h" />
     <ClInclude Include="PopulationManager.h" />
     <ClInclude Include="ShapePoint.h" />
+    <ClInclude Include="Track_ph.h" />
     <ClInclude Include="Wheel.h" />
+    <ClInclude Include="Wheel_ph.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

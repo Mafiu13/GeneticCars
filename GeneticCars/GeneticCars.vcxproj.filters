@@ -64,6 +64,27 @@
     <Filter Include="GeneticCars\Model\EvolutionaryAlgorithm\EvolutionaryService">
       <UniqueIdentifier>{d8d0ba1b-0302-40dd-9664-cd44652fe039}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GeneticCars\Model\Physical engine">
+      <UniqueIdentifier>{7c24cd30-78fe-43b7-9a98-5fc2542e430c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GeneticCars\Model\Physical engine\Wheel_ph">
+      <UniqueIdentifier>{a89e27b5-93a1-44df-909a-1e331f327f5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GeneticCars\Model\Physical engine\BodyShape_ph">
+      <UniqueIdentifier>{3a94d857-1a4b-48f4-95d4-c0f83bdcc7b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GeneticCars\Model\Physical engine\Car_ph">
+      <UniqueIdentifier>{9740dcd6-9fa5-4f4c-8598-d28b94a0242c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GeneticCars\Model\Physical engine\Track_ph">
+      <UniqueIdentifier>{950aeeb1-c975-4341-b07d-d9633e2f6679}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GeneticCars\Model\Physical engine\Const">
+      <UniqueIdentifier>{15171c17-14f6-41f9-9bde-bc9f4d5f70dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GeneticCars\View\Drawing">
+      <UniqueIdentifier>{0b4f6077-3b55-49c2-8a36-a7a1619ddd11}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Chromosome.cpp">
@@ -71,9 +92,6 @@
     </ClCompile>
     <ClCompile Include="Car.cpp">
       <Filter>GeneticCars\Model\Data\Car</Filter>
-    </ClCompile>
-    <ClCompile Include="ShapePoint.cpp">
-      <Filter>GeneticCars\Model\Data\ShapePoint</Filter>
     </ClCompile>
     <ClCompile Include="BodyShape.cpp">
       <Filter>GeneticCars\Model\Data\BodyShape</Filter>
@@ -90,6 +108,19 @@
     <ClCompile Include="EvolutionaryService.cpp">
       <Filter>GeneticCars\Model\EvolutionaryAlgorithm\EvolutionaryService</Filter>
     </ClCompile>
+    <ClCompile Include="Wheel_ph.cpp">
+      <Filter>GeneticCars\Model\Physical engine\Wheel_ph</Filter>
+    </ClCompile>
+    <ClCompile Include="Car_ph.cpp">
+      <Filter>GeneticCars\Model\Physical engine\Car_ph</Filter>
+    </ClCompile>
+    <ClCompile Include="BodyShape_ph.cpp">
+      <Filter>GeneticCars\Model\Physical engine\BodyShape_ph</Filter>
+    </ClCompile>
+    <ClCompile Include="Track_ph.cpp">
+      <Filter>GeneticCars\Model\Physical engine\Track_ph</Filter>
+    </ClCompile>
+    <ClCompile Include="Drawing.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Chromosome.h">
@@ -113,5 +144,21 @@
     <ClInclude Include="EvolutionaryService.h">
       <Filter>GeneticCars\Model\EvolutionaryAlgorithm\EvolutionaryService</Filter>
     </ClInclude>
+    <ClInclude Include="Wheel_ph.h">
+      <Filter>GeneticCars\Model\Physical engine\Wheel_ph</Filter>
+    </ClInclude>
+    <ClInclude Include="Car_ph.h">
+      <Filter>GeneticCars\Model\Physical engine\Car_ph</Filter>
+    </ClInclude>
+    <ClInclude Include="BodyShape_ph.h">
+      <Filter>GeneticCars\Model\Physical engine\BodyShape_ph</Filter>
+    </ClInclude>
+    <ClInclude Include="const.h">
+      <Filter>GeneticCars\Model\Physical engine\Const</Filter>
+    </ClInclude>
+    <ClInclude Include="Track_ph.h">
+      <Filter>GeneticCars\Model\Physical engine\Track_ph</Filter>
+    </ClInclude>
+    <ClInclude Include="Drawing.h" />
   </ItemGroup>
 </Project>
