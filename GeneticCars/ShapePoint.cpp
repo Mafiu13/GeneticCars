@@ -8,17 +8,17 @@ ShapePoint::ShapePoint(float x, float y)
 	this->y = y;
 }
 
+ShapePoint::ShapePoint()
+{
+}
+
+
+ShapePoint::ShapePoint(float a, float b)
+{
+	x = a;
+	y = b;
+}
 
 ShapePoint::~ShapePoint()
 {
-}
-
-float ShapePoint::getX()
-{
-	return x;
-}
-
-float ShapePoint::getY()
-{
-	return y;
 }

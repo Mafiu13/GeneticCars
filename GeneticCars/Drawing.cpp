@@ -30,7 +30,7 @@ sf::VertexArray Drawing::drawTrack(Track_ph * track)
 	return track_drawing;
 }
 
-sf::CircleShape Drawing::drawCircle(BodyShape_ph * circle, sf::Color col)
+sf::CircleShape Drawing::drawCircle(Wheel_ph * circle, sf::Color col)
 {
 	float r = circle->getBody()->GetFixtureList()->GetShape()->m_radius * SCALE;
 	sf::CircleShape sf_circle(r);

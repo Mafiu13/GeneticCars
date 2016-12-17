@@ -11,7 +11,7 @@ public:
 	~Drawing();
 
 	sf::VertexArray drawTrack(Track_ph * track);
-	sf::CircleShape drawCircle(BodyShape_ph * circle, sf::Color col);
+	sf::CircleShape drawCircle(Wheel_ph * circle, sf::Color col);
 	sf::ConvexShape drawPolygon(BodyShape_ph * polygon, sf::Color col);
 };
 

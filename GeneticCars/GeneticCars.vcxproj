@@ -155,6 +155,7 @@
     <ClCompile Include="EvolutionaryService.cpp" />
     <ClCompile Include="PopulationManager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ShapePoint.cpp" />
     <ClCompile Include="Simulation.cpp" />
     <ClCompile Include="Track_ph.cpp" />
     <ClCompile Include="Wheel.cpp" />

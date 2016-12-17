@@ -129,6 +129,9 @@
     <ClCompile Include="Simulation.cpp">
       <Filter>GeneticCars\Model\Physical engine\Simulation</Filter>
     </ClCompile>
+    <ClCompile Include="ShapePoint.cpp">
+      <Filter>GeneticCars\Model\Data\ShapePoint</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Chromosome.h">

@@ -19,7 +19,7 @@ void BodyShape_ph::createBodyShape(b2World & world, float x, float y, ShapePoint
 	b2PolygonShape polygonShape;
 	b2Vec2 v[8];
 	for (int i = 0; i < 8; ++i) {
-		v[i].Set(w[i].x / SCALE, w[0].y / SCALE);
+		v[i].Set(w[i].x / SCALE, w[i].y / SCALE);
 
 		this->vertices[i].x = w[i].x;
 		this->vertices[i].y = w[i].y;
