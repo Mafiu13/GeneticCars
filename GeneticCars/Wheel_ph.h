@@ -1,14 +1,17 @@
-#pragma once
+#ifndef WHEEL_PH_H 
+#define WHEEL_PH_H
+
 #include <Box2D\Box2D.h>
 #include "const.h"
+#include "Element_ph.h"
 
-class Wheel_ph
+class Wheel_ph: public Element_ph
 {
-	b2Body * body;
+	
 public:
 	Wheel_ph();
 	~Wheel_ph();
-	void createWheel(b2World & world, float x, float y, float radius, float density, float speed);
-	b2Body * getBody();
+	void createWheel(b2World &, float, float, float, float, float);
 };
 
+#endif

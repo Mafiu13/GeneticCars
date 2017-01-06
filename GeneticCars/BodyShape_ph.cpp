@@ -2,6 +2,7 @@
 
 BodyShape_ph::BodyShape_ph()
 {
+	vertices = std::make_unique<b2Vec2[]>(V);
 }
 
 
@@ -9,41 +10,42 @@ BodyShape_ph::~BodyShape_ph()
 {
 }
 
-void BodyShape_ph::createBodyShape(b2World & world, float x, float y, ShapePoint w[8], float density)
+void BodyShape_ph::createBodyShape(b2World & world, float x, float y, float density)
 {
 	b2BodyDef polygonDefinition;
 	polygonDefinition.type = b2_dynamicBody;
-	polygonDefinition.position.Set(x / SCALE, y / SCALE);
+	polygonDefinition.position.Set(x, y);
 	b2Body * polygon = world.CreateBody(&polygonDefinition);
 
 	b2PolygonShape polygonShape;
-	b2Vec2 v[8];
-	for (int i = 0; i < 8; ++i) {
-		v[i].Set(w[i].x / SCALE, w[i].y / SCALE);
 
-		this->vertices[i].x = w[i].x;
-		this->vertices[i].y = w[i].y;
-	}
-
-	polygonShape.Set(v, 8);
+	polygonShape.Set(this->getVertices(), V);
 
 	b2FixtureDef polygonFixture;
 	polygonFixture.shape = &polygonShape;
 	polygonFixture.density = density;
 	polygonFixture.friction = 0.3f;
 	polygonFixture.restitution = 0.0;
+	polygonFixture.filter.categoryBits = 0x0002;
+	polygonFixture.filter.maskBits = 0x0001;
 
 	polygon->CreateFixture(&polygonFixture);
 
-	this->body = polygon;
+	this->setDensity(density);
+	this->setBody(polygon);
 }
 
-b2Body * BodyShape_ph::getBody()
+
+
+void BodyShape_ph::setVertices(std::vector<std::unique_ptr<b2Vec2>> const & tab)
 {
-	return body;
+	for (int i = 0; i < V; ++i) {
+		vertices[i].x = tab[i]->x;
+		vertices[i].y = tab[i]->y;
+	}
 }
 
-ShapePoint * BodyShape_ph::getVertices()
+b2Vec2 * BodyShape_ph::getVertices()
 {
-	return vertices;
+	return vertices.get();
 }

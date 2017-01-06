@@ -13,12 +13,26 @@ ShapePoint::ShapePoint()
 }
 
 
-ShapePoint::ShapePoint(float a, float b)
-{
-	x = a;
-	y = b;
-}
-
 ShapePoint::~ShapePoint()
 {
+}
+
+float ShapePoint::getX()
+{
+	return x;
+}
+
+float ShapePoint::getY()
+{
+	return y;
+}
+
+void ShapePoint::setX(float a)
+{
+	x = a;
+}
+
+void ShapePoint::setY(float b)
+{
+	y = b;
 }

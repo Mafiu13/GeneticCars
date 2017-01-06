@@ -88,6 +88,9 @@
     <Filter Include="GeneticCars\Model\Physical engine\Simulation">
       <UniqueIdentifier>{ea79ee86-b08e-4390-a29c-a98959f03903}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GeneticCars\Model\Physical engine\Element_ph">
+      <UniqueIdentifier>{d66208a5-f807-4ca3-b726-d71d73b89586}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Chromosome.cpp">
@@ -132,6 +135,12 @@
     <ClCompile Include="ShapePoint.cpp">
       <Filter>GeneticCars\Model\Data\ShapePoint</Filter>
     </ClCompile>
+    <ClCompile Include="const.cpp">
+      <Filter>GeneticCars\Model\Physical engine\Const</Filter>
+    </ClCompile>
+    <ClCompile Include="Element_ph.cpp">
+      <Filter>GeneticCars\Model\Physical engine\Element_ph</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Chromosome.h">
@@ -175,6 +184,9 @@
     </ClInclude>
     <ClInclude Include="Simulation.h">
       <Filter>GeneticCars\Model\Physical engine\Simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="Element_ph.h">
+      <Filter>GeneticCars\Model\Physical engine\Element_ph</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

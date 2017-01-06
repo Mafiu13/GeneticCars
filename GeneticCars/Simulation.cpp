@@ -1,16 +1,23 @@
 ﻿#include "Simulation.h"
 
+
 Simulation::Simulation()
 {
 }
 
-
 Simulation::~Simulation()
 {
 }
+std::vector<std::shared_ptr<Car_ph>> Simulation::getCars()
+{
+	return cars;
+}
+
+
 //testowa symulacja
 void Simulation::createSimulation()
 {
+	//-----------------------parametry silnika fizycznego---------------------------------
 	float time = 1.0f; // nasz œwiat bêdziemy symulowaæ przez sekundê
 	int steps = 100; // podzielenie symulacji na 100 krokow
 	float timeStep = time / steps; // aktualizacja fizyki co 1/100 sekundy.
@@ -19,58 +26,61 @@ void Simulation::createSimulation()
 
 	b2Vec2 Gravity(0.f, 1.0f); // wektor grawitacji o wartosci 0.05
 	b2World World(Gravity); // tworzenie siata
-
-	Track_ph * track = new Track_ph();
+	//-----------------------tworzenie obiektow swiata------------------------------------
+	std::unique_ptr<Track_ph> track (new Track_ph());
 	track->generateTrack(50, 300, 50);
 	track->createTrack(World);
 
-	Wheel_ph * wheel_1 = new Wheel_ph();
-	wheel_1->createWheel(World, 150, 50, 24, 1, 100);
+	boost::shared_ptr<Wheel_ph> wheel_1 (new Wheel_ph());
+	wheel_1->createWheel(World, 3, 1, 0.5, 0.8, 100);
+	boost::shared_ptr<Wheel_ph> wheel_2 (new Wheel_ph());
+	wheel_2->createWheel(World, 5, 1, 0.5, 0.8, 100);
 
-	Wheel_ph * wheel_2 = new Wheel_ph();
-	wheel_2->createWheel(World, 250, 50, 24, 1, 100);
+	boost::shared_ptr<Wheel_ph> wheel_3(new Wheel_ph());
+	wheel_3->createWheel(World, 3, 1, 0.5, 0.1, 5);
+	boost::shared_ptr<Wheel_ph> wheel_4(new Wheel_ph());
+	wheel_4->createWheel(World, 5, 1, 0.5, 0.1, 5);
 
-	ShapePoint w[8];
-	w[0].x = -50;
-	w[0].y = 50;
-	w[1].x = 50;
-	w[1].y = 50;
-	w[2].x = 50;
-	w[2].y = 50;
-	w[3].x = 60;
-	w[3].y = 20;
-	w[4].x = 30;
-	w[4].y = 10;
-	w[5].x = -20;
-	w[5].y = 10;
-	w[6].x = -40;
-	w[6].y = 10;
-	w[7].x = -10;
-	w[7].y = 40;
+	//-----------------tablica z punktami nadwozia ---------------------------------------
+	std::vector<std::unique_ptr<b2Vec2>> tab;
+	tab.push_back(std::make_unique<b2Vec2>(-1, 1));
+	tab.push_back(std::make_unique<b2Vec2>(1, 1));
+	tab.push_back(std::make_unique<b2Vec2>(1, 1));
+	tab.push_back(std::make_unique<b2Vec2>(1.2, 0.4));
+	tab.push_back(std::make_unique<b2Vec2>(0.6, 0.2));
+	tab.push_back(std::make_unique<b2Vec2>(-0.4, 0.2));
+	tab.push_back(std::make_unique<b2Vec2>(-0.8, 0.2));
+	tab.push_back(std::make_unique<b2Vec2>(-0.2, 0.8));
 
+	boost::shared_ptr<BodyShape_ph> bodyShape (new BodyShape_ph());
+	bodyShape->setVertices(tab);
+	bodyShape->createBodyShape(World, 4, 0, 0.2);
 
-	BodyShape_ph * bodyShape = new BodyShape_ph();
-	bodyShape->createBodyShape(World, 200, 0, w, 1);
+	boost::shared_ptr<BodyShape_ph> bodyShape_2(new BodyShape_ph());
+	bodyShape_2->setVertices(tab);
+	bodyShape_2->createBodyShape(World, 4, 0, 0.7);
 
-	Car_ph *car = new Car_ph(wheel_1, wheel_2, bodyShape);
-	ShapePoint a;
-	a.x = 0;
-	a.y = 0;
+	std::shared_ptr<Car_ph> car (new Car_ph());
+	car->setParts(wheel_1, wheel_2, bodyShape);
+	car->setJointPoints(-1, 1, 1, 1);
+	car->createJoints(World);
 
-	car->createJoint(World, bodyShape->getBody(), wheel_1->getBody(), w[0], a);
-	car->createJoint(World, bodyShape->getBody(), wheel_2->getBody(), w[2], a);
+	std::shared_ptr<Car_ph> car_2(new Car_ph());
+	car_2->setParts(wheel_3, wheel_4, bodyShape_2);
+	car_2->setJointPoints(-1, 1, 1, 1);
+	car_2->createJoints(World);
+	
+	this->cars.push_back(car);
+	this->cars.push_back(car_2);
 
 	Drawing * drawing = new Drawing();
-	sf::CircleShape circle_1 = drawing->drawCircle(wheel_1, sf::Color::Blue);
-	sf::CircleShape circle_2 = drawing->drawCircle(wheel_2, sf::Color::Blue);
-	sf::ConvexShape polygon = drawing->drawPolygon(bodyShape, sf::Color::Red);
-	sf::VertexArray lines = drawing->drawTrack(track);
+	
 
 	sf::RenderWindow oknoAplikacji(sf::VideoMode(800, 600, 32), "SFML - test"); //definicja okna aplikacji
 	sf::View view(sf::Vector2f(400, 300), sf::Vector2f(800, 600)); //definicja podgladu view. podglad na srodku ekranu o okreslonej wielkosci
 	oknoAplikacji.setView(view);
+	
 
-	b2Vec2 pos;
 	while (oknoAplikacji.isOpen())
 	{
 		for (int i = 0; i < steps; i++)
@@ -91,30 +101,26 @@ void Simulation::createSimulation()
 				}
 			}
 
+			//drawing->drawCar(car.get(), oknoAplikacji);
+			drawing->drawCars(cars, oknoAplikacji);
 
-			//	pos = triangle->getBody()->GetPosition();
-			//sf_triangle.setPosition(pos.x*SCALE, pos.y*SCALE);
-			//	oknoAplikacji.draw(sf_triangle);
-
-			pos = wheel_1->getBody()->GetPosition();
-			circle_1.setPosition(pos.x*SCALE, pos.y*SCALE);
-			oknoAplikacji.draw(circle_1);
-
-			pos = wheel_2->getBody()->GetPosition();
-			circle_2.setPosition(pos.x*SCALE, pos.y*SCALE);
-			oknoAplikacji.draw(circle_2);
-
-			pos = bodyShape->getBody()->GetPosition();
-			polygon.setPosition(pos.x*SCALE, pos.y*SCALE);
-			oknoAplikacji.draw(polygon);
-
-
-			oknoAplikacji.draw(lines);
+			drawing->drawTrack(track.get(), oknoAplikacji);
 
 			oknoAplikacji.display();
 
-			view.setCenter(pos.x*SCALE, 300);
+			view.setCenter(this->getTheFastestX() * SCALE, 300);
 			oknoAplikacji.setView(view);
 		}
 	}
+}
+
+float Simulation::getTheFastestX()
+{
+	float first = 0;
+	for (int i = 0; i < cars.size(); ++i) {
+		if (cars[i].get()->getBodyShape()->getBody()->GetPosition().x > first && cars[i].get()->getBodyShape()->getBody()->GetPosition().y < 20) {
+			first = cars[i].get()->getBodyShape()->getBody()->GetPosition().x;
+		}
+	}
+	return first;
 }
