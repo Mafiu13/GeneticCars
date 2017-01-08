@@ -25,6 +25,7 @@ public:
 	void setJointPoints(float, float, float, float);
 	void setParts(boost::shared_ptr <Wheel_ph>, boost::shared_ptr <Wheel_ph>, boost::shared_ptr <BodyShape_ph>);
 	void createJoints(b2World&);
+	void updateVelocity();
 };
 
 #endif

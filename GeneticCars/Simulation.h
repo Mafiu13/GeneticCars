@@ -14,16 +14,17 @@
 #include "Car_ph.h"
 #include "Drawing.h"
 #include "const.h"
+#include "World_ph.h"
 
 class Simulation
 {
-	std::vector<std::shared_ptr<Car_ph>> cars;
+	
 public:
 	Simulation();
 	~Simulation();
-	std::vector<std::shared_ptr<Car_ph>> getCars();
+	
 	void createSimulation();
-	float getTheFastestX();
+	
 };
 
 #endif

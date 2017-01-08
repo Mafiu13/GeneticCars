@@ -9,6 +9,10 @@ extern const float SCALE;
 extern const int N;
 //ilosc wierzchokow nadwozia pojazdow
 extern const int V;
+//gravity in simulation
+extern const float Gravity;
 
+//angular velocity of car's wheels
+extern const float Velocity;
 
 #endif

@@ -31,3 +31,8 @@ void Element_ph::setDensity(float d)
 {
 	density = d;
 }
+
+void Element_ph::updateVelocity()
+{
+	body->SetAngularVelocity(Velocity);
+}

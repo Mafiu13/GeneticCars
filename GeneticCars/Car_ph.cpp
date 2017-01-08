@@ -56,3 +56,9 @@ void Car_ph::createJoints(b2World & World)
 	joint.localAnchorA.Set(this->jointPoint_2->x, this->jointPoint_2->y); // ustawiamy punkt zaczepu w pierwszym ciele. Jest on we wspó³rzêdnych LOKALNYCH cia³a
 	World.CreateJoint(&joint);
 }
+
+void Car_ph::updateVelocity()
+{
+	wheel_1->updateVelocity();
+	wheel_2->updateVelocity();
+}

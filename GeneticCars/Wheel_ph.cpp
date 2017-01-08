@@ -28,9 +28,10 @@ void Wheel_ph::createWheel(b2World & world, float x, float y, float radius, floa
 	circleFixture.filter.maskBits = 0x0001;
 
 	circle->CreateFixture(&circleFixture);
-	circle->SetAngularVelocity(speed);
+	circle->SetAngularVelocity(Velocity);
 	
 	this->setDensity(density);
 	this->setBody(circle);
 }
+
 

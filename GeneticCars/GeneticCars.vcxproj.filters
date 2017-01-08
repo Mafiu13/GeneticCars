@@ -91,6 +91,9 @@
     <Filter Include="GeneticCars\Model\Physical engine\Element_ph">
       <UniqueIdentifier>{d66208a5-f807-4ca3-b726-d71d73b89586}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GeneticCars\Model\Physical engine\World_ph">
+      <UniqueIdentifier>{47496029-2d33-4593-a463-179614c82749}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Chromosome.cpp">
@@ -141,6 +144,9 @@
     <ClCompile Include="Element_ph.cpp">
       <Filter>GeneticCars\Model\Physical engine\Element_ph</Filter>
     </ClCompile>
+    <ClCompile Include="World_ph.cpp">
+      <Filter>GeneticCars\Model\Physical engine\World_ph</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Chromosome.h">
@@ -187,6 +193,9 @@
     </ClInclude>
     <ClInclude Include="Element_ph.h">
       <Filter>GeneticCars\Model\Physical engine\Element_ph</Filter>
+    </ClInclude>
+    <ClInclude Include="World_ph.h">
+      <Filter>GeneticCars\Model\Physical engine\World_ph</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

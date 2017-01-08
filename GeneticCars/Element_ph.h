@@ -2,6 +2,7 @@
 #define ELEMENT_PH_H
 
 #include<Box2D\Box2D.h>
+#include "const.h"
 
 class Element_ph
 {
@@ -14,6 +15,7 @@ public:
 	float getDensity();
 	void setBody(b2Body *);
 	void setDensity(float);
+	void updateVelocity();
 };
 
 #endif
