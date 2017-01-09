@@ -100,7 +100,7 @@ vector<float> EvolutionaryService::getPopulationScores(const vector<Car> populat
 int EvolutionaryService::getCarIndexFromRoulletteWheel(vector<float> roulletteWheel)
 {
 	float randomPocket = randomService.getRandomFloat(0.0, 1.0);
-	for (int i = 0; i < roulletteWheel.size; ++i)
+	for (int i = 0; i < roulletteWheel.size(); ++i)
 	{
 		float pocket = roulletteWheel[i];
 		if (pocket >= randomPocket)

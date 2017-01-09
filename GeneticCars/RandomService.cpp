@@ -21,7 +21,7 @@ int RandomService::getRandomInt(int min, int max)
 
 double RandomService::getRandomDouble(double min, double max)
 {
-	uniform_real_distribution<float> dist(min, max);
+	uniform_real_distribution<double> dist(min, max);
 	double randomDouble = dist(randomEngine);
 	return randomDouble;
 }
