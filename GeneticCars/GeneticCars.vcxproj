@@ -89,12 +89,12 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>F:\biblioteki\boost_1_63_0;F:\biblioteki\SFML\include;F:\biblioteki\Box2D\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\cpp libraris\SFML-2.4.1\include;C:\cpp libraris\boost_1_62_0;C:\cpp libraris\Box2D\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>F:\biblioteki\SFML\lib;F:\biblioteki\Box2D\lib;F:\biblioteki\boost_1_63_0\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\cpp libraris\boost_1_62_0\libs;C:\cpp libraris\Box2D\lib;C:\cpp libraris\SFML-2.4.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>Box2D.lib;sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-main-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -125,14 +125,14 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>F:\biblioteki\boost_1_63_0;F:\biblioteki\SFML\include;F:\biblioteki\Box2D\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\cpp libraris\SFML-2.4.1\include;C:\cpp libraris\boost_1_62_0;C:\cpp libraris\Box2D\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>F:\biblioteki\SFML\lib;F:\biblioteki\Box2D\lib;F:\biblioteki\boost_1_63_0\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\cpp libraris\boost_1_62_0\libs;C:\cpp libraris\Box2D\lib;C:\cpp libraris\SFML-2.4.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>Box2D.lib;sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-main-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -166,6 +166,7 @@
     <ClCompile Include="Drawing.cpp" />
     <ClCompile Include="Element_ph.cpp" />
     <ClCompile Include="EvolutionaryService.cpp" />
+    <ClCompile Include="IndividualService.cpp" />
     <ClCompile Include="PopulationManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ShapePoint.cpp" />
@@ -186,6 +187,9 @@
     <ClInclude Include="Element_ph.h" />
     <ClInclude Include="EvolutionaryService.h" />
     <ClInclude Include="const.h" />
+    <ClInclude Include="CarConst.h" />
+    <ClInclude Include="EvolutionaryConst.h" />
+    <ClInclude Include="IndividualService.h" />
     <ClInclude Include="PopulationManager.h" />
     <ClInclude Include="ShapePoint.h" />
     <ClInclude Include="Simulation.h" />

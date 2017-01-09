@@ -4,7 +4,7 @@
 
 EvolutionaryService::EvolutionaryService(int const populationSize, float const mutationRate)
 	:populationSize(populationSize),
-	 mutationRate(mutationRate)
+	individualService(mutationRate)
 {
 }
 

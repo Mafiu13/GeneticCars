@@ -1,4 +1,5 @@
 #pragma once
+#include "CarConst.h"
 #include "Chromosome.h"
 
 class Car

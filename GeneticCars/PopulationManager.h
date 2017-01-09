@@ -1,5 +1,4 @@
 #pragma once
-#include "Car.h"
 #include "EvolutionaryService.h"
 
 class PopulationManager

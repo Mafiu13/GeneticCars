@@ -1,5 +1,5 @@
 #pragma once
-#include "Car.h"
+#include "IndividualService.h"
 
 using namespace std;
 
@@ -14,7 +14,8 @@ public:
 private:
 
 	const int populationSize;
-	const float mutationRate;
+	
+	IndividualService individualService;
 
 	vector<Car> parentsA;
 	vector<Car> parentsB;
