@@ -8,17 +8,11 @@ public:
 	~PopulationManager();
 
 	vector<Car> generateInitialPopulation();
-	vector<Car> generateNextPopulation(const vector<Car>);
-	Car getBestCar();
+	vector<Car> generateNextPopulation(const vector<Car> currentPopulation);
+	Car getBestCar(const vector<Car> populationWithDistance);
 
 private:
 	const int populationSize;
 
 	EvolutionaryService evolutionaryService;
-
-	vector<Car> population;
-	auto_ptr<Car> bestCar;
-
-	void findBestCar();
 };
-

@@ -17,28 +17,19 @@ PopulationManager::~PopulationManager()
 vector<Car> PopulationManager::generateInitialPopulation()
 {
 	vector<Car> initialPopulation;
-
-	// TODO - generate and return initital population 
-
+	initialPopulation = evolutionaryService.createFirstPopulation();
 	return initialPopulation;
 }
 
 vector<Car> PopulationManager::generateNextPopulation(const vector<Car> currentPopulation)
 {
 	vector<Car> nextPopulation;
-	findBestCar();
 	nextPopulation = evolutionaryService.createNextPopulation(currentPopulation);
 	return nextPopulation;
 }
 
-void PopulationManager::findBestCar()
+Car PopulationManager::getBestCar(const vector<Car> populationWithDistance)
 {
-	// TODO - find best Car by distance
+	Car bestCar = evolutionaryService.getBestCarInPopulation(populationWithDistance);
+	return bestCar;
 }
-
-Car PopulationManager::getBestCar()
-{
-	return *bestCar;
-}
-
-

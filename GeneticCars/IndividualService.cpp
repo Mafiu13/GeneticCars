@@ -3,8 +3,8 @@
 
 
 IndividualService::IndividualService(float const mutationRate)
-	:mutationRate(mutationRate),
-	randomEngine(randomDevice())
+	:randomService(),
+	mutationRate(mutationRate)
 {
 }
 
@@ -27,7 +27,7 @@ vector<Car> IndividualService::getCrossoveredCars(Car parentA, Car parentB)
 	int chromosomeVecotrSize = chromosomeVectorA.size();
 	vector<float> chromosomeVectorAB(chromosomeVecotrSize);
 	vector<float> chromosomeVectorBA(chromosomeVecotrSize);
-	int splitIndex = getRandomInt(1, chromosomeVecotrSize - 1);
+	int splitIndex = randomService.getRandomInt(1, chromosomeVecotrSize - 1);
 	for (int i = 0; i < chromosomeVecotrSize; ++i)
 	{
 		if (i < splitIndex) 
@@ -128,47 +128,26 @@ ShapePoint  IndividualService::getRandomShapePoint()
 
 float IndividualService::getRandomPoint()
 {
-	float randomPoint = getRandomFloat(POINT_MIN, POINT_MAX);
+	float randomPoint = randomService.getRandomFloat(POINT_MIN, POINT_MAX);
 	return randomPoint;
 }
 
 float IndividualService::getRandomDensity()
 {
-	float randomDensity = getRandomFloat(DENSITY_MIN, DENSITY_MAX);
+	float randomDensity = randomService.getRandomFloat(DENSITY_MIN, DENSITY_MAX);
 	return randomDensity;
 }
 
 float IndividualService::getRandomRadius()
 {
-	float randomRadius = getRandomFloat(RADIUS_MIN, RADIUS_MAX);
+	float randomRadius = randomService.getRandomFloat(RADIUS_MIN, RADIUS_MAX);
 	return randomRadius;
-}
-
-float IndividualService::getRandomFloat(float min, float max)
-{
-	uniform_real_distribution<float> dist(min, max);
-	float randomFloat = dist(randomEngine);
-	return randomFloat;
 }
 
 double IndividualService::getRandomMutationValue()
 {
-	double randomMutationValue = getRandomDouble(MUTATION_RATE_MIN, MUTATION_RATE_MAX);
+	double randomMutationValue = randomService.getRandomDouble(MUTATION_RATE_MIN, MUTATION_RATE_MAX);
 	return randomMutationValue;
-}
-
-double IndividualService::getRandomDouble(double min, double max)
-{
-	uniform_real_distribution<float> dist(min, max);
-	double randomDouble = dist(randomEngine);
-	return randomDouble;
-}
-
-int IndividualService::getRandomInt(int min, int max)
-{
-	uniform_int_distribution<int> dist(min, max);
-	double randomInt = dist(randomEngine);
-	return randomInt;
 }
 
 Car IndividualService::convertVectorToCar(vector<float> chromosomeVector)

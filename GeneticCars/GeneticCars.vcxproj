@@ -169,6 +169,7 @@
     <ClCompile Include="IndividualService.cpp" />
     <ClCompile Include="PopulationManager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="RandomService.cpp" />
     <ClCompile Include="ShapePoint.cpp" />
     <ClCompile Include="Simulation.cpp" />
     <ClCompile Include="Track_ph.cpp" />
@@ -191,6 +192,7 @@
     <ClInclude Include="EvolutionaryConst.h" />
     <ClInclude Include="IndividualService.h" />
     <ClInclude Include="PopulationManager.h" />
+    <ClInclude Include="RandomService.h" />
     <ClInclude Include="ShapePoint.h" />
     <ClInclude Include="Simulation.h" />
     <ClInclude Include="Track_ph.h" />
