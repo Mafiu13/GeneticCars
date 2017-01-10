@@ -30,6 +30,16 @@ vector<Car> PopulationManager::generateNextPopulation(const vector<Car> currentP
 
 Car PopulationManager::getBestCar(const vector<Car> populationWithDistance)
 {
-	Car bestCar = evolutionaryService.getBestCarInPopulation(populationWithDistance);
-	return bestCar;
+	Car newBestCar = evolutionaryService.getBestCarInPopulation(populationWithDistance);
+	if (bestCar) {
+		Car bc = *bestCar;
+		if (newBestCar.getDistance() > bc.getDistance())
+		{
+			*bestCar = newBestCar;
+		}
+	}
+	else {
+		*bestCar = newBestCar;
+	}
+	return *bestCar;
 }

@@ -36,7 +36,7 @@ vector<Car> EvolutionaryService::createNextPopulation(const vector<Car> previous
 
 Car EvolutionaryService::getBestCarInPopulation(const vector<Car> population)
 {
-	unique_ptr<Car> bestCar;
+	shared_ptr<Car> bestCar;
 	float longestDistance = 0.0;
 	for (Car car : population)
 	{
@@ -113,7 +113,7 @@ int EvolutionaryService::getCarIndexFromRoulletteWheel(vector<float> roulletteWh
 vector<Car> EvolutionaryService::crossoverParents()
 {
 	vector<Car> newPopulation;
-	for (int i = 0; i < populationSize; ++i)
+	for (int i = 0; i < populationSize / 2; ++i)
 	{
 		Car parentA = parentsA[i];
 		Car parentB = parentsB[i];

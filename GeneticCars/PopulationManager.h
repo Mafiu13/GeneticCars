@@ -4,7 +4,7 @@
 class PopulationManager
 {
 public:
-	PopulationManager(int const, float const);
+	PopulationManager(int const, float const );
 	~PopulationManager();
 
 	vector<Car> generateInitialPopulation();
@@ -15,4 +15,6 @@ private:
 	const int populationSize;
 
 	EvolutionaryService evolutionaryService;
+
+	shared_ptr<Car> bestCar;
 };

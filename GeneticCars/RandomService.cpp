@@ -15,7 +15,7 @@ RandomService::~RandomService()
 int RandomService::getRandomInt(int min, int max)
 {
 	uniform_int_distribution<int> dist(min, max);
-	double randomInt = dist(randomEngine);
+	int randomInt = dist(randomEngine);
 	return randomInt;
 }
 
