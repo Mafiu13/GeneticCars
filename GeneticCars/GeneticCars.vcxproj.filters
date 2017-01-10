@@ -94,6 +94,18 @@
     <Filter Include="GeneticCars\Model\Physical engine\World_ph">
       <UniqueIdentifier>{47496029-2d33-4593-a463-179614c82749}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GeneticCars\Model\EvolutionaryAlgorithm\IndividualService">
+      <UniqueIdentifier>{dea60e4c-3009-463b-a58b-0918ae06fc8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GeneticCars\Model\Data\CarConst">
+      <UniqueIdentifier>{1d4887b3-245f-4e35-801b-96c19343a90f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GeneticCars\Model\EvolutionaryAlgorithm\EvolutionaryConst">
+      <UniqueIdentifier>{16604266-a130-45b2-8f8a-91fadc07a9cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GeneticCars\Model\EvolutionaryAlgorithm\RandomService">
+      <UniqueIdentifier>{05b29b35-16c5-4dca-bfef-a38596bf97d1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Chromosome.cpp">
@@ -147,6 +159,12 @@
     <ClCompile Include="World_ph.cpp">
       <Filter>GeneticCars\Model\Physical engine\World_ph</Filter>
     </ClCompile>
+    <ClCompile Include="IndividualService.cpp">
+      <Filter>GeneticCars\Model\EvolutionaryAlgorithm\IndividualService</Filter>
+    </ClCompile>
+    <ClCompile Include="RandomService.cpp">
+      <Filter>GeneticCars\Model\EvolutionaryAlgorithm\RandomService</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Chromosome.h">
@@ -196,6 +214,18 @@
     </ClInclude>
     <ClInclude Include="World_ph.h">
       <Filter>GeneticCars\Model\Physical engine\World_ph</Filter>
+    </ClInclude>
+    <ClInclude Include="IndividualService.h">
+      <Filter>GeneticCars\Model\EvolutionaryAlgorithm\IndividualService</Filter>
+    </ClInclude>
+    <ClInclude Include="CarConst.h">
+      <Filter>GeneticCars\Model\Data\CarConst</Filter>
+    </ClInclude>
+    <ClInclude Include="EvolutionaryConst.h">
+      <Filter>GeneticCars\Model\EvolutionaryAlgorithm\EvolutionaryConst</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomService.h">
+      <Filter>GeneticCars\Model\EvolutionaryAlgorithm\RandomService</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
