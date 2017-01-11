@@ -9,7 +9,7 @@ Element_ph::Element_ph()
 
 Element_ph::~Element_ph()
 {
-	body->GetWorld()->DestroyBody(body);
+	//body->GetWorld()->DestroyBody(body);
 }
 
 b2Body * Element_ph::getBody()
@@ -32,7 +32,4 @@ void Element_ph::setDensity(float d)
 	density = d;
 }
 
-void Element_ph::updateVelocity()
-{
-	body->SetAngularVelocity(Velocity);
-}
+

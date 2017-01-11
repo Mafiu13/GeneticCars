@@ -15,16 +15,20 @@
 #include "Drawing.h"
 #include "const.h"
 #include "World_ph.h"
+#include "Car.h"
 
 class Simulation
 {
+	std::shared_ptr<World_ph> world;
 	
 public:
 	Simulation();
 	~Simulation();
-	
+	World_ph* getWorld_ph();
 	void createSimulation();
-	
+	//void setCars(std::vector<Car>);
+	void setCars_phFromCars(std::vector<Car>);
+	std::vector<std::shared_ptr<Car_ph>> convertCarToCar_ph(std::vector<Car>);
 };
 
 #endif

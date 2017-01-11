@@ -4,12 +4,9 @@
 
 int main()
 {
-	//Simulation * s = new Simulation();
-	//s->createSimulation();
-
 	// Krotki opis dzialania - PopulationManager
 
-	const int size = 4; // rozmiar populacji 
+	const int size = 1; // rozmiar populacji 
 	const float rate = 0.0; // wspolczynnik mutacji od 0.0 - 1.0 - im wiekszy tym wieksza sznasa na mutacje, przy 0 nie ma mutacji
 	PopulationManager *pm = new PopulationManager(size, rate); // robisz managera do populacji
 	std::vector<Car> inPop = pm->generateInitialPopulation(); // generujesz pierwsza populacje ( z randomowymi wartosciami w carach)
@@ -36,4 +33,19 @@ int main()
 		lel += 1.0;
 		std::cout << "disatnce: " << car.getDistance() << "\n";
 	}
+
+	for (int i = 0; i < inPop.size(); ++i) {
+		for (int j = 0; j < 8; ++j) {
+			std::cout << '[' << i << ']' << "  " << '[' << j << ']'<< inPop[i].getChromosome().getBodyShape().getShapePoints()[j].getX() << "  " << inPop[i].getChromosome().getBodyShape().getShapePoints()[j].getY() << std::endl;
+		}
+		std::cout << "Kolo1" << inPop[i].getChromosome().getWheels()[0].getShapePoint().getX() << "  " << inPop[i].getChromosome().getWheels()[0].getShapePoint().getY() << std::endl;
+		std::cout << "Kolo2" << inPop[i].getChromosome().getWheels()[1].getShapePoint().getX() << "  " << inPop[i].getChromosome().getWheels()[1].getShapePoint().getY() << std::endl;
+		std::cout << std::endl;
+	}
+
+	boost::shared_ptr<Simulation> simulation(new Simulation());
+	simulation->setCars_phFromCars(inPop);
+	simulation->getWorld_ph()->createCars();
+	simulation->createSimulation();
+
 }

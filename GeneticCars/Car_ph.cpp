@@ -25,6 +25,31 @@ BodyShape_ph * Car_ph::getBodyShape()
 	return bodyShape.get();
 }
 
+b2Vec2 * Car_ph::getJointPoint1()
+{
+	return jointPoint_1.get();
+}
+
+b2Vec2 * Car_ph::getJointPoint2()
+{
+	return jointPoint_2.get();
+}
+
+void Car_ph::setBodyShape(boost::shared_ptr<BodyShape_ph> b)
+{
+	bodyShape = b;
+}
+
+void Car_ph::setWheel(boost::shared_ptr<Wheel_ph> wh, int which)
+{
+	if (which == 1) {
+		wheel_1 = wh;
+	}
+	else if (which == 2) {
+		wheel_2 = wh;
+	}
+}
+
 void Car_ph::setJointPoints(float x1, float y1, float x2, float y2)
 {
 	jointPoint_1->x = x1;

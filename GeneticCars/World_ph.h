@@ -5,10 +5,11 @@
 #include "const.h"
 #include "Car_ph.h"
 #include "Track_ph.h"
+#include <iostream>
 
 class World_ph
 {
-	std::unique_ptr<b2World> world;
+	std::shared_ptr<b2World> world;
 	std::vector<std::shared_ptr<Car_ph>> cars;
 
 public:
@@ -19,7 +20,7 @@ public:
 	void setCars(std::vector<std::shared_ptr<Car_ph>>);
 	float getTheFastestX();
 	void updateVelocity();
-	//void createCars();
+	void createCars();
 };
 
 #endif

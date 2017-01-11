@@ -10,7 +10,7 @@ BodyShape_ph::~BodyShape_ph()
 {
 }
 
-void BodyShape_ph::createBodyShape(b2World & world, float x, float y, float density)
+void BodyShape_ph::createBodyShape(b2World & world, float x, float y)
 {
 	b2BodyDef polygonDefinition;
 	polygonDefinition.type = b2_dynamicBody;
@@ -23,7 +23,7 @@ void BodyShape_ph::createBodyShape(b2World & world, float x, float y, float dens
 
 	b2FixtureDef polygonFixture;
 	polygonFixture.shape = &polygonShape;
-	polygonFixture.density = density;
+	polygonFixture.density = this->getDensity();
 	polygonFixture.friction = 0.3f;
 	polygonFixture.restitution = 0.0;
 	polygonFixture.filter.categoryBits = 0x0002;
@@ -31,7 +31,6 @@ void BodyShape_ph::createBodyShape(b2World & world, float x, float y, float dens
 
 	polygon->CreateFixture(&polygonFixture);
 
-	this->setDensity(density);
 	this->setBody(polygon);
 }
 
@@ -42,6 +41,14 @@ void BodyShape_ph::setVertices(std::vector<std::unique_ptr<b2Vec2>> const & tab)
 	for (int i = 0; i < V; ++i) {
 		vertices[i].x = tab[i]->x;
 		vertices[i].y = tab[i]->y;
+	}
+}
+
+void BodyShape_ph::setVert(std::vector<ShapePoint> vec)
+{
+	for (int i = 0; i < vec.size(); ++i) {
+		vertices[i].x = vec[i].getX();
+		vertices[i].y = vec[i].getY();
 	}
 }
 

@@ -60,4 +60,5 @@ void Track_ph::generateTrack(int delta_h, int h0, int d)
 		b2 += d;
 		arr[i] = b2Vec2(l2 / SCALE, l1 / SCALE);
 	}
+	arr[0].x = -10;
 }

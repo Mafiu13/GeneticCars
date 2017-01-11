@@ -15,7 +15,7 @@ public:
 	float getDensity();
 	void setBody(b2Body *);
 	void setDensity(float);
-	void updateVelocity();
+
 };
 
 #endif

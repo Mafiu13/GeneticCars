@@ -8,6 +8,7 @@
 #include "ShapePoint.h"
 #include "const.h"
 #include "Element_ph.h"
+#include "ShapePoint.h"
 
 extern const float SCALE;
 
@@ -22,8 +23,9 @@ public:
 
 	b2Vec2 * getVertices();
 	void setVertices(std::vector<std::unique_ptr<b2Vec2>> const&);
+	void setVert(std::vector<ShapePoint>);
 
-	void createBodyShape(b2World &, float, float, float);
+	void createBodyShape(b2World &, float, float);
 };
 
 #endif

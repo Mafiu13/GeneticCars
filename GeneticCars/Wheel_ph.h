@@ -7,11 +7,14 @@
 
 class Wheel_ph: public Element_ph
 {
-	
+	float radius;
 public:
 	Wheel_ph();
 	~Wheel_ph();
-	void createWheel(b2World &, float, float, float, float, float);
+	float getRadius();
+	void setRadius(float);
+	void updateVelocity();
+	void createWheel(b2World &, float, float);
 };
 
 #endif

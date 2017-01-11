@@ -58,7 +58,7 @@ void Drawing::drawTrack(Track_ph * track, sf::RenderWindow & app)
 sf::CircleShape Drawing::drawCircle(Wheel_ph * circle)
 {
 	int transparency = (int)(200 * (circle->getDensity()) + 50);
-	float r = circle->getBody()->GetFixtureList()->GetShape()->m_radius * SCALE;
+	float r = circle->getRadius() * SCALE;
 	sf::CircleShape sf_circle(r);
 	sf_circle.setOrigin(r, r);
 	sf_circle.setPosition(circle->getBody()->GetPosition().x * SCALE, circle->getBody()->GetPosition().y * SCALE);
