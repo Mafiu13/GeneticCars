@@ -146,8 +146,8 @@ std::vector<std::shared_ptr<Car_ph>> Simulation::convertCarToCar_ph(std::vector<
 		cars_ph[i]->getWheel_2()->setDensity(cars[i].getChromosome().getWheels()[1].getDensity());
 		cars_ph[i]->getWheel_2()->setRadius(cars[i].getChromosome().getWheels()[1].getRadius());
 		a1 = cars[i].getChromosome().getWheels()[0].getShapePoint().getX();
-		a2 = cars[i].getChromosome().getWheels()[0].getShapePoint().getX();
-		b1 = cars[i].getChromosome().getWheels()[1].getShapePoint().getY();
+		a2 = cars[i].getChromosome().getWheels()[0].getShapePoint().getY();
+		b1 = cars[i].getChromosome().getWheels()[1].getShapePoint().getX();
 		b2 = cars[i].getChromosome().getWheels()[1].getShapePoint().getY();
 		cars_ph[i]->setJointPoints(a1,a2,b1,b2);
 	}

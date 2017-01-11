@@ -59,9 +59,11 @@ void World_ph::createCars()
 		cars[i]->getBodyShape()->createBodyShape(*getWorld(), 0, 0);
 		x = cars[i]->getJointPoint1()->x;
 		y = cars[i]->getJointPoint1()->y;
+		std::cout << x << "  " << y << std::endl;
 		cars[i]->getWheel_1()->createWheel(*getWorld(), x, y);
 		x = cars[i]->getJointPoint2()->x;
 		y = cars[i]->getJointPoint2()->y;
+		std::cout << x << "  " << y << std::endl;
 		cars[i]->getWheel_2()->createWheel(*getWorld(), x, y);
 		cars[i]->createJoints(*getWorld());
 	}
