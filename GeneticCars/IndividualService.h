@@ -2,6 +2,7 @@
 #include "Car.h"
 #include "EvolutionaryConst.h"
 #include "RandomService.h"
+#include <map>
 
 using namespace std;
 
@@ -37,6 +38,7 @@ private:
 	float getRandomRadius();
 	double getRandomMutationValue();
 
+	vector<ShapePoint> sortBodyShapesByAngle(vector<ShapePoint> shapePoints);
 	Car convertVectorToCar(vector<float> chromosomeVector);
 	vector<float> convertCarToVector(Car car);
 };

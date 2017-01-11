@@ -58,14 +58,7 @@ Car IndividualService::getMutatedCar(Car car)
 			chromosomeVector[i] = getRandomPoint();
 		}
 	}
-	for (int i = nrPointsBS; i < nrPointsBS + nrOfWheels; ++i)
-	{
-		//if (checkIfMutate())
-		//{
-		//	chromosomeVector[i] = getRandomPoint();
-		//}
-	}
-
+	// No mutation for wheels position index
 	for (int i = nrPointsBS + nrOfWheels; i < nrPointsBS + nrOfWheels + nrDensity; ++i)
 	{
 		if (checkIfMutate())
@@ -112,7 +105,8 @@ BodyShape IndividualService::getRandomBodyShape()
 		ShapePoint randomShapePoint = getRandomShapePoint();
 		shapePoints.push_back(randomShapePoint);
 	}
-	BodyShape randomBodyShape = BodyShape(shapePoints, randomDensity);
+	vector<ShapePoint> sotedShapePoints = sortBodyShapesByAngle(shapePoints);
+	BodyShape randomBodyShape = BodyShape(sotedShapePoints, randomDensity);
 	return randomBodyShape;
 }
 
@@ -152,7 +146,6 @@ bool IndividualService::isBodyShapeIndexUsedInAnotherWheel(vector<int> usedIndex
 	return false;
 }
 
-
 ShapePoint IndividualService::getRandomShapePoint()
 {
 	float x = getRandomPoint();
@@ -185,6 +178,27 @@ double IndividualService::getRandomMutationValue()
 	return randomMutationValue;
 }
 
+vector<ShapePoint> IndividualService::sortBodyShapesByAngle(vector<ShapePoint> shapePoints)
+{
+	vector<ShapePoint> sortedShapePoints;
+	map<float, int> angles;
+	for (int i = 0; i < shapePoints.size(); ++i)
+	{
+		float angle = atan2(shapePoints[i].getY(), shapePoints[i].getX());
+		angles[angle] = i;
+	}
+	for (auto angle : angles)
+	{
+		int index = angle.second;
+		sortedShapePoints.push_back(shapePoints[index]);
+	}
+	while (sortedShapePoints.size() != shapePoints.size())
+	{
+		sortedShapePoints.push_back(sortedShapePoints.back());
+	}
+	return sortedShapePoints;
+}
+
 Car IndividualService::convertVectorToCar(vector<float> chromosomeVector)
 {
 	// BodyShape
@@ -198,7 +212,8 @@ Car IndividualService::convertVectorToCar(vector<float> chromosomeVector)
 		bsShapePoints.push_back(sp);
 	}
 	float bsDensity = chromosomeVector[nrPointsBS + nrOfWheels];
-	BodyShape bs = BodyShape(bsShapePoints, bsDensity);
+	vector<ShapePoint> sortedShapePoints = sortBodyShapesByAngle(bsShapePoints);
+	BodyShape bs = BodyShape(sortedShapePoints, bsDensity);
 
 	// Wheels
 	vector<Wheel> wheels;
@@ -210,14 +225,8 @@ Car IndividualService::convertVectorToCar(vector<float> chromosomeVector)
 	{
 		int index = chromosomeVector[i];
 		indexes.push_back(index);
-		ShapePoint sp = bsShapePoints[index];
+		ShapePoint sp = sortedShapePoints[index];
 		whShapePoints.push_back(sp);
-/*
-		int index = i * 2;
-		float x = chromosomeVector[index];
-		float y = chromosomeVector[++index];
-		ShapePoint sp = ShapePoint(x, y);
-		whShapePoints.push_back(sp);*/
 	}
 	for (int i = nrPointsBS + nrOfWheels + 1; i < nrPointsBS + nrOfWheels + nrDensity; ++i)
 	{
@@ -267,11 +276,6 @@ vector<float> IndividualService::convertCarToVector(Car car)
 	{
 		float index = wh.getShapePointsIndex();
 		chromosomeVector.push_back(index);
-		//ShapePoint sp = wh.getShapePoint();
-		//float x = sp.getX();
-		//float y = sp.getY();
-		//chromosomeVector.push_back(x);
-		//chromosomeVector.push_back(y);
 	}
 	
 	// DENSITIES
