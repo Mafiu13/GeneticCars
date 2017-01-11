@@ -51,21 +51,29 @@ vector<Car> IndividualService::getCrossoveredCars(Car parentA, Car parentB)
 Car IndividualService::getMutatedCar(Car car)
 {
 	vector<float> chromosomeVector = convertCarToVector(car);
-	for (int i = 0; i < nrPoints; ++i)
+	for (int i = 0; i < nrPointsBS; ++i)
 	{
 		if (checkIfMutate())
 		{
 			chromosomeVector[i] = getRandomPoint();
 		}
 	}
-	for (int i = nrPoints; i < nrPoints + nrDensity; ++i)
+	for (int i = nrPointsBS; i < nrPointsBS + nrOfWheels; ++i)
+	{
+		//if (checkIfMutate())
+		//{
+		//	chromosomeVector[i] = getRandomPoint();
+		//}
+	}
+
+	for (int i = nrPointsBS + nrOfWheels; i < nrPointsBS + nrOfWheels + nrDensity; ++i)
 	{
 		if (checkIfMutate())
 		{
 			chromosomeVector[i] = getRandomDensity();
 		}
 	}
-	for (int i = nrPoints + nrDensity; i < nrPoints + nrDensity + nrRadius; ++i)
+	for (int i = nrPointsBS + nrOfWheels + nrDensity; i < nrPointsBS + nrOfWheels + nrDensity + nrRadius; ++i)
 	{
 		if (checkIfMutate())
 		{
@@ -88,7 +96,7 @@ Chromosome IndividualService::getRandomChromosome()
 	vector<Wheel> wheels;
 	for (int i = 0; i < NR_OF_WHEELS; ++i)
 	{
-		Wheel randomWheel = getRandomWheel(i);
+		Wheel randomWheel = getRandomWheel(randomBodyShape, wheels);
 		wheels.push_back(randomWheel);
 	}
 	Chromosome randomChromosome = Chromosome(randomBodyShape, wheels);
@@ -108,17 +116,44 @@ BodyShape IndividualService::getRandomBodyShape()
 	return randomBodyShape;
 }
 
-Wheel IndividualService::getRandomWheel(int wheelIndex)
+Wheel IndividualService::getRandomWheel(BodyShape bs, vector<Wheel> wheels)
 {
 	float randomRadius = getRandomRadius();
 	float randomDensity = getRandomDensity();
-	ShapePoint randomShapePoint = getRandomShapePoint();
-	int index = wheelIndex;
+	int index = getRandomShapePointIndexFromBodyShape(bs, wheels);
+	ShapePoint randomShapePoint = bs.getShapePoints()[index];
 	Wheel randomWheel = Wheel(randomRadius, randomDensity, index, randomShapePoint);
 	return randomWheel;
 }
 
-ShapePoint  IndividualService::getRandomShapePoint()
+int IndividualService::getRandomShapePointIndexFromBodyShape(BodyShape bs, vector<Wheel> wheels)
+{
+	vector<int> bsIndexes;
+	for (Wheel wheel : wheels)
+	{
+		bsIndexes.push_back(wheel.getShapePointsIndex());
+	}
+	vector<ShapePoint> shapePoints = bs.getShapePoints();
+	int index = randomService.getRandomInt(0, shapePoints.size() - 1);
+	while (isBodyShapeIndexUsedInAnotherWheel(bsIndexes, index))
+	{
+		index = randomService.getRandomInt(0, shapePoints.size() - 1);
+	}
+	return index;
+}
+
+bool IndividualService::isBodyShapeIndexUsedInAnotherWheel(vector<int> usedIndexes, int index)
+{
+	for (int usedIndex : usedIndexes)
+	{
+		if (usedIndex == index)
+			return true;
+	}
+	return false;
+}
+
+
+ShapePoint IndividualService::getRandomShapePoint()
 {
 	float x = getRandomPoint();
 	float y = getRandomPoint();
@@ -162,28 +197,34 @@ Car IndividualService::convertVectorToCar(vector<float> chromosomeVector)
 		ShapePoint sp = ShapePoint(x, y);
 		bsShapePoints.push_back(sp);
 	}
-	float bsDensity = chromosomeVector[nrPoints];
+	float bsDensity = chromosomeVector[nrPointsBS + nrOfWheels];
 	BodyShape bs = BodyShape(bsShapePoints, bsDensity);
 
 	// Wheels
 	vector<Wheel> wheels;
 	vector<ShapePoint> whShapePoints;
+	vector<int> indexes;
 	vector<float> whDensities;
 	vector<float> whRadiuses;
-	for (int i = NR_OF_POINTS_IN_BODYSHAPE; i < nrPoints / 2; ++i)
+	for (int i = nrPointsBS; i < nrPointsBS + nrOfWheels; ++i)
 	{
+		int index = chromosomeVector[i];
+		indexes.push_back(index);
+		ShapePoint sp = bsShapePoints[index];
+		whShapePoints.push_back(sp);
+/*
 		int index = i * 2;
 		float x = chromosomeVector[index];
 		float y = chromosomeVector[++index];
 		ShapePoint sp = ShapePoint(x, y);
-		whShapePoints.push_back(sp);
+		whShapePoints.push_back(sp);*/
 	}
-	for (int i = nrPoints + 1; i < nrPoints + nrDensity; ++i)
+	for (int i = nrPointsBS + nrOfWheels + 1; i < nrPointsBS + nrOfWheels + nrDensity; ++i)
 	{
 		float whDensity = chromosomeVector[i];
 		whDensities.push_back(whDensity);
 	}
-	for (int i = nrPoints + nrDensity; i < nrPoints + nrDensity + nrRadius; ++i)
+	for (int i = nrPointsBS + nrOfWheels + nrDensity; i < nrPointsBS + nrOfWheels + nrDensity + nrRadius; ++i)
 	{
 		float whRadius = chromosomeVector[i];
 		whRadiuses.push_back(whRadius);
@@ -193,7 +234,7 @@ Car IndividualService::convertVectorToCar(vector<float> chromosomeVector)
 		Wheel wh = Wheel(
 			whRadiuses[i],
 			whDensities[i],
-			i,
+			indexes[i],
 			whShapePoints[i]
 		);
 		wheels.push_back(wh);
@@ -220,14 +261,17 @@ vector<float> IndividualService::convertCarToVector(Car car)
 		chromosomeVector.push_back(x);
 		chromosomeVector.push_back(y);
 	}
+	// POINTS INDEXES - Wheels
 	vector<Wheel> wheels = chromosome.getWheels();
 	for (Wheel wh : wheels)
 	{
-		ShapePoint sp = wh.getShapePoint();
-		float x = sp.getX();
-		float y = sp.getY();
-		chromosomeVector.push_back(x);
-		chromosomeVector.push_back(y);
+		float index = wh.getShapePointsIndex();
+		chromosomeVector.push_back(index);
+		//ShapePoint sp = wh.getShapePoint();
+		//float x = sp.getX();
+		//float y = sp.getY();
+		//chromosomeVector.push_back(x);
+		//chromosomeVector.push_back(y);
 	}
 	
 	// DENSITIES
