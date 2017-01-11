@@ -18,7 +18,7 @@ void BodyShape_ph::createBodyShape(b2World & world, float x, float y)
 	b2Body * polygon = world.CreateBody(&polygonDefinition);
 
 	b2PolygonShape polygonShape;
-
+	
 	polygonShape.Set(this->getVertices(), V);
 
 	b2FixtureDef polygonFixture;

@@ -14,7 +14,7 @@ extern const float SCALE;
 
 class BodyShape_ph: public Element_ph
 {
-	//tablica sprytnych wskaznikow do stworzenia trasy
+	//tablica sprytnych wskaznikow do stworzenia nadwozia
 	std::unique_ptr<b2Vec2[]> vertices;
 
 public:

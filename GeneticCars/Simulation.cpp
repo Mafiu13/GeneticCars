@@ -131,7 +131,6 @@ void Simulation::setCars_phFromCars(std::vector<Car> cars)
 std::vector<std::shared_ptr<Car_ph>> Simulation::convertCarToCar_ph(std::vector<Car> cars)
 {
 	std::vector<std::shared_ptr<Car_ph>> cars_ph;
-	float density;
 	BodyShape_ph shape;
 	float a1, a2, b1, b2;
 	for (int i = 0; i < cars.size(); ++i) {
