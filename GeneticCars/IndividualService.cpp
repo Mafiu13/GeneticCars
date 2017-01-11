@@ -184,7 +184,7 @@ vector<ShapePoint> IndividualService::sortBodyShapesByAngle(vector<ShapePoint> s
 	map<float, int> angles;
 	for (int i = 0; i < shapePoints.size(); ++i)
 	{
-		float angle = atan2(shapePoints[i].getY(), shapePoints[i].getX());
+		float angle = -atan2(shapePoints[i].getY(), shapePoints[i].getX());
 		angles[angle] = i;
 	}
 	for (auto angle : angles)
