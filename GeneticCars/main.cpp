@@ -38,15 +38,15 @@ int main()
 		for (int j = 0; j < NR_OF_POINTS_IN_BODYSHAPE; ++j) {
 			std::cout << '[' << i << ']' << "  " << '[' << j << ']'<< inPop[i].getChromosome().getBodyShape().getShapePoints()[j].getX() << "  " << inPop[i].getChromosome().getBodyShape().getShapePoints()[j].getY() << std::endl;
 		}
-		std::cout << "Kolo1" << inPop[i].getChromosome().getWheels()[0].getShapePoint().getX() << "  " << inPop[i].getChromosome().getWheels()[0].getShapePoint().getY() << std::endl;
-		std::cout << "Kolo2" << inPop[i].getChromosome().getWheels()[1].getShapePoint().getX() << "  " << inPop[i].getChromosome().getWheels()[1].getShapePoint().getY() << std::endl;
+		std::cout << "Kolo1  " << inPop[i].getChromosome().getWheels()[0].getShapePoint().getX() << "  " << inPop[i].getChromosome().getWheels()[0].getShapePoint().getY() << std::endl;
+		std::cout << "Kolo2  " << inPop[i].getChromosome().getWheels()[1].getShapePoint().getX() << "  " << inPop[i].getChromosome().getWheels()[1].getShapePoint().getY() << std::endl;
 		std::cout << std::endl;
 	}
 
 	for (int i = 0; i < newPop.size(); ++i) {
-		for (int j = 0; j < NR_OF_POINTS_IN_BODYSHAPE; ++j) {
-			std::cout << '[' << i << ']' << "  " << '[' << j << ']' << newPop[i].getChromosome().getBodyShape().getShapePoints()[j].getX() << "  " << newPop[i].getChromosome().getBodyShape().getShapePoints()[j].getY() << std::endl;
-		}
+		//for (int j = 0; j < NR_OF_POINTS_IN_BODYSHAPE; ++j) {
+			//std::cout << '[' << i << ']' << "  " << '[' << j << ']' << newPop[i].getChromosome().getBodyShape().getShapePoints()[j].getX() << "  " << newPop[i].getChromosome().getBodyShape().getShapePoints()[j].getY() << std::endl;
+		//}
 		//std::cout << "Kolo3" << newPop[i].getChromosome().getWheels()[0].getShapePoint().getX() << "  " << newPop[i].getChromosome().getWheels()[0].getShapePoint().getY() << std::endl;
 		//std::cout << "Kolo4" << newPop[i].getChromosome().getWheels()[1].getShapePoint().getX() << "  " << newPop[i].getChromosome().getWheels()[1].getShapePoint().getY() << std::endl;
 		//std::cout << std::endl;
@@ -55,6 +55,11 @@ int main()
 	boost::shared_ptr<Simulation> simulation(new Simulation());
 	simulation->setCars_phFromCars(inPop);
 	simulation->getWorld_ph()->createCars();
+	std::cout << "-----------------" << std::endl;
+	std::cout << simulation->getWorld_ph()->getCars()[0]->getWheel_1()->getBody()->GetPosition().x << "  " << simulation->getWorld_ph()->getCars()[0]->getWheel_1()->getBody()->GetPosition().y << std::endl;
+	std::cout << simulation->getWorld_ph()->getCars()[0]->getWheel_2()->getBody()->GetPosition().x << "  " << simulation->getWorld_ph()->getCars()[0]->getWheel_2()->getBody()->GetPosition().y << std::endl;
+	
+	std::cout << simulation->getWorld_ph()->getCars()[1]->getWheel_1()->getBody()->GetPosition().x << "  " << simulation->getWorld_ph()->getCars()[1]->getWheel_1()->getBody()->GetPosition().y << std::endl;
+	std::cout << simulation->getWorld_ph()->getCars()[1]->getWheel_2()->getBody()->GetPosition().x << "  " << simulation->getWorld_ph()->getCars()[1]->getWheel_2()->getBody()->GetPosition().y << std::endl;
 	simulation->createSimulation();
-
 }

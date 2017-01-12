@@ -134,7 +134,6 @@ std::vector<std::shared_ptr<Car_ph>> Simulation::convertCarToCar_ph(std::vector<
 	BodyShape_ph shape;
 	float a1, a2, b1, b2;
 	for (int i = 0; i < cars.size(); ++i) {
-		
 		cars_ph.push_back(std::shared_ptr<Car_ph>(new Car_ph()));
 		cars_ph[i]->setBodyShape(boost::shared_ptr<BodyShape_ph>(new BodyShape_ph()));
 		cars_ph[i]->getBodyShape()->setDensity(cars[i].getChromosome().getBodyShape().getDensity());
