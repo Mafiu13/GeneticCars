@@ -76,6 +76,7 @@ sf::ConvexShape Drawing::drawPolygon(BodyShape_ph * bodyShape)
 		polygon.setPoint(i, sf::Vector2f(bodyShape->getVertices()[i].x * SCALE, bodyShape->getVertices()[i].y * SCALE));
 	}
 	polygon.setOrigin(0, 0);
+	polygon.setRotation(bodyShape->getBody()->GetAngle()*RADDEG);
 	polygon.setFillColor(sf::Color(200, 0, 0,transparency));
 
 	return polygon;
