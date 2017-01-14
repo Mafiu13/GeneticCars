@@ -1,4 +1,6 @@
-#pragma once
+#ifndef BODYSHAPE_H 
+#define BODYSHAPE_H
+
 #include "ShapePoint.h"
 #include <vector>
 
@@ -14,3 +16,4 @@ private:
 	float density;
 };
 
+#endif

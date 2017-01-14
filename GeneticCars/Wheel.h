@@ -1,4 +1,6 @@
-#pragma once
+#ifndef WHEEL_H 
+#define WHEEL_H
+
 #include "ShapePoint.h"
 
 class Wheel
@@ -17,3 +19,4 @@ private:
 	ShapePoint shapePoint;
 };
 
+#ENDIF

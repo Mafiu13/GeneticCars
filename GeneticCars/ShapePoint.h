@@ -1,4 +1,6 @@
-#pragma once
+#ifndef SHAPEPOINT_H 
+#define SHAPEPOINT_H
+
 class ShapePoint
 {
 	float x;
@@ -12,3 +14,5 @@ public:
 	void setX(float);
 	void setY(float);
 };
+
+#endif

@@ -1,4 +1,6 @@
-#pragma once
+#ifndef RANDOMSERVICE_H 
+#define RANDOMSERVICE_H
+
 #include <random>
 
 using namespace std;
@@ -17,3 +19,5 @@ private:
 	random_device randomDevice;
 	mt19937 randomEngine;
 };
+
+#endif

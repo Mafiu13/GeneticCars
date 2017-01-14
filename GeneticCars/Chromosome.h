@@ -1,4 +1,6 @@
-#pragma once
+#ifndef CHROMOSOME_H 
+#define CHROMOSOME_H
+
 #include "BodyShape.h"
 #include "Wheel.h"
 
@@ -14,3 +16,4 @@ private:
 	std::vector<Wheel> wheels;
 };
 
+#endif

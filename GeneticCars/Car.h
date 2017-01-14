@@ -1,4 +1,6 @@
-#pragma once
+#ifndef CAR_H 
+#define CAR_H
+
 #include "CarConst.h"
 #include "Chromosome.h"
 
@@ -15,3 +17,4 @@ private:
 	float distance;
 };
 
+#endif

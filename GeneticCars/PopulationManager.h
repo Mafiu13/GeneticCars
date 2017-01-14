@@ -1,4 +1,6 @@
-#pragma once
+#ifndef POPULATIONMANAGER_H 
+#define POPULATIONMANAGER_H
+
 #include "EvolutionaryService.h"
 
 class PopulationManager
@@ -18,3 +20,5 @@ private:
 
 	shared_ptr<Car> bestCar;
 };
+
+#endif

@@ -1,4 +1,6 @@
-#pragma once
+#ifndef EVOLUTIONARYSERVICE_H 
+#define EVOLUTIONARYSERVICE_H
+
 #include "IndividualService.h"
 #include <memory>
 
@@ -30,3 +32,5 @@ private:
 	vector<Car> crossoverParents();
 	vector<Car> mutateNewPopulation(vector<Car> newPopulation);
 };
+
+#endif

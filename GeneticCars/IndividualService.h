@@ -1,4 +1,6 @@
-#pragma once
+#ifndef INDIVIDUALSERVICE_H 
+#define INDIVIDUALSERVICE_H
+
 #include "Car.h"
 #include "EvolutionaryConst.h"
 #include "RandomService.h"
@@ -42,3 +44,5 @@ private:
 	Car convertVectorToCar(vector<float> chromosomeVector);
 	vector<float> convertCarToVector(Car car);
 };
+
+#endif
