@@ -221,7 +221,6 @@
     <ClCompile Include="Wheel_ph.cpp" />
     <ClCompile Include="const.cpp" />
     <ClCompile Include="World_ph.cpp" />
-    <ClCompile Include="test_Element_ph.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BodyShape.h" />

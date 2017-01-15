@@ -19,4 +19,4 @@ private:
 	ShapePoint shapePoint;
 };
 
-#ENDIF
+#endif

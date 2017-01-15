@@ -21,25 +21,22 @@ b2World * World_ph::getWorld()
 	return world.get();
 }
 
-std::vector<std::shared_ptr<Car_ph>> World_ph::getCars()
+std::vector<CarSh> World_ph::getCars()
 {
 	return cars;
 }
 
-void World_ph::setCars(std::vector<std::shared_ptr<Car_ph>> c)
+void World_ph::setCars(std::vector<CarSh> c)
 {
-	cars.clear();
-	for (int i = 0; i < c.size(); ++i) {
-		cars.push_back(c[i]);
-	}
+	cars = c;
 }
 
 float World_ph::getTheFastestX()
 {
 	float first = 0;
-	for (int i = 0; i < cars.size(); ++i) {
-		if (cars[i].get()->getBodyShape()->getBody()->GetPosition().x > first && cars[i].get()->getBodyShape()->getBody()->GetPosition().y < 20) {
-			first = cars[i].get()->getBodyShape()->getBody()->GetPosition().x;
+	for (CarSh car : cars) {
+		if (car->getBodyShape()->getBody()->GetPosition().x > first && car->getBodyShape()->getBody()->GetPosition().y < 20) {
+			first = car->getBodyShape()->getBody()->GetPosition().x;
 		}
 	}
 	return first;
@@ -47,24 +44,18 @@ float World_ph::getTheFastestX()
 
 void World_ph::updateVelocity()
 {
-	for (int i = 0; i < cars.size(); ++i) {
-		cars[i]->updateVelocity();
+	for (CarSh car : cars) {
+		car->updateVelocity();
 	}
 }
 
 void World_ph::createCars()
 {
-	float x, y;
-	for (int i = 0; i < cars.size(); ++i) {
-		cars[i]->getBodyShape()->createBodyShape(*getWorld(), 0, 0);
-		x = cars[i]->getJointPoint1()->x;
-		y = cars[i]->getJointPoint1()->y;
-		std::cout << x << "  " << y << std::endl;
-		cars[i]->getWheel_1()->createWheel(*getWorld(), x, y);
-		x = cars[i]->getJointPoint2()->x;
-		y = cars[i]->getJointPoint2()->y;
-		std::cout << x << "  " << y << std::endl;
-		cars[i]->getWheel_2()->createWheel(*getWorld(), x, y);
-		cars[i]->createJoints(*getWorld());
+	for (CarSh car : this->cars) {
+		car->getBodyShape()->createBodyShape(*getWorld());
+		for (WheelSh wheel : car->getWheels()) {
+			wheel->createWheel(*getWorld());
+		}
+		car->createJoints(*getWorld());
 	}
 }

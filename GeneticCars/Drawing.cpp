@@ -10,26 +10,23 @@ Drawing::~Drawing()
 
 void Drawing::drawCar(Car_ph * car, sf::RenderWindow & app)
 {
-	sf::CircleShape circle_1 = this->drawCircle(car->getWheel_1());
-	sf::CircleShape circle_2 = this->drawCircle(car->getWheel_2());
+	b2Vec2 pos;
+	sf::CircleShape circle;
+	for (WheelSh wheel : car->getWheels()) {
+		circle = this->drawCircle(wheel.get());
+		pos = wheel->getBody()->GetPosition();
+		circle.setPosition(pos.x*SCALE, pos.y*SCALE);
+		app.draw(circle);
+	}
+
 	sf::ConvexShape polygon = this->drawPolygon(car->getBodyShape());
 
-	b2Vec2 pos;
-
-	pos = car->getWheel_1()->getBody()->GetPosition();
-	circle_1.setPosition(pos.x*SCALE, pos.y*SCALE);
-	app.draw(circle_1);
-
-	pos = car->getWheel_2()->getBody()->GetPosition();
-	circle_2.setPosition(pos.x*SCALE, pos.y*SCALE);
-	app.draw(circle_2);
-	
 	pos = car->getBodyShape()->getBody()->GetPosition();
 	polygon.setPosition(pos.x*SCALE, pos.y*SCALE);
 	app.draw(polygon);
 }
 
-void Drawing::drawCars(std::vector<std::shared_ptr<Car_ph>> vec, sf::RenderWindow & app)
+void Drawing::drawCars(std::vector<CarSh> vec, sf::RenderWindow & app)
 {
 	for (int i = 0; i < vec.size(); ++i) {
 		this->drawCar(vec[i].get(), app);

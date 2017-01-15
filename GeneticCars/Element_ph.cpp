@@ -9,7 +9,6 @@ Element_ph::Element_ph()
 
 Element_ph::~Element_ph()
 {
-//	body->GetWorld()->DestroyBody(body);
 }
 
 b2Body * Element_ph::getBody()
