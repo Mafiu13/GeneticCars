@@ -65,7 +65,7 @@ void Simulation::createSimulation()
 			this->getWorld_ph()->updateVelocity();
 
 			//drawing->drawCar(car.get(), oknoAplikacji);
-			drawing->drawCars(getWorld_ph()->getCars(), oknoAplikacji);
+			drawing->drawCars(this->getWorld_ph()->getCars(), oknoAplikacji);
 
 			drawing->drawTrack(track.get(), oknoAplikacji);
 
@@ -82,24 +82,26 @@ void Simulation::setCars_phFromCars(std::vector<Car> cars)
 	world->setCars(this->convertCarToCar_ph(cars));
 }
 
-std::vector<std::shared_ptr<Car_ph>> Simulation::convertCarToCar_ph(std::vector<Car> cars)
+std::vector<CarSh> Simulation::convertCarToCar_ph(std::vector<Car> cars)
 {
-	std::vector<std::shared_ptr<Car_ph>> cars_ph;
+	std::vector<CarSh> cars_ph;
+	std::vector<WheelSh> w;
+	WheelSh wheel;
 	BodyShape_ph shape;
-	float a1, a2, b1, b2;
 	for (int i = 0; i < cars.size(); ++i) {
-		cars_ph.push_back(std::shared_ptr<Car_ph>(new Car_ph()));
+		w.clear();
+		cars_ph.push_back(CarSh(new Car_ph()));
 		cars_ph[i]->setBodyShape(boost::shared_ptr<BodyShape_ph>(new BodyShape_ph()));
 		cars_ph[i]->getBodyShape()->setDensity(cars[i].getChromosome().getBodyShape().getDensity());
 		cars_ph[i]->getBodyShape()->setVert(cars[i].getChromosome().getBodyShape().getShapePoints());
-		cars_ph[i]->setWheel(boost::shared_ptr<Wheel_ph>(new Wheel_ph()), 1);
-		cars_ph[i]->getWheel_1()->setDensity(cars[i].getChromosome().getWheels()[0].getDensity());
-		cars_ph[i]->getWheel_1()->setRadius(cars[i].getChromosome().getWheels()[0].getRadius());
-		cars_ph[i]->getWheel_1()->setJointPoint(cars[i].getChromosome().getWheels()[0].getShapePoint());
-		cars_ph[i]->setWheel(boost::shared_ptr<Wheel_ph>(new Wheel_ph()), 2);
-		cars_ph[i]->getWheel_2()->setDensity(cars[i].getChromosome().getWheels()[1].getDensity());
-		cars_ph[i]->getWheel_2()->setRadius(cars[i].getChromosome().getWheels()[1].getRadius());
-		cars_ph[i]->getWheel_2()->setJointPoint(cars[i].getChromosome().getWheels()[1].getShapePoint());
+		for (Wheel wh : cars[i].getChromosome().getWheels()) {
+			wheel = WheelSh(new Wheel_ph());
+			wheel->setDensity(wh.getDensity());
+			wheel->setRadius(wh.getRadius());
+			wheel->setJointPoint(wh.getShapePoint());
+			w.push_back(wheel);
+		}
+		cars_ph[i]->setWheels(w);
 	}
 	return cars_ph;
 }

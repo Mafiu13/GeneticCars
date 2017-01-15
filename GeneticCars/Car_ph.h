@@ -8,23 +8,24 @@
 #include "Wheel_ph.h"
 #include "const.h"
 
+typedef boost::shared_ptr <Wheel_ph> WheelSh;
+typedef boost::shared_ptr <BodyShape_ph> BodyShapeSh;
+
 class Car_ph
 {
-	boost::shared_ptr <Wheel_ph> wheel_1;
-	boost::shared_ptr <Wheel_ph> wheel_2;
-	boost::shared_ptr <BodyShape_ph> bodyShape;
-	b2RevoluteJoint * joint1;
-	b2RevoluteJoint * joint2;
+	std::vector<WheelSh> wheels;
+	BodyShapeSh bodyShape;
+	std::vector<b2RevoluteJoint*> joints;
 
 public:
 	Car_ph();
 	~Car_ph();
-	Wheel_ph * getWheel_1();
-	Wheel_ph * getWheel_2();
+	std::vector<boost::shared_ptr <Wheel_ph>> getWheels();
 	BodyShape_ph * getBodyShape();
 	void setBodyShape(boost::shared_ptr <BodyShape_ph>);
-	void setWheel(boost::shared_ptr <Wheel_ph>, int);
-	void setParts(boost::shared_ptr <Wheel_ph>, boost::shared_ptr <Wheel_ph>, boost::shared_ptr <BodyShape_ph>);
+	void setWheels(std::vector<boost::shared_ptr <Wheel_ph>>);
+	void setParts(std::vector<boost::shared_ptr <Wheel_ph>>, boost::shared_ptr <BodyShape_ph>);
+	void createJoint(b2World&, WheelSh);
 	void createJoints(b2World&);
 	void updateVelocity();
 };

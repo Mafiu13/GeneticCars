@@ -8,6 +8,7 @@
 #include "BodyShape_ph.h"
 #include "const.h"
 
+typedef boost::shared_ptr <Car_ph> CarSh;
 class Drawing
 {
 public:
@@ -18,7 +19,7 @@ public:
 	sf::CircleShape drawCircle(Wheel_ph *);
 	sf::ConvexShape drawPolygon(BodyShape_ph *);
 	void drawCar(Car_ph *, sf::RenderWindow &);
-	void drawCars(std::vector<std::shared_ptr<Car_ph>>, sf::RenderWindow &);
+	void drawCars(std::vector<CarSh>, sf::RenderWindow &);
 };
 
 #endif

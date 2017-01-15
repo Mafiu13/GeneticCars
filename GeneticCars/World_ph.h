@@ -7,17 +7,19 @@
 #include "Track_ph.h"
 #include <iostream>
 
+typedef boost::shared_ptr <Car_ph> CarSh;
+
 class World_ph
 {
 	std::shared_ptr<b2World> world;
-	std::vector<std::shared_ptr<Car_ph>> cars;
+	std::vector<CarSh> cars;
 
 public:
 	World_ph();
 	~World_ph();
 	b2World * getWorld();
-	std::vector<std::shared_ptr<Car_ph>> getCars();
-	void setCars(std::vector<std::shared_ptr<Car_ph>>);
+	std::vector<CarSh> getCars();
+	void setCars(std::vector<CarSh>);
 	float getTheFastestX();
 	void updateVelocity();
 	void createCars();

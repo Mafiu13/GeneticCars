@@ -55,11 +55,5 @@ int main()
 	boost::shared_ptr<Simulation> simulation(new Simulation());
 	simulation->setCars_phFromCars(inPop);
 	simulation->getWorld_ph()->createCars();
-	std::cout << "-----------------" << std::endl;
-	std::cout << simulation->getWorld_ph()->getCars()[0]->getWheel_1()->getBody()->GetPosition().x << "  " << simulation->getWorld_ph()->getCars()[0]->getWheel_1()->getBody()->GetPosition().y << std::endl;
-	std::cout << simulation->getWorld_ph()->getCars()[0]->getWheel_2()->getBody()->GetPosition().x << "  " << simulation->getWorld_ph()->getCars()[0]->getWheel_2()->getBody()->GetPosition().y << std::endl;
-	
-	std::cout << simulation->getWorld_ph()->getCars()[1]->getWheel_1()->getBody()->GetPosition().x << "  " << simulation->getWorld_ph()->getCars()[1]->getWheel_1()->getBody()->GetPosition().y << std::endl;
-	std::cout << simulation->getWorld_ph()->getCars()[1]->getWheel_2()->getBody()->GetPosition().x << "  " << simulation->getWorld_ph()->getCars()[1]->getWheel_2()->getBody()->GetPosition().y << std::endl;
 	simulation->createSimulation();
 }
