@@ -2,12 +2,16 @@
 
 Car_ph::Car_ph()
 {
-	jointPoint_1 = std::make_unique<b2Vec2>();
-	jointPoint_2 = std::make_unique<b2Vec2>();
 }
 
 Car_ph::~Car_ph()
 {
+	b2World * world = bodyShape->getBody()->GetWorld();
+	world->DestroyJoint(joint1);
+	world->DestroyJoint(joint2);
+	world->DestroyBody(wheel_1->getBody());
+	world->DestroyBody(wheel_2->getBody());
+	world->DestroyBody(bodyShape->getBody());
 }
 
 Wheel_ph * Car_ph::getWheel_1()
@@ -25,16 +29,6 @@ BodyShape_ph * Car_ph::getBodyShape()
 	return bodyShape.get();
 }
 
-b2Vec2 * Car_ph::getJointPoint1()
-{
-	return jointPoint_1.get();
-}
-
-b2Vec2 * Car_ph::getJointPoint2()
-{
-	return jointPoint_2.get();
-}
-
 void Car_ph::setBodyShape(boost::shared_ptr<BodyShape_ph> b)
 {
 	bodyShape = b;
@@ -50,14 +44,6 @@ void Car_ph::setWheel(boost::shared_ptr<Wheel_ph> wh, int which)
 	}
 }
 
-void Car_ph::setJointPoints(float x1, float y1, float x2, float y2)
-{
-	jointPoint_1->x = x1;
-	jointPoint_1->y = y1;
-	jointPoint_2->x = x2;
-	jointPoint_2->y = y2;
-}
-
 void Car_ph::setParts(boost::shared_ptr<Wheel_ph> c1, boost::shared_ptr<Wheel_ph> c2, boost::shared_ptr<BodyShape_ph> b)
 {
 	wheel_1 = c1;
@@ -67,19 +53,24 @@ void Car_ph::setParts(boost::shared_ptr<Wheel_ph> c1, boost::shared_ptr<Wheel_ph
 
 void Car_ph::createJoints(b2World & World)
 {
-	b2RevoluteJointDef joint;
-	joint.bodyA = bodyShape->getBody();
-	joint.bodyB = wheel_1->getBody();
+	b2RevoluteJointDef jointdef1;
+	b2RevoluteJointDef jointdef2;
+	jointdef1.bodyA = bodyShape->getBody();
+	jointdef1.bodyB = wheel_1->getBody();
 
-	joint.localAnchorA.Set(this->jointPoint_1->x, this->jointPoint_1->y); // ustawiamy punkt zaczepu w pierwszym ciele. Jest on we wspó³rzêdnych LOKALNYCH cia³a
-	joint.localAnchorB.Set(0, 0);  // i w drugim
-	joint.collideConnected = false; // cia³a po³¹czone revolute jointem NIE MOG¥ ze sob¹ kolidowaæ
-	joint.enableLimit = false; // musimy wlaczyc limit
-	World.CreateJoint(&joint);
+	jointdef1.localAnchorA.Set(wheel_1->getJointPoint().getX(), wheel_1->getJointPoint().getY()); // ustawiamy punkt zaczepu w pierwszym ciele. Jest on we wspó³rzêdnych LOKALNYCH cia³a
+	jointdef1.localAnchorB.Set(0, 0);  // i w drugim
+	jointdef1.collideConnected = false; // cia³a po³¹czone revolute jointem NIE MOG¥ ze sob¹ kolidowaæ
+	jointdef1.enableLimit = false; // musimy wlaczyc limit
+	joint1 = (b2RevoluteJoint*)World.CreateJoint(&jointdef1);
 
-	joint.bodyB = wheel_2->getBody();
-	joint.localAnchorA.Set(this->jointPoint_2->x, this->jointPoint_2->y); // ustawiamy punkt zaczepu w pierwszym ciele. Jest on we wspó³rzêdnych LOKALNYCH cia³a
-	World.CreateJoint(&joint);
+	jointdef2.bodyA = bodyShape->getBody();
+	jointdef2.bodyB = wheel_2->getBody();
+	jointdef2.localAnchorA.Set(wheel_2->getJointPoint().getX(), wheel_2->getJointPoint().getY());
+	jointdef2.localAnchorB.Set(0, 0); 
+	jointdef2.collideConnected = false;
+	jointdef2.enableLimit = false;
+	joint2 = (b2RevoluteJoint*)World.CreateJoint(&jointdef2);
 }
 
 void Car_ph::updateVelocity()

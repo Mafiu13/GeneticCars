@@ -10,11 +10,11 @@ BodyShape_ph::~BodyShape_ph()
 {
 }
 
-void BodyShape_ph::createBodyShape(b2World & world, float x, float y)
+void BodyShape_ph::createBodyShape(b2World & world)
 {
 	b2BodyDef polygonDefinition;
 	polygonDefinition.type = b2_dynamicBody;
-	polygonDefinition.position.Set(x, y);
+	polygonDefinition.position.Set(0, 0);
 	b2Body * polygon = world.CreateBody(&polygonDefinition);
 
 	b2PolygonShape polygonShape;

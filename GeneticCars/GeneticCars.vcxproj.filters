@@ -165,9 +165,6 @@
     <ClCompile Include="RandomService.cpp">
       <Filter>GeneticCars\Model\EvolutionaryAlgorithm\RandomService</Filter>
     </ClCompile>
-    <ClCompile Include="test_Element_ph.cpp">
-      <Filter>GeneticCars\Model\Physical engine\Element_ph</Filter>
-    </ClCompile>
     <ClCompile Include="mainTest.cpp">
       <Filter>GeneticCars\Main</Filter>
     </ClCompile>

@@ -26,7 +26,6 @@ public:
 	~Simulation();
 	World_ph* getWorld_ph();
 	void createSimulation();
-	//void setCars(std::vector<Car>);
 	void setCars_phFromCars(std::vector<Car>);
 	std::vector<std::shared_ptr<Car_ph>> convertCarToCar_ph(std::vector<Car>);
 };
