@@ -16,7 +16,7 @@ public:
 	float getRadius();
 	ShapePoint getJointPoint();
 	void setRadius(float);
-	void setJointPoint(ShapePoint &);
+	void setJointPoint(ShapePoint);
 	void updateVelocity();
 	void createWheel(b2World &);
 };

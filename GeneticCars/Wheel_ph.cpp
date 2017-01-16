@@ -23,7 +23,7 @@ void Wheel_ph::setRadius(float r)
 	radius = r;
 }
 
-void Wheel_ph::setJointPoint(ShapePoint & p)
+void Wheel_ph::setJointPoint(ShapePoint p)
 {
 	jointPoint.setX(p.getX());
 	jointPoint.setY(p.getY());
