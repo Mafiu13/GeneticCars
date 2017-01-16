@@ -10,7 +10,7 @@ BodyShape_ph::~BodyShape_ph()
 {
 }
 
-void BodyShape_ph::createBodyShape(b2World & world)
+void BodyShape_ph::createBodyShape(b2World& world)
 {
 	b2BodyDef polygonDefinition;
 	polygonDefinition.type = b2_dynamicBody;

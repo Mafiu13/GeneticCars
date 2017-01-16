@@ -91,9 +91,6 @@
     <Filter Include="GeneticCars\Model\Physical engine\Element_ph">
       <UniqueIdentifier>{d66208a5-f807-4ca3-b726-d71d73b89586}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GeneticCars\Model\Physical engine\World_ph">
-      <UniqueIdentifier>{47496029-2d33-4593-a463-179614c82749}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GeneticCars\Model\EvolutionaryAlgorithm\IndividualService">
       <UniqueIdentifier>{dea60e4c-3009-463b-a58b-0918ae06fc8f}</UniqueIdentifier>
     </Filter>
@@ -105,6 +102,9 @@
     </Filter>
     <Filter Include="GeneticCars\Model\EvolutionaryAlgorithm\RandomService">
       <UniqueIdentifier>{05b29b35-16c5-4dca-bfef-a38596bf97d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GeneticCars\Model\Physical engine\Population">
+      <UniqueIdentifier>{47496029-2d33-4593-a463-179614c82749}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -156,9 +156,6 @@
     <ClCompile Include="Element_ph.cpp">
       <Filter>GeneticCars\Model\Physical engine\Element_ph</Filter>
     </ClCompile>
-    <ClCompile Include="World_ph.cpp">
-      <Filter>GeneticCars\Model\Physical engine\World_ph</Filter>
-    </ClCompile>
     <ClCompile Include="IndividualService.cpp">
       <Filter>GeneticCars\Model\EvolutionaryAlgorithm\IndividualService</Filter>
     </ClCompile>
@@ -167,6 +164,9 @@
     </ClCompile>
     <ClCompile Include="mainTest.cpp">
       <Filter>GeneticCars\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Population.cpp">
+      <Filter>GeneticCars\Model\Physical engine\Population</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -215,9 +215,6 @@
     <ClInclude Include="Element_ph.h">
       <Filter>GeneticCars\Model\Physical engine\Element_ph</Filter>
     </ClInclude>
-    <ClInclude Include="World_ph.h">
-      <Filter>GeneticCars\Model\Physical engine\World_ph</Filter>
-    </ClInclude>
     <ClInclude Include="IndividualService.h">
       <Filter>GeneticCars\Model\EvolutionaryAlgorithm\IndividualService</Filter>
     </ClInclude>
@@ -229,6 +226,9 @@
     </ClInclude>
     <ClInclude Include="RandomService.h">
       <Filter>GeneticCars\Model\EvolutionaryAlgorithm\RandomService</Filter>
+    </ClInclude>
+    <ClInclude Include="Population.h">
+      <Filter>GeneticCars\Model\Physical engine\Population</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

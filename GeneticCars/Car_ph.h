@@ -3,6 +3,7 @@
 
 #include <Box2D\Box2D.h>
 #include <boost\shared_ptr.hpp>
+#include <boost\make_shared.hpp>
 #include "ShapePoint.h"
 #include "BodyShape_ph.h"
 #include "Wheel_ph.h"
@@ -22,9 +23,9 @@ public:
 	~Car_ph();
 	std::vector<boost::shared_ptr <Wheel_ph>> getWheels();
 	BodyShape_ph * getBodyShape();
-	void setBodyShape(boost::shared_ptr <BodyShape_ph>);
-	void setWheels(std::vector<boost::shared_ptr <Wheel_ph>>);
-	void setParts(std::vector<boost::shared_ptr <Wheel_ph>>, boost::shared_ptr <BodyShape_ph>);
+	void setBodyShape(BodyShapeSh);
+	void setWheels(std::vector<WheelSh>);
+	void setParts(std::vector<WheelSh>, BodyShapeSh);
 	void createJoint(b2World&, WheelSh);
 	void createJoints(b2World&);
 	void updateVelocity();
