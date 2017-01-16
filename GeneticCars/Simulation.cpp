@@ -10,6 +10,7 @@ Simulation::Simulation()
 
 Simulation::~Simulation()
 {
+	population->~Population();
 }
 
 Population * Simulation::getPopulation()
