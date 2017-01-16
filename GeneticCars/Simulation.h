@@ -7,6 +7,7 @@
 #include <memory>
 #include <iostream>
 #include <boost\smart_ptr\make_unique.hpp>
+#include <boost\smart_ptr\make_shared.hpp>
 #include "Wheel_ph.h"
 #include "Track_ph.h"
 #include "BodyShape_ph.h"
@@ -14,20 +15,24 @@
 #include "Car_ph.h"
 #include "Drawing.h"
 #include "const.h"
-#include "World_ph.h"
+#include "Population.h"
 #include "Car.h"
 
 class Simulation
 {
-	std::shared_ptr<World_ph> world;
+	boost::shared_ptr<Population> population;
+	boost::shared_ptr<Track_ph> track;
+	boost::shared_ptr<b2World> world;
+	boost::shared_ptr<Drawing> drawing;
 	
 public:
 	Simulation();
 	~Simulation();
-	World_ph* getWorld_ph();
+	Population* getPopulation();
+	b2World* getWorld();
+	void setPopulation(boost::shared_ptr<Population>);
 	void createSimulation();
-	void setCars_phFromCars(std::vector<Car>);
-	std::vector<CarSh> convertCarToCar_ph(std::vector<Car>);
+	
 };
 
 #endif

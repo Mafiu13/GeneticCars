@@ -6,6 +6,8 @@ Car_ph::Car_ph()
 
 Car_ph::~Car_ph()
 {
+	/*
+	boost::shared_ptr<b2World> world(bodyShape->getBody()->GetWorld());
 	b2World * world = bodyShape->getBody()->GetWorld();
 	for (b2RevoluteJoint* joint : joints) {
 		world->DestroyJoint(joint);
@@ -14,6 +16,7 @@ Car_ph::~Car_ph()
 		world->DestroyBody(wheel->getBody());
 	}
 	world->DestroyBody(bodyShape->getBody());
+	*/
 }
 
 

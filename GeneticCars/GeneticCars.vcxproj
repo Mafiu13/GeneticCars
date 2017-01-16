@@ -220,7 +220,7 @@
     <ClCompile Include="Wheel.cpp" />
     <ClCompile Include="Wheel_ph.cpp" />
     <ClCompile Include="const.cpp" />
-    <ClCompile Include="World_ph.cpp" />
+    <ClCompile Include="Population.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BodyShape.h" />
@@ -242,7 +242,7 @@
     <ClInclude Include="Track_ph.h" />
     <ClInclude Include="Wheel.h" />
     <ClInclude Include="Wheel_ph.h" />
-    <ClInclude Include="World_ph.h" />
+    <ClInclude Include="Population.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

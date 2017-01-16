@@ -25,7 +25,7 @@ public:
 	void setVertices(std::vector<std::unique_ptr<b2Vec2>> const&);
 	void setVert(std::vector<ShapePoint>);
 
-	void createBodyShape(b2World &);
+	void createBodyShape(b2World&);
 };
 
 #endif
