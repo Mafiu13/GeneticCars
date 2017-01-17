@@ -2,23 +2,23 @@
 #define DRAWING_H
 
 #include <SFML/Graphics.hpp>
-#include "Car_ph.h"
-#include "Track_ph.h"
-#include "Wheel_ph.h"
-#include "BodyShape_ph.h"
+#include "PhysCar.h"
+#include "PhysTrack.h"
+#include "PhysWheel.h"
+#include "PhysBodyShape.h"
 #include "const.h"
 
-typedef boost::shared_ptr <Car_ph> CarSh;
+typedef boost::shared_ptr <PhysCar> CarSh;
 class Drawing
 {
 public:
 	Drawing();
 	~Drawing();
 	
-	void drawTrack(Track_ph *, sf::RenderWindow &);
-	sf::CircleShape drawCircle(Wheel_ph *);
-	sf::ConvexShape drawPolygon(BodyShape_ph *);
-	void drawCar(Car_ph *, sf::RenderWindow &);
+	void drawTrack(PhysTrack *, sf::RenderWindow &);
+	sf::CircleShape drawCircle(PhysWheel *);
+	sf::ConvexShape drawPolygon(PhysBodyShape *);
+	void drawCar(PhysCar *, sf::RenderWindow &);
 	void drawCars(std::vector<CarSh>, sf::RenderWindow &);
 };
 

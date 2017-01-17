@@ -1,5 +1,5 @@
-#include "Simulation.h"
-#include "Population.h"
+#include "PhysSimulation.h"
+#include "PhysPopulation.h"
 #include "PopulationManager.h"
 #include <iostream>
 
@@ -53,7 +53,7 @@ int main()
 		//std::cout << std::endl;
 	}
 
-	boost::shared_ptr<Simulation> simulation = boost::make_shared<Simulation>();
+	boost::shared_ptr<PhysSimulation> simulation = boost::make_shared<PhysSimulation>();
 	simulation->getPopulation()->setCars_phFromCars(inPop);
 	simulation->getPopulation()->createCars(*simulation->getWorld());
 	simulation->createSimulation();

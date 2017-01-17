@@ -8,7 +8,7 @@ Drawing::~Drawing()
 {
 }
 
-void Drawing::drawCar(Car_ph * car, sf::RenderWindow & app)
+void Drawing::drawCar(PhysCar * car, sf::RenderWindow & app)
 {
 	b2Vec2 pos;
 	sf::CircleShape circle;
@@ -33,7 +33,7 @@ void Drawing::drawCars(std::vector<CarSh> vec, sf::RenderWindow & app)
 	}
 }
 
-void Drawing::drawTrack(Track_ph * track, sf::RenderWindow & app)
+void Drawing::drawTrack(PhysTrack * track, sf::RenderWindow & app)
 {
 	sf::VertexArray track_drawing(sf::Lines, 2 * N);
 	int j = 0;
@@ -52,7 +52,7 @@ void Drawing::drawTrack(Track_ph * track, sf::RenderWindow & app)
 	app.draw(track_drawing);
 }
 
-sf::CircleShape Drawing::drawCircle(Wheel_ph * circle)
+sf::CircleShape Drawing::drawCircle(PhysWheel * circle)
 {
 	int transparency = (int)(200 * (circle->getDensity()) + 50);
 	float r = circle->getRadius() * SCALE;
@@ -64,7 +64,7 @@ sf::CircleShape Drawing::drawCircle(Wheel_ph * circle)
 	return sf_circle;
 }
 
-sf::ConvexShape Drawing::drawPolygon(BodyShape_ph * bodyShape)
+sf::ConvexShape Drawing::drawPolygon(PhysBodyShape * bodyShape)
 {
 	int transparency = (int)(200 * (bodyShape->getDensity()) + 50);
 	sf::ConvexShape polygon;
