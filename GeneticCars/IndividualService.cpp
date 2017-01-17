@@ -181,20 +181,17 @@ double IndividualService::getRandomMutationValue()
 vector<ShapePoint> IndividualService::sortBodyShapesByAngle(vector<ShapePoint> shapePoints)
 {
 	vector<ShapePoint> sortedShapePoints;
-	map<float, int> angles;
+	multimap<float, int> angles;
 	for (int i = 0; i < shapePoints.size(); ++i)
 	{
 		float angle = -atan2(shapePoints[i].getY(), shapePoints[i].getX());
-		angles[angle] = i;
+		angles.insert(pair<float, int>(angle, i));
+		//angles[angle] = i;
 	}
 	for (auto angle : angles)
 	{
 		int index = angle.second;
 		sortedShapePoints.push_back(shapePoints[index]);
-	}
-	while (sortedShapePoints.size() != shapePoints.size())
-	{
-		sortedShapePoints.push_back(sortedShapePoints.back());
 	}
 	return sortedShapePoints;
 }
