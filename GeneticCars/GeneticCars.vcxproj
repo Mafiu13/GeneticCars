@@ -196,12 +196,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BodyShape.cpp" />
-    <ClCompile Include="BodyShape_ph.cpp" />
+    <ClCompile Include="PhysBodyShape.cpp" />
     <ClCompile Include="Car.cpp" />
-    <ClCompile Include="Car_ph.cpp" />
+    <ClCompile Include="PhysCar.cpp" />
     <ClCompile Include="Chromosome.cpp" />
     <ClCompile Include="Drawing.cpp" />
-    <ClCompile Include="Element_ph.cpp" />
+    <ClCompile Include="PhysElement.cpp" />
     <ClCompile Include="EvolutionaryService.cpp" />
     <ClCompile Include="IndividualService.cpp" />
     <ClCompile Include="mainTest.cpp">
@@ -215,21 +215,21 @@
     </ClCompile>
     <ClCompile Include="RandomService.cpp" />
     <ClCompile Include="ShapePoint.cpp" />
-    <ClCompile Include="Simulation.cpp" />
-    <ClCompile Include="Track_ph.cpp" />
+    <ClCompile Include="PhysSimulation.cpp" />
+    <ClCompile Include="PhysTrack.cpp" />
     <ClCompile Include="Wheel.cpp" />
-    <ClCompile Include="Wheel_ph.cpp" />
+    <ClCompile Include="PhysWheel.cpp" />
     <ClCompile Include="const.cpp" />
-    <ClCompile Include="Population.cpp" />
+    <ClCompile Include="PhysPopulation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BodyShape.h" />
-    <ClInclude Include="BodyShape_ph.h" />
+    <ClInclude Include="PhysBodyShape.h" />
     <ClInclude Include="Car.h" />
-    <ClInclude Include="Car_ph.h" />
+    <ClInclude Include="PhysCar.h" />
     <ClInclude Include="Chromosome.h" />
     <ClInclude Include="Drawing.h" />
-    <ClInclude Include="Element_ph.h" />
+    <ClInclude Include="PhysElement.h" />
     <ClInclude Include="EvolutionaryService.h" />
     <ClInclude Include="const.h" />
     <ClInclude Include="CarConst.h" />
@@ -238,11 +238,11 @@
     <ClInclude Include="PopulationManager.h" />
     <ClInclude Include="RandomService.h" />
     <ClInclude Include="ShapePoint.h" />
-    <ClInclude Include="Simulation.h" />
-    <ClInclude Include="Track_ph.h" />
+    <ClInclude Include="PhysSimulation.h" />
+    <ClInclude Include="PhysTrack.h" />
     <ClInclude Include="Wheel.h" />
-    <ClInclude Include="Wheel_ph.h" />
-    <ClInclude Include="Population.h" />
+    <ClInclude Include="PhysWheel.h" />
+    <ClInclude Include="PhysPopulation.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

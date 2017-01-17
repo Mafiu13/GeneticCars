@@ -2,7 +2,6 @@
 #define CONST_H
 #include <Box2D\Box2D.h>
 #include <boost\math\constants\constants.hpp>
-#include "Element_ph.h"
 
 //skala miedzy metrami, a pikselami
 extern const float SCALE;
