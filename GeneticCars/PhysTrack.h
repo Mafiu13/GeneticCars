@@ -1,9 +1,9 @@
 #ifndef PHYSTRACK_H 
 #define PHYSTRACK_H
 
-#include <boost\smart_ptr\make_unique.hpp>
-#include <boost\smart_ptr\shared_ptr.hpp>
-#include <Box2D\Box2D.h>
+#include <boost/smart_ptr/make_unique.hpp>
+#include <boost/smart_ptr/shared_ptr.hpp>
+#include <Box2D/Box2D.h>
 #include <ctime>
 #include <random>
 #include <memory>

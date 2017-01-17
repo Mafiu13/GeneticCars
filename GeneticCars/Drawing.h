@@ -11,15 +11,21 @@
 typedef boost::shared_ptr <PhysCar> CarSh;
 class Drawing
 {
+	std::vector<sf::CircleShape> circles;
+	std::vector<sf::ConvexShape> polygons;
+	sf::VertexArray line;
+
 public:
 	Drawing();
 	~Drawing();
-	
-	void drawTrack(PhysTrack *, sf::RenderWindow &);
+	std::vector<sf::CircleShape> getCircle();
+	std::vector<sf::ConvexShape> getPolygons();
+	sf::VertexArray getLine();
+	void drawTrack(PhysTrack *);
 	sf::CircleShape drawCircle(PhysWheel *);
 	sf::ConvexShape drawPolygon(PhysBodyShape *);
-	void drawCar(PhysCar *, sf::RenderWindow &);
-	void drawCars(std::vector<CarSh>, sf::RenderWindow &);
+	void drawCar(PhysCar *);
+	void drawCars(std::vector<CarSh>);
 };
 
 #endif

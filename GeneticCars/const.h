@@ -1,6 +1,5 @@
 #ifndef CONST_H 
 #define CONST_H
-#include <Box2D\Box2D.h>
 #include <boost\math\constants\constants.hpp>
 
 //skala miedzy metrami, a pikselami

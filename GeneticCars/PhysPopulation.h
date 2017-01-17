@@ -1,7 +1,7 @@
 #ifndef PHYSPOPULATION_H 
 #define PHYSPOPULATION_H
 
-#include<Box2D\Box2D.h>
+#include<Box2D/Box2D.h>
 #include "const.h"
 #include "PhysCar.h"
 #include "Car.h"
@@ -22,8 +22,6 @@ public:
 	float getTheFastestX();
 	void updateVelocity();
 	void createCars(b2World&);
-	void setCars_phFromCars(std::vector<Car>);
-	std::vector<CarSh> convertCarToCar_ph(std::vector<Car>);
 };
 
 #endif

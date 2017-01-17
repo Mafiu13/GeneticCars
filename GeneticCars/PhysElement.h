@@ -1,7 +1,7 @@
 #ifndef PHYSELEMENT_H 
 #define PHYSELEMENT_H
 
-#include<Box2D\Box2D.h>
+#include<Box2D/Box2D.h>
 #include "const.h"
 
 class PhysElement

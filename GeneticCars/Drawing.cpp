@@ -8,7 +8,17 @@ Drawing::~Drawing()
 {
 }
 
-void Drawing::drawCar(PhysCar * car, sf::RenderWindow & app)
+std::vector<sf::CircleShape> Drawing::getCircle()
+{
+	return circles;
+}
+
+std::vector<sf::ConvexShape> Drawing::getPolygons()
+{
+	return polygons;
+}
+
+void Drawing::drawCar(PhysCar * car)
 {
 	b2Vec2 pos;
 	sf::CircleShape circle;
@@ -16,24 +26,32 @@ void Drawing::drawCar(PhysCar * car, sf::RenderWindow & app)
 		circle = this->drawCircle(wheel.get());
 		pos = wheel->getBody()->GetPosition();
 		circle.setPosition(pos.x*SCALE, pos.y*SCALE);
-		app.draw(circle);
+		circles.push_back(circle);
 	}
 
 	sf::ConvexShape polygon = this->drawPolygon(car->getBodyShape());
 
 	pos = car->getBodyShape()->getBody()->GetPosition();
 	polygon.setPosition(pos.x*SCALE, pos.y*SCALE);
-	app.draw(polygon);
+	
+	polygons.push_back(polygon);
 }
 
-void Drawing::drawCars(std::vector<CarSh> vec, sf::RenderWindow & app)
+void Drawing::drawCars(std::vector<CarSh> cars)
 {
-	for (int i = 0; i < vec.size(); ++i) {
-		this->drawCar(vec[i].get(), app);
+	circles.clear();
+	polygons.clear();
+	for (CarSh car : cars) {
+		this->drawCar(car.get());
 	}
 }
 
-void Drawing::drawTrack(PhysTrack * track, sf::RenderWindow & app)
+sf::VertexArray Drawing::getLine()
+{
+	return line;
+}
+
+void Drawing::drawTrack(PhysTrack * track)
 {
 	sf::VertexArray track_drawing(sf::Lines, 2 * N);
 	int j = 0;
@@ -49,7 +67,7 @@ void Drawing::drawTrack(PhysTrack * track, sf::RenderWindow & app)
 		track_drawing[i].color = sf::Color::Black;
 	}
 
-	app.draw(track_drawing);
+	line = track_drawing;
 }
 
 sf::CircleShape Drawing::drawCircle(PhysWheel * circle)

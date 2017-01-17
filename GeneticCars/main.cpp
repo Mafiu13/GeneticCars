@@ -1,6 +1,7 @@
 #include "PhysSimulation.h"
 #include "PhysPopulation.h"
 #include "PopulationManager.h"
+#include "AppWindow.h"
 #include <iostream>
 
 int main()
@@ -53,8 +54,29 @@ int main()
 		//std::cout << std::endl;
 	}
 
-	boost::shared_ptr<PhysSimulation> simulation = boost::make_shared<PhysSimulation>();
+	boost::shared_ptr<AppWindow> window = boost::make_shared<AppWindow>(800, 600, 32, "Genetic cars");
+	boost::shared_ptr<PhysSimulation> simulation = boost::make_shared<PhysSimulation>(1.0,100,8,3);
+	
+	simulation->createTrack(50, 300, 100);
 	simulation->getPopulation()->setCars_phFromCars(inPop);
 	simulation->getPopulation()->createCars(*simulation->getWorld());
 	simulation->createSimulation();
+	
+	while (window->getWindow().isOpen()) {
+		for (int i = 0; i < simulation->getSimSteps(); ++i) {
+			sf::Event zdarzenie;
+			while (window->getWindow().pollEvent(zdarzenie))
+			{
+				if (zdarzenie.type == sf::Event::Closed)
+					window->getWindow().close();
+				if (zdarzenie.type == sf::Event::KeyPressed && zdarzenie.key.code == sf::Keyboard::Escape)
+					window->getWindow().close();//obsluga zdarzenia wcisniecia ESC	
+			}
+			simulation->updateSimulation();
+			window->drawAll(simulation->getDrawing());
+			window->getWindow().display();
+			window->getView().setCenter(sf::Vector2f(simulation->getPopulation()->getTheFastestX() * SCALE, 300));
+			window->setViewToWindow();
+		}
+	}
 }

@@ -1,9 +1,9 @@
 #ifndef PHYSCAR_H 
 #define PHYSCAR_H
 
-#include <Box2D\Box2D.h>
-#include <boost\shared_ptr.hpp>
-#include <boost\make_shared.hpp>
+#include <Box2D/Box2D.h>
+#include <boost/shared_ptr.hpp>
+#include <boost/make_shared.hpp>
 #include "ShapePoint.h"
 #include "PhysBodyShape.h"
 #include "PhysWheel.h"

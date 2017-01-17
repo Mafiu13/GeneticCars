@@ -17,8 +17,6 @@ b2Vec2 * PhysTrack::getArr()
 	return arr.get();
 }
 
-
-
 void PhysTrack::createTrack(b2World & world)
 {
 	b2BodyDef chainDefinition;

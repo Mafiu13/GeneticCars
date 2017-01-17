@@ -195,7 +195,9 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AppWindow.cpp" />
     <ClCompile Include="BodyShape.cpp" />
+    <ClCompile Include="MainController.cpp" />
     <ClCompile Include="PhysBodyShape.cpp" />
     <ClCompile Include="Car.cpp" />
     <ClCompile Include="PhysCar.cpp" />
@@ -223,7 +225,9 @@
     <ClCompile Include="PhysPopulation.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AppWindow.h" />
     <ClInclude Include="BodyShape.h" />
+    <ClInclude Include="MainController.h" />
     <ClInclude Include="PhysBodyShape.h" />
     <ClInclude Include="Car.h" />
     <ClInclude Include="PhysCar.h" />
