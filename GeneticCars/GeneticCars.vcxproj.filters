@@ -180,6 +180,18 @@
     <ClCompile Include="TestPhysBodyShape.cpp">
       <Filter>GeneticCars\Model\PhysicalEngine\PhysBodyShape</Filter>
     </ClCompile>
+    <ClCompile Include="TestPhysElement.cpp">
+      <Filter>GeneticCars\Model\PhysicalEngine\PhysElement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestPhysPopulation.cpp">
+      <Filter>GeneticCars\Model\PhysicalEngine\PhysPopulation</Filter>
+    </ClCompile>
+    <ClCompile Include="TestPhysSimulation.cpp">
+      <Filter>GeneticCars\Model\PhysicalEngine\PhysSimulation</Filter>
+    </ClCompile>
+    <ClCompile Include="TestPhysTrack.cpp">
+      <Filter>GeneticCars\Model\PhysicalEngine\PhysTrack</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Chromosome.h">

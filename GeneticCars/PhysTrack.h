@@ -37,7 +37,7 @@ public:
 	/**
 	* metoda generujaca generujaca trase na podstawie podanych parametrow
 	*/
-	void generateTrack(int, int, int, int);
+	void generateTrack(int, int, int);
 	/**
 	* metoda tworzaca trase w silniku fizycznym
 	*/

@@ -68,9 +68,8 @@ void EvolutionaryService::generateParentsForNextPopulation(const vector<Car> pre
 		tempPopulation = previousPopulation;
 		tempPopulation.erase(tempPopulation.begin() + indexA);
 		tempRoulletteWheel = getPopulationScores(tempPopulation);
-
 		indexB = getCarIndexFromRoulletteWheel(tempRoulletteWheel);
-		parentsB.push_back(tempPopulation[indexB]);
+		parentsB.push_back(tempPopulation[indexB]);	
 	}
 	// TODO - jezeli populationSize nieparzysty to losujemy jednego ziomka i dajemy go 2x na koniec
 

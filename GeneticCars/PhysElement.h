@@ -2,6 +2,8 @@
 #define PHYSELEMENT_H
 
 #include<Box2D/Box2D.h>
+#include <boost/shared_ptr.hpp>
+#include <boost/make_shared.hpp>
 #include "CarConst.h"
 
 /**
@@ -9,6 +11,8 @@
 * Klasa, po ktorej dziedzicza wszstkie elementy odwzorowane w silniku fizycznym
 *
 */
+class PhysElement;
+typedef boost::shared_ptr <PhysElement> PPhysElement;
 
 class PhysElement
 {

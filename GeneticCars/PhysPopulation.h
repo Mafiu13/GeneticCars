@@ -21,10 +21,6 @@ class PhysPopulation
 	* Wektor sprytnych wskaznikow na pojazdy
 	*/
 	std::vector<PPhysCar> cars_;
-	/**
-	* ilosc wierzcholkow pojazdow
-	*/
-	int vec_;
 
 public:
 	PhysPopulation();
