@@ -174,7 +174,9 @@
     <ClCompile Include="AppWindow.cpp">
       <Filter>GeneticCars\View\AppWindow</Filter>
     </ClCompile>
-    <ClCompile Include="MainController.cpp" />
+    <ClCompile Include="MainController.cpp">
+      <Filter>GeneticCars\MainController</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Chromosome.h">
@@ -240,6 +242,8 @@
     <ClInclude Include="AppWindow.h">
       <Filter>GeneticCars\View\AppWindow</Filter>
     </ClInclude>
-    <ClInclude Include="MainController.h" />
+    <ClInclude Include="MainController.h">
+      <Filter>GeneticCars\MainController</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
