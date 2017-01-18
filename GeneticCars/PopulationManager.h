@@ -2,6 +2,8 @@
 #define POPULATIONMANAGER_H
 
 #include "EvolutionaryService.h"
+class PopulationManager;
+typedef boost::shared_ptr <PopulationManager> PPopulationManager;
 
 class PopulationManager
 {

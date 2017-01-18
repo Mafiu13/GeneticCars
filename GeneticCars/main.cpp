@@ -5,7 +5,6 @@
 #include "MainController.h"
 #include <iostream>
 
-typedef boost::shared_ptr <MainController> PMainController;
 
 int main()
 {

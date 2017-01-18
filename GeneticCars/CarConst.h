@@ -14,9 +14,9 @@ const static float POINT_MAX = 2.0;
 const static float RADIUS_MIN = 0.3;
 const static float RADIUS_MAX = 1.3;
 
-const static float SCALE = 50;
-const static float RADDEG = 180 / boost::math::constants::pi<float>();
+const static float SCALE = 50.0;
+const static float RADDEG = 180.0 / boost::math::constants::pi<float>();
 
-const static float VELOCITY = 20;
+const static float VELOCITY = 20.0;
 
 #endif

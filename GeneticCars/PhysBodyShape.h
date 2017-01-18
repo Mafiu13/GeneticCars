@@ -10,13 +10,13 @@
 #include "PhysElement.h"
 #include "ShapePoint.h"
 
-extern const float SCALE;
-
 /**
 *\class PhysBodyShape
 * Klasa odpowiadajaca nadwoziu pojazdu
 *
 */
+class PhysBodyShape;
+typedef boost::shared_ptr <PhysBodyShape> PPhysBodyShape;
 
 class PhysBodyShape : public PhysElement
 {

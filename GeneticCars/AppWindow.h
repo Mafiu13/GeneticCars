@@ -10,10 +10,12 @@
 * Klasa odpowiadajaca oknu aplikacji
 *
 */
-
+class AppWindow;
 class MainController;
 
 typedef boost::weak_ptr <MainController> WPMainController;
+typedef boost::shared_ptr <AppWindow> PAppWindow;
+
 class AppWindow
 {
 	/**

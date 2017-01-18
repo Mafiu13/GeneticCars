@@ -15,6 +15,8 @@
 * Klasa odpowiadajaca trasie, po ktorej poruszaja sie pojazdy
 *
 */
+class PhysTrack;
+typedef boost::shared_ptr <PhysTrack> PPhysTrack;
 
 class PhysTrack : public PhysElement
 {

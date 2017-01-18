@@ -13,8 +13,9 @@
 * Klasa odpowiadajaca wszelkich rysowanym obiektom
 *
 */
+class Drawing;
+typedef boost::shared_ptr <Drawing> PDrawing;
 
-typedef boost::shared_ptr <PhysCar> PPhysCar;
 class Drawing
 {
 	/**

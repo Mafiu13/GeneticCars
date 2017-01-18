@@ -219,7 +219,11 @@
     <ClCompile Include="ShapePoint.cpp" />
     <ClCompile Include="PhysSimulation.cpp" />
     <ClCompile Include="PhysTrack.cpp" />
-    <ClCompile Include="testPhysWheel.cpp" />
+    <ClCompile Include="TestPhysWheel.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='UnitTests|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="Wheel.cpp" />
     <ClCompile Include="PhysWheel.cpp" />
     <ClCompile Include="PhysPopulation.cpp" />

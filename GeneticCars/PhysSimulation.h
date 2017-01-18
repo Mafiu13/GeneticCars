@@ -23,10 +23,10 @@
 * Klasa odpowiadajaca symululowanemu swiatu fizycznego, w ktorym istnieja pojazdy i trasa
 *
 */
-typedef boost::shared_ptr<PhysPopulation> PPhysPopulation;
-typedef boost::shared_ptr<PhysTrack> PPhysTrack;
-typedef boost::shared_ptr<b2World> Pb2World;
-typedef boost::shared_ptr<Drawing> PDrawing;
+class PhysSimulation;
+typedef boost::shared_ptr <PhysSimulation> PPhysSimulation;
+typedef boost::shared_ptr <b2World> Pb2World;
+
 class PhysSimulation
 {
 	/**
