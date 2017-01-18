@@ -38,12 +38,10 @@ public:
 	* @param width - szerokosc widoku
 	* @param height - wysokosc okna
 	* @param bitsPerPixel - ilosc bitow na pixel, jakosc kolorow
-	* @param name nazwa aplikacji
+	* @param name - nazwa aplikacji
 	*/
 	AppWindow(boost::shared_ptr<MainController> c, float width, float height, int bitsPerPixel, std::string name);
 	~AppWindow();
-	sf::RenderWindow & getWindow();
-	sf::View & getView();
 	sf::RenderWindow & getWindow();
 	sf::View & getView();
 	/**
@@ -55,7 +53,6 @@ public:
 	* Uaktualnienie widoku okna
 	*/
 	void setViewToWindow();
-
 };
 
 #endif

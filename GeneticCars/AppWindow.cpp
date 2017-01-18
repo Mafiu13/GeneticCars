@@ -1,23 +1,17 @@
 #include "AppWindow.h"
 
 
-
-AppWindow::AppWindow(boost::shared_ptr<MainController> c)
-{
-	controller_ = c;
-}
-
 AppWindow::~AppWindow()
 {
 }
 
 AppWindow::AppWindow(boost::shared_ptr<MainController> c, float width, float height, int bitsPerPixel, std::string name)
 {
+	controller_ = c;
 	window_.create(sf::VideoMode(width, height, bitsPerPixel), name);
 	view_.setCenter(sf::Vector2f(width / 2, height / 2));
 	view_.setSize(sf::Vector2f(width, height));
 	window_.setView(view_);
-	controller_ = c;
 }
 
 sf::RenderWindow & AppWindow::getWindow()
@@ -46,6 +40,3 @@ void AppWindow::setViewToWindow()
 {
 	window_.setView(view_);
 }
-
-
-
