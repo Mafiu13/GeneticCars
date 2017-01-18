@@ -8,25 +8,25 @@ Drawing::~Drawing()
 {
 }
 
-std::vector<sf::CircleShape> Drawing::getCircle()
+std::vector<sf::CircleShape> Drawing::getCircle() const
 {
-	return circles;
+	return circles_;
 }
 
-std::vector<sf::ConvexShape> Drawing::getPolygons()
+std::vector<sf::ConvexShape> Drawing::getPolygons() const
 {
-	return polygons;
+	return polygons_;
 }
 
 void Drawing::drawCar(PhysCar * car)
 {
 	b2Vec2 pos;
 	sf::CircleShape circle;
-	for (WheelSh wheel : car->getWheels()) {
+	for (PPhysWheel wheel : car->getWheels()) {
 		circle = this->drawCircle(wheel.get());
 		pos = wheel->getBody()->GetPosition();
 		circle.setPosition(pos.x*SCALE, pos.y*SCALE);
-		circles.push_back(circle);
+		circles_.push_back(circle);
 	}
 
 	sf::ConvexShape polygon = this->drawPolygon(car->getBodyShape());
@@ -34,40 +34,40 @@ void Drawing::drawCar(PhysCar * car)
 	pos = car->getBodyShape()->getBody()->GetPosition();
 	polygon.setPosition(pos.x*SCALE, pos.y*SCALE);
 	
-	polygons.push_back(polygon);
+	polygons_.push_back(polygon);
 }
 
-void Drawing::drawCars(std::vector<CarSh> cars)
+void Drawing::drawCars(std::vector<PPhysCar> cars)
 {
-	circles.clear();
-	polygons.clear();
-	for (CarSh car : cars) {
+	circles_.clear();
+	polygons_.clear();
+	for (PPhysCar car : cars) {
 		this->drawCar(car.get());
 	}
 }
 
-sf::VertexArray Drawing::getLine()
+sf::VertexArray Drawing::getLine() const
 {
-	return line;
+	return line_;
 }
 
 void Drawing::drawTrack(PhysTrack * track)
 {
-	sf::VertexArray track_drawing(sf::Lines, 2 * N);
+	sf::VertexArray track_drawing(sf::Lines, 2 * track->getN());
 	int j = 0;
 
-	for (int i = 0; i < 2 * N; i += 2) {
+	for (int i = 0; i < 2 * track->getN(); i += 2) {
 		j = i / 2;
 		track_drawing[i].position = sf::Vector2f(track->getArr()[j].x * SCALE, track->getArr()[j].y * SCALE);
 		track_drawing[i].color = sf::Color::Black;
 	}
-	for (int i = 1; i < 2 * N; i += 2) {
+	for (int i = 1; i < 2 * track->getN(); i += 2) {
 		j = (i + 1) / 2;
 		track_drawing[i].position = sf::Vector2f(track->getArr()[j].x * SCALE, track->getArr()[j].y * SCALE);
 		track_drawing[i].color = sf::Color::Black;
 	}
-
-	line = track_drawing;
+	track_drawing[2 * track->getN() - 1] = track_drawing[2 * track->getN() - 2];
+	line_ = track_drawing;
 }
 
 sf::CircleShape Drawing::drawCircle(PhysWheel * circle)

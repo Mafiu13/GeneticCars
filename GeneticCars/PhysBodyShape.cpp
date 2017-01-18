@@ -2,7 +2,7 @@
 
 PhysBodyShape::PhysBodyShape()
 {
-	vertices = std::make_unique<b2Vec2[]>(V);
+	vertices_ = std::make_unique<b2Vec2[]>(V);
 }
 
 
@@ -34,25 +34,15 @@ void PhysBodyShape::createBodyShape(b2World& world)
 	this->setBody(polygon);
 }
 
-
-
-void PhysBodyShape::setVertices(std::vector<std::unique_ptr<b2Vec2>> const & tab)
-{
-	for (int i = 0; i < V; ++i) {
-		vertices[i].x = tab[i]->x;
-		vertices[i].y = tab[i]->y;
-	}
-}
-
-void PhysBodyShape::setVert(std::vector<ShapePoint> vec)
+void PhysBodyShape::setVerticesFromShapePoints(std::vector<ShapePoint> vec)
 {
 	for (int i = 0; i < vec.size(); ++i) {
-		vertices[i].x = vec[i].getX();
-		vertices[i].y = vec[i].getY();
+		vertices_[i].x = vec[i].getX();
+		vertices_[i].y = vec[i].getY();
 	}
 }
 
-b2Vec2 * PhysBodyShape::getVertices()
+b2Vec2 * PhysBodyShape::getVertices() const
 {
-	return vertices.get();
+	return vertices_.get();
 }

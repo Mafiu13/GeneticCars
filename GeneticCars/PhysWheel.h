@@ -6,18 +6,36 @@
 #include "PhysElement.h"
 #include "ShapePoint.h"
 
+/**
+* \class PhysWheel
+* Klasa odpowiadajaca kolu pojazdu
+*
+*/
+
 class PhysWheel : public PhysElement
 {
-	float radius;
-	ShapePoint jointPoint;
+	/**
+	* Promien kola
+	*/
+	float radius_;
+	/**
+	* Punkt doloaczenia kola do pojazdu
+	*/
+	ShapePoint jointPoint_;
 public:
 	PhysWheel();
 	~PhysWheel();
-	float getRadius();
-	ShapePoint getJointPoint();
+	float getRadius() const;
 	void setRadius(float);
+	ShapePoint getJointPoint() const;
 	void setJointPoint(ShapePoint);
+	/**
+	* Metoda uaktulniajaca predkosc katowa kol
+	*/
 	void updateVelocity();
+	/**
+	* Metoda tworzaca kolo w silniku fizycznym
+	*/
 	void createWheel(b2World &);
 };
 

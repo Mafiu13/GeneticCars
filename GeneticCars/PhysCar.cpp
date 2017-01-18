@@ -6,67 +6,67 @@ PhysCar::PhysCar()
 
 PhysCar::~PhysCar()
 {
-	b2World * world = bodyShape->getBody()->GetWorld();
-	for (b2RevoluteJoint* joint : joints) {
+	b2World * world = bodyShape_->getBody()->GetWorld();
+	for (b2RevoluteJoint* joint : joints_) {
 		world->DestroyJoint(joint);
 	}
-	for (WheelSh wheel : wheels) {
+	for (PPhysWheel wheel : wheels_) {
 		world->DestroyBody(wheel->getBody());
 	}
-	world->DestroyBody(bodyShape->getBody());
+	world->DestroyBody(bodyShape_->getBody());
 }
 
 
-std::vector<WheelSh> PhysCar::getWheels()
+std::vector<PPhysWheel> PhysCar::getWheels() const
 {
-	return wheels;
+	return wheels_;
 }
 
-PhysBodyShape * PhysCar::getBodyShape()
+PhysBodyShape * PhysCar::getBodyShape() const
 {
-	return bodyShape.get();
+	return bodyShape_.get();
 }
 
-void PhysCar::setBodyShape(BodyShapeSh b)
+void PhysCar::setBodyShape(PPhysBodyShape b)
 {
-	bodyShape = b;
+	bodyShape_ = b;
 }
 
-void PhysCar::setWheels(std::vector<WheelSh> v)
+void PhysCar::setWheels(std::vector<PPhysWheel> v)
 {
-	wheels = v;
+	wheels_ = v;
 }
 
-void PhysCar::setParts(std::vector<WheelSh> v, BodyShapeSh b)
+void PhysCar::setParts(std::vector<PPhysWheel> v, PPhysBodyShape b)
 {
-	wheels = v;
-	bodyShape = b;
+	wheels_ = v;
+	bodyShape_ = b;
 }
 
-void PhysCar::createJoint(b2World & World, WheelSh wheel)
+void PhysCar::createJoint(b2World & World, PPhysWheel wheel)
 {
 	b2RevoluteJointDef jointdef;
 
-	jointdef.bodyA = bodyShape->getBody();
+	jointdef.bodyA = bodyShape_->getBody();
 	jointdef.bodyB = wheel->getBody();
 
 	jointdef.localAnchorA.Set(wheel->getJointPoint().getX(), wheel->getJointPoint().getY()); // ustawiamy punkt zaczepu w pierwszym ciele. Jest on we wspó³rzêdnych LOKALNYCH cia³a
 	jointdef.localAnchorB.Set(0, 0);  // i w drugim
 	jointdef.collideConnected = false; // cia³a po³¹czone revolute jointem NIE MOG¥ ze sob¹ kolidowaæ
 	jointdef.enableLimit = false; // musimy wlaczyc limit
-	joints.push_back((b2RevoluteJoint*)World.CreateJoint(&jointdef));
+	joints_.push_back((b2RevoluteJoint*)World.CreateJoint(&jointdef));
 }
 
 void PhysCar::createJoints(b2World& world)
 {
-	for (WheelSh wheel : wheels) {
+	for (PPhysWheel wheel : wheels_) {
 		createJoint(world, wheel);
 	}
 }
 
 void PhysCar::updateVelocity()
 {
-	for (WheelSh wheel : wheels) {
+	for (PPhysWheel wheel : wheels_) {
 		wheel->updateVelocity();
 	}
 }

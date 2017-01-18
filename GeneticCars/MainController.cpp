@@ -8,8 +8,8 @@ MainController::MainController()
 
 MainController::MainController(int size, float rate)
 {
-	populationManager = boost::make_shared<PopulationManager>(size, rate);
-	simulation = boost::make_shared<PhysSimulation>();
+	populationManager_ = boost::make_shared<PopulationManager>(size, rate);
+	simulation_ = boost::make_shared<PhysSimulation>();
 }
 
 
@@ -17,49 +17,51 @@ MainController::~MainController()
 {
 }
 
-PPhysSimulation MainController::getSimualation()
+PPhysSimulation MainController::getSimualation() const
 {
-	return simulation;
+	return simulation_;
 }
 
-PPopulationManager MainController::getPopulationManager()
+PPopulationManager MainController::getPopulationManager() const
 {
-	return populationManager;
+	return populationManager_;
 }
 
-PAppWindow MainController::getWindow()
+PAppWindow MainController::getWindow() const
 {
-	return window;
+	return window_;
 }
 
 void MainController::setSimulation(PPhysSimulation s)
 {
-	simulation = s;
+	simulation_ = s;
 }
 
 void MainController::setPopulationManager(PPopulationManager p)
 {
-	populationManager = p;
+	populationManager_ = p;
 }
 
 void MainController::setWindow(PAppWindow w)
 {
-	window = w;
+	window_ = w;
 }
 
-std::vector<CarSh> MainController::convertPhysCarToCar(std::vector<Car> cars)
+std::vector<PPhysCar> MainController::convertPhysCarToCar(std::vector<Car> cars)
 {
-	std::vector<CarSh> physCars;
-	std::vector<WheelSh> w;
-	WheelSh wheel;
+	std::vector<PPhysCar> physCars;
+	std::vector<PPhysWheel> w;
+	PPhysWheel wheel;
 	PhysBodyShape shape;
-	for (int i = 0; i < cars.size(); ++i) {
+	for (int i = 0; i < cars.size(); ++i) 
+	{
 		w.clear();
 		physCars.push_back(boost::make_shared<PhysCar>());
 		physCars[i]->setBodyShape(boost::make_shared<PhysBodyShape>());
 		physCars[i]->getBodyShape()->setDensity(cars[i].getChromosome().getBodyShape().getDensity());
-		physCars[i]->getBodyShape()->setVert(cars[i].getChromosome().getBodyShape().getShapePoints());
-		for (Wheel wh : cars[i].getChromosome().getWheels()) {
+		physCars[i]->getBodyShape()->setVerticesFromShapePoints(cars[i].getChromosome().getBodyShape().getShapePoints());
+		for (Wheel wh : cars[i].getChromosome().getWheels()) 
+		{
 			wheel = boost::make_shared<PhysWheel>();
 			wheel->setDensity(wh.getDensity());
 			wheel->setRadius(wh.getRadius());
@@ -71,10 +73,11 @@ std::vector<CarSh> MainController::convertPhysCarToCar(std::vector<Car> cars)
 	return physCars;
 }
 
-std::vector<float> MainController::getDistances()
+std::vector<float> MainController::getDistancesFromPhysCars()
 {
 	std::vector<float> out;
-	for (CarSh car: simulation->getPopulation()->getCars()) {
+	for (PPhysCar car: simulation_->getPopulation()->getCars()) 
+	{
 		out.push_back(car->getBodyShape()->getBody()->GetPosition().x);
 	}
 	return out;
@@ -82,91 +85,81 @@ std::vector<float> MainController::getDistances()
 
 void MainController::simulatePupulation()
 {
-	simulation->updateSimulation();
-	window->drawAll(simulation->getDrawing());
-	window->getWindow().display();
-	window->getView().setCenter(sf::Vector2f(simulation->getPopulation()->getTheFastestX() * SCALE, 300));
-	window->setViewToWindow();
+	simulation_->updateSimulation();
+	window_->drawAll(simulation_->getDrawing());
+	window_->getWindow().display();
+	window_->getView().setCenter(sf::Vector2f(simulation_->getPopulation()->getTheFastestX() * SCALE, 300));
+	window_->setViewToWindow();
 }
 
 bool MainController::finishCheck()
 {
 	bool finish = false;
-	if (simulation->getPopulation()->getTheFastestX() > 0) {
+	if (simulation_->getPopulation()->getTheFastestX() > 0)
+	{
 		finish = true;
 	}
-	for (CarSh car : simulation->getPopulation()->getCars()) {
-		if (car->getBodyShape()->getBody()->GetLinearVelocity().x > 0.01 || abs(car->getBodyShape()->getBody()->GetLinearVelocity().y) > 0.01)
+	for (PPhysCar car : simulation_->getPopulation()->getCars()) {
+		if (car->getBodyShape()->getBody()->GetLinearVelocity().x > 0.01 || (abs(car->getBodyShape()->getBody()->GetLinearVelocity().y) > 0.01))
+		{
 			finish = false;
+			if (car->getBodyShape()->getBody()->GetLinearVelocity().y > 10)
+			{
+				finish = true;
+			}
+		}
 	}
 	return finish;
 }
 
 void MainController::createAll()
 {
-	simulation->createSimulation();
+	simulation_->createSimulation();
 
-	inPop = populationManager->generateInitialPopulation();
-	getSimualation()->getPopulation()->setCars(convertPhysCarToCar(inPop));
-	simulation->getPopulation()->createCars(*simulation->getWorld());
+	inPop_ = populationManager_->generateInitialPopulation();
+	getSimualation()->getPopulation()->setCars(convertPhysCarToCar(inPop_));
+	simulation_->getPopulation()->createCars(*simulation_->getWorld());
 }
 
-void MainController::setSize(int i)
-{
-	size = i;
-}
 
-void MainController::setRate(float f)
+std::vector<Car> MainController::getInPop() const
 {
-	rate = f;
-}
-
-int MainController::getSize()
-{
-	return size;
-}
-
-float MainController::getRate()
-{
-	return rate;
-}
-
-std::vector<Car> MainController::getInPop()
-{
-	return inPop;
+	return inPop_;
 }
 
 void MainController::setInPop(std::vector<Car> c)
 {
-	inPop = c;
+	inPop_ = c;
 }
 
-void MainController::setDistances()
+void MainController::setDistancesToCars()
 {
-	for (int i = 0; i < inPop.size(); ++i)
+	for (int i = 0; i < inPop_.size(); ++i)
 	{
-		inPop[i].setDistance(getDistances()[i]);
+		inPop_[i].setDistance(getDistancesFromPhysCars()[i]);
 	}
 }
 
 void MainController::runAll()
 {
-	for (int i = 0; i < simulation->getSimSteps(); ++i) {
+	for (int i = 0; i < simulation_->getSimSteps(); ++i) 
+	{
 		sf::Event zdarzenie;
-		while (window->getWindow().pollEvent(zdarzenie))
+		while (window_->getWindow().pollEvent(zdarzenie))
 		{
 			if (zdarzenie.type == sf::Event::Closed)
-				window->getWindow().close();
+				window_->getWindow().close();
 			if (zdarzenie.type == sf::Event::KeyPressed && zdarzenie.key.code == sf::Keyboard::Escape)
-				window->getWindow().close();//obsluga zdarzenia wcisniecia ESC	
+				window_->getWindow().close();//obsluga zdarzenia wcisniecia ESC	
 		}
-		if (finishCheck() == true) {
-			setDistances();
-			nextPop.clear();
-			nextPop = populationManager->generateNextPopulation(inPop);
-			simulation->getPopulation()->setCars(convertPhysCarToCar(nextPop));
-			simulation->getPopulation()->createCars(*simulation->getWorld());
-			setInPop(nextPop);
+		if (finishCheck() == true) 
+		{
+			setDistancesToCars();
+			nextPop_.clear();
+			nextPop_ = populationManager_->generateNextPopulation(inPop_);
+			simulation_->getPopulation()->setCars(convertPhysCarToCar(nextPop_));
+			simulation_->getPopulation()->createCars(*simulation_->getWorld());
+			setInPop(nextPop_);
 		}
 		simulatePupulation();
 	}

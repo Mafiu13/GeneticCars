@@ -9,20 +9,20 @@ PhysPopulation::~PhysPopulation()
 {
 }
 
-std::vector<CarSh> PhysPopulation::getCars()
+std::vector<PPhysCar> PhysPopulation::getCars() const
 {
-	return cars;
+	return cars_;
 }
 
-void PhysPopulation::setCars(std::vector<CarSh> c)
+void PhysPopulation::setCars(std::vector<PPhysCar> c)
 {
-	cars = c;
+	cars_ = c;
 }
 
-float PhysPopulation::getTheFastestX()
+float PhysPopulation::getTheFastestX() const
 {
 	float first = 0;
-	for (CarSh car : cars) {
+	for (PPhysCar car : cars_) {
 		if (car->getBodyShape()->getBody()->GetPosition().x > first && car->getBodyShape()->getBody()->GetPosition().y < 20) {
 			first = car->getBodyShape()->getBody()->GetPosition().x;
 		}
@@ -32,16 +32,16 @@ float PhysPopulation::getTheFastestX()
 
 void PhysPopulation::updateVelocity()
 {
-	for (CarSh car : cars) {
+	for (PPhysCar car : cars_) {
 		car->updateVelocity();
 	}
 }
 
 void PhysPopulation::createCars(b2World& world)
 {
-	for (CarSh car : this->cars) {
+	for (PPhysCar car : this->cars_) {
 		car->getBodyShape()->createBodyShape(world);
-		for (WheelSh wheel : car->getWheels()) {
+		for (PPhysWheel wheel : car->getWheels()) {
 			wheel->createWheel(world);
 		}
 		car->createJoints(world);

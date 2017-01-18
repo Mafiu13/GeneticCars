@@ -2,9 +2,9 @@
 #include "const.h"
 
 
-PhysTrack::PhysTrack()
+PhysTrack::PhysTrack(int n)
 {
-	arr = std::make_unique<b2Vec2[]>(N);
+	arr_ = std::make_unique<b2Vec2[]>(n);
 }
 
 
@@ -12,19 +12,24 @@ PhysTrack::~PhysTrack()
 {
 }
 
-b2Vec2 * PhysTrack::getArr()
+b2Vec2 * PhysTrack::getArr() const
 {
-	return arr.get();
+	return arr_.get();
 }
 
-void PhysTrack::createTrack(b2World & world)
+int PhysTrack::getN() const
+{
+	return n_;
+}
+
+void PhysTrack::createTrack(b2World & world, int n)
 {
 	b2BodyDef chainDefinition;
 	chainDefinition.type = b2_staticBody;
 	b2Body * chain = (world.CreateBody(&chainDefinition));
 	b2ChainShape chainShape; // stanowi krawedz, lancuch odcinkow, nie ma grubosci ani masy
 	
-	chainShape.CreateChain(arr.get(), N);
+	chainShape.CreateChain(arr_.get(), n);
 
 	b2FixtureDef chainFixture;
 	chainFixture.shape = &chainShape;
@@ -37,7 +42,7 @@ void PhysTrack::createTrack(b2World & world)
 }
 
 //h1 - przedzial wysokosci, h0 - wysokosc poczatkowa, d - dlugosc odcinka
-void PhysTrack::generateTrack(int delta_h, int h0, int d)
+void PhysTrack::generateTrack(int delta_h, int h0, int d, int n)
 {
 	int b1 = 0; //losowanie wspolrzednej x, wartosc poczatkowa
 	int b2 = d; //losowanie wspolrzednej x, wartosc koncowa
@@ -46,7 +51,7 @@ void PhysTrack::generateTrack(int delta_h, int h0, int d)
 	int temp = 0;
 
 	srand(time(NULL));
-	for (int i = 0; i < N; ++i) {
+	for (int i = 0; i < n; ++i) {
 		l1 = (std::rand() % delta_h) + h0;
 		do
 		{
@@ -56,7 +61,8 @@ void PhysTrack::generateTrack(int delta_h, int h0, int d)
 		temp = l2;
 		b1 += d;
 		b2 += d;
-		arr[i] = b2Vec2(l2 / SCALE, l1 / SCALE);
+		arr_[i] = b2Vec2(l2 / SCALE, l1 / SCALE);
 	}
-	arr[0].x = -d;
+	arr_[0].x = -d;
+	n_ = n;
 }

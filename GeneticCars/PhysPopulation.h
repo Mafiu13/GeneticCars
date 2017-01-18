@@ -7,20 +7,36 @@
 #include "Car.h"
 #include "PhysTrack.h"
 #include <iostream>
-
-typedef boost::shared_ptr <PhysCar> CarSh;
+/**
+* \class PhysPopulation
+* Klasa odpowiadajaca populacji pojazdow,
+*
+*/
+typedef boost::shared_ptr <PhysCar> PPhysCar;
 
 class PhysPopulation
 {
-	std::vector<CarSh> cars;
+	/**
+	* Wektor sprytnych wskaznikow na pojazdy
+	*/
+	std::vector<PPhysCar> cars_;
 
 public:
 	PhysPopulation();
 	~PhysPopulation();
-	std::vector<CarSh> getCars();
-	void setCars(std::vector<CarSh>);
-	float getTheFastestX();
+	std::vector<PPhysCar> getCars() const;
+	void setCars(std::vector<PPhysCar>);
+	/**
+	* Metoda zwracajaca polozenie najszybszego pojazdu
+	*/
+	float getTheFastestX() const;
+	/**
+	* Metoda uaktualniajaca predkosc aut
+	*/
 	void updateVelocity();
+	/**
+	* Metoda tworzaca auta w silniku fizycznym
+	*/
 	void createCars(b2World&);
 };
 

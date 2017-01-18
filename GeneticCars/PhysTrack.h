@@ -10,20 +10,36 @@
 #include "const.h"
 #include "PhysElement.h"
 
+/**
+* \class PhysTrack
+* Klasa odpowiadajaca trasie, po ktorej poruszaja sie pojazdy
+*
+*/
+
 class PhysTrack : public PhysElement
 {
-	//tablica sprytnych wskaznikow do stworzenia trasy
-	//tablica, a nie wektor bo tablicy wymaga konstruktor obiektu z biblioteki box2d
-	std::unique_ptr<b2Vec2[]> arr;
+	/**
+	* tablica sprytnych wskaznikow na wierzcholki trasy
+	*/
+	std::unique_ptr<b2Vec2[]> arr_;
+	/**
+	* liczba wierzcholkow
+	*/
+	int n_;
 
 public:
-	PhysTrack();
+	PhysTrack(int);
 	~PhysTrack();
-
-	b2Vec2 * getArr();
-
-	void createTrack(b2World &);
-	void generateTrack(int, int, int);
+	b2Vec2 * getArr() const;
+	int getN() const;
+	/**
+	* metoda generujaca generujaca trase na podstawie podanych parametrow
+	*/
+	void generateTrack(int, int, int, int);
+	/**
+	* metoda tworzaca trase w silniku fizycznym
+	*/
+	void createTrack(b2World &, int);
 };
 
 #endif

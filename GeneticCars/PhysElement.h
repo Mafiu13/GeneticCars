@@ -4,15 +4,27 @@
 #include<Box2D/Box2D.h>
 #include "const.h"
 
+/**
+* \class PhysElement
+* Klasa, po ktorej dziedzicza wszstkie elementy odwzorowane w silniku fizycznym
+*
+*/
+
 class PhysElement
 {
-	b2Body * body;
-	float density;
+	/**
+	* wskaznik na cialo elementu w silniku fizyczniym
+	*/
+	b2Body * body_;
+	/**
+	* gestosc ciala
+	*/
+	float density_;
 public:
 	PhysElement();
 	~PhysElement();
 	b2Body * getBody();
-	float getDensity();
+	float getDensity() const;
 	void setBody(b2Body *);
 	void setDensity(float);
 

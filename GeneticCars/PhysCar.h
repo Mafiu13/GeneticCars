@@ -9,25 +9,43 @@
 #include "PhysWheel.h"
 #include "const.h"
 
-typedef boost::shared_ptr <PhysWheel> WheelSh;
-typedef boost::shared_ptr <PhysBodyShape> BodyShapeSh;
+typedef boost::shared_ptr <PhysWheel> PPhysWheel;
+typedef boost::shared_ptr <PhysBodyShape> PPhysBodyShape;
 
 class PhysCar
 {
-	std::vector<WheelSh> wheels;
-	BodyShapeSh bodyShape;
-	std::vector<b2RevoluteJoint*> joints;
+	/**
+	* Wektor sprytnych wskaznikow na kola pojazdu
+	*/
+	std::vector<PPhysWheel> wheels_;
+	/**
+	* Sprytny wskaznik na nadwozie
+	*/
+	PPhysBodyShape bodyShape_;
+	/**
+	* wektor wskaznikow na polaczenia kol z nadwoziem
+	*/
+	std::vector<b2RevoluteJoint*> joints_;
 
 public:
 	PhysCar();
 	~PhysCar();
-	std::vector<boost::shared_ptr <PhysWheel>> getWheels();
-	PhysBodyShape * getBodyShape();
-	void setBodyShape(BodyShapeSh);
-	void setWheels(std::vector<WheelSh>);
-	void setParts(std::vector<WheelSh>, BodyShapeSh);
-	void createJoint(b2World&, WheelSh);
+	std::vector<PPhysWheel> getWheels() const;
+	PhysBodyShape * getBodyShape() const;
+	void setBodyShape(PPhysBodyShape);
+	void setWheels(std::vector<PPhysWheel>);
+	void setParts(std::vector<PPhysWheel>, PPhysBodyShape);
+	/**
+	* Metoda tworzaca polaczenie kola z nadwoziem
+	*/
+	void createJoint(b2World&, PPhysWheel);
+	/**
+	* Metoda wszystkie polaczenia kol z nadwoziem
+	*/
 	void createJoints(b2World&);
+	/**
+	* Metoda uaktualniajaca predkosc kol pojazdu
+	*/
 	void updateVelocity();
 };
 

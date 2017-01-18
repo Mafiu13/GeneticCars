@@ -8,25 +8,25 @@ PhysWheel::~PhysWheel()
 {
 }
 
-float PhysWheel::getRadius()
+float PhysWheel::getRadius() const
 {
-	return radius;
+	return radius_;
 }
 
-ShapePoint PhysWheel::getJointPoint()
+ShapePoint PhysWheel::getJointPoint() const
 {
-	return jointPoint;
+	return jointPoint_;
 }
 
 void PhysWheel::setRadius(float r)
 {
-	radius = r;
+	radius_ = r;
 }
 
 void PhysWheel::setJointPoint(ShapePoint p)
 {
-	jointPoint.setX(p.getX());
-	jointPoint.setY(p.getY());
+	jointPoint_.setX(p.getX());
+	jointPoint_.setY(p.getY());
 }
 
 
@@ -34,12 +34,12 @@ void PhysWheel::createWheel(b2World & world)
 {
 	b2BodyDef circleDefinition;
 	circleDefinition.type = b2_dynamicBody;
-	circleDefinition.position.Set(jointPoint.getX(), jointPoint.getY());
+	circleDefinition.position.Set(jointPoint_.getX(), jointPoint_.getY());
 
 	b2Body * circle =  world.CreateBody(&circleDefinition);
 
 	b2CircleShape circleShape;
-	circleShape.m_radius = this->radius;
+	circleShape.m_radius = this->radius_;
 
 	b2FixtureDef circleFixture;
 	circleFixture.shape = &circleShape;

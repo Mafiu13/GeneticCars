@@ -13,22 +13,22 @@ PhysElement::~PhysElement()
 
 b2Body * PhysElement::getBody()
 {
-	return body;
+	return body_;
 }
 
-float PhysElement::getDensity()
+float PhysElement::getDensity() const
 {
-	return density;
+	return density_;
 }
 
 void PhysElement::setBody(b2Body * b)
 {
-	body = b;
+	body_ = b;
 }
 
 void PhysElement::setDensity(float d)
 {
-	density = d;
+	density_ = d;
 }
 
 

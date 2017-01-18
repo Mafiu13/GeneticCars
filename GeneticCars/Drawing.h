@@ -8,24 +8,54 @@
 #include "PhysBodyShape.h"
 #include "const.h"
 
-typedef boost::shared_ptr <PhysCar> CarSh;
+/**
+*\class Drawing
+* Klasa odpowiadajaca wszelkich rysowanym obiektom
+*
+*/
+
+typedef boost::shared_ptr <PhysCar> PPhysCar;
 class Drawing
 {
-	std::vector<sf::CircleShape> circles;
-	std::vector<sf::ConvexShape> polygons;
-	sf::VertexArray line;
+	/**
+	* wektor rysowanych kol
+	*/
+	std::vector<sf::CircleShape> circles_;
+	/**
+	* wektor rysowanych wielokatow
+	*/
+	std::vector<sf::ConvexShape> polygons_;
+	/**
+	* Obiekt odpowiadajcy wygenerowanej trasie
+	*/
+	sf::VertexArray line_;
 
 public:
 	Drawing();
 	~Drawing();
-	std::vector<sf::CircleShape> getCircle();
-	std::vector<sf::ConvexShape> getPolygons();
-	sf::VertexArray getLine();
+	std::vector<sf::CircleShape> getCircle() const;
+	std::vector<sf::ConvexShape> getPolygons() const;
+	sf::VertexArray getLine() const;
+	/**
+	* Metoda rysujaca obiekt odpowiadajacy trasie
+	*/
 	void drawTrack(PhysTrack *);
+	/**
+	* Metoda rysujaca kola pojazdow
+	*/
 	sf::CircleShape drawCircle(PhysWheel *);
+	/**
+	* Metoda rysujaca nadwozia pojazdow
+	*/
 	sf::ConvexShape drawPolygon(PhysBodyShape *);
+	/**
+	* Metoda rysujaca pojedynczy pojazd
+	*/
 	void drawCar(PhysCar *);
-	void drawCars(std::vector<CarSh>);
+	/**
+	* Metoda rysujaca pojazdy z calej populacji
+	*/
+	void drawCars(std::vector<PPhysCar>);
 };
 
 #endif
