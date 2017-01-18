@@ -12,7 +12,8 @@
 * Klasa odpowiadajaca populacji pojazdow,
 *
 */
-typedef boost::shared_ptr <PhysCar> PPhysCar;
+class PhysPopulation;
+typedef boost::shared_ptr <PhysPopulation> PPhysPopulation;
 
 class PhysPopulation
 {

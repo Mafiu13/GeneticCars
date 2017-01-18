@@ -16,6 +16,7 @@ std::vector<PPhysCar> PhysPopulation::getCars() const
 
 void PhysPopulation::setCars(std::vector<PPhysCar> c)
 {
+	cars_.clear();
 	cars_ = c;
 }
 

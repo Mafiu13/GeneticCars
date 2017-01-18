@@ -9,8 +9,8 @@
 #include "PhysWheel.h"
 #include "CarConst.h"
 
-typedef boost::shared_ptr <PhysWheel> PPhysWheel;
-typedef boost::shared_ptr <PhysBodyShape> PPhysBodyShape;
+class PhysCar;
+typedef boost::shared_ptr <PhysCar> PPhysCar;
 
 class PhysCar
 {

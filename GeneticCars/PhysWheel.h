@@ -2,6 +2,7 @@
 #define PHYSWHEEL_H
 
 #include <Box2D/Box2D.h>
+#include <boost/make_shared.hpp>
 #include "CarConst.h"
 #include "PhysElement.h"
 #include "ShapePoint.h"
@@ -12,6 +13,8 @@
 * Klasa odpowiadajaca kolu pojazdu
 *
 */
+class PhysWheel;
+typedef boost::shared_ptr <PhysWheel> PPhysWheel;
 
 class PhysWheel : public PhysElement
 {

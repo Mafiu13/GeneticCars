@@ -64,7 +64,7 @@ void PhysTrack::generateTrack(int delta_h, int h0, int d, int n)
 		b2 += d;
 		arr_[i] = b2Vec2(l2 / SCALE, l1 / SCALE);
 	}
-	for (int i = 0; i < 6; ++i) {
+	for (int i = 0; i < n * 0.1; ++i) {
 		arr_[i].y = h0 / SCALE;
 	}
 	arr_[0].x = -d;

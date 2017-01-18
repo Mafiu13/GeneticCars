@@ -12,9 +12,8 @@
 *
 */
 
-typedef boost::shared_ptr <PhysSimulation> PPhysSimulation;
-typedef boost::shared_ptr <PopulationManager> PPopulationManager;
-typedef boost::shared_ptr <AppWindow> PAppWindow;
+class MainController;
+typedef boost::shared_ptr <MainController> PMainController;
 
 class MainController
 {
