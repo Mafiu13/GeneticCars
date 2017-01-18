@@ -30,18 +30,21 @@ class PhysTrack : public PhysElement
 	int n_;
 
 public:
-	PhysTrack(int);
+	PhysTrack(int n);
 	~PhysTrack();
 	b2Vec2 * getArr() const;
 	int getN() const;
 	/**
 	* metoda generujaca generujaca trase na podstawie podanych parametrow
+	* @param delta_h - przedzial wysokosci / maksymalna wysokosc uskokow trasy
+	* @param h0 - wysokosc bazowa podloza
+	* @param d - dlugosc tworzonego odcinka drogi
 	*/
-	void generateTrack(int, int, int);
+	void generateTrack(int delta_h, int h0, int d);
 	/**
 	* metoda tworzaca trase w silniku fizycznym
 	*/
-	void createTrack(b2World &, int);
+	void createTrack(b2World & world, int n);
 };
 
 #endif

@@ -32,14 +32,12 @@ public:
 	/**
 	* metoda kopiujaca wartosci z podanego wektora do wskaznikow w tablicy  vertices_
 	*/
-	void setVerticesFromShapePoints(std::vector<ShapePoint>);
+	void setVerticesFromShapePoints(std::vector<ShapePoint> points);
 	/**
 	* metoda tworzaca nadwozie w silniku fizycznym
+	* @param world - symulowany swiat fizyczny
 	*/
-	void createBodyShape(b2World&);
+	void createBodyShape(b2World& world);
 };
-
-
-
 
 #endif

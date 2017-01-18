@@ -14,10 +14,10 @@ std::vector<PPhysCar> PhysPopulation::getCars() const
 	return cars_;
 }
 
-void PhysPopulation::setCars(std::vector<PPhysCar> c)
+void PhysPopulation::setCars(std::vector<PPhysCar> cars)
 {
 	cars_.clear();
-	cars_ = c;
+	cars_ = cars;
 }
 
 float PhysPopulation::getTheFastestX() const

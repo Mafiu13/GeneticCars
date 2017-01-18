@@ -32,15 +32,25 @@ class AppWindow
 	WPMainController controller_;
 
 public:
-	AppWindow(boost::shared_ptr<MainController>);
+	/**
+	* Konstruktor okna aplikacji
+	* @param c - sprytny wskaznik na glowny kontroler
+	* @param width - szerokosc widoku
+	* @param height - wysokosc okna
+	* @param bitsPerPixel - ilosc bitow na pixel, jakosc kolorow
+	* @param name nazwa aplikacji
+	*/
+	AppWindow(boost::shared_ptr<MainController> c, float width, float height, int bitsPerPixel, std::string name);
 	~AppWindow();
-	AppWindow(boost::shared_ptr<MainController>, float, float, int, std::string);
+	sf::RenderWindow & getWindow();
+	sf::View & getView();
 	sf::RenderWindow & getWindow();
 	sf::View & getView();
 	/**
 	* Metoda rysujaca wszystkie obiekty na widoku
+	*@param drawing - rysunek
 	*/
-	void drawAll(boost::shared_ptr<Drawing>);
+	void drawAll(boost::shared_ptr<Drawing> drawing);
 	/**
 	* Uaktualnienie widoku okna
 	*/

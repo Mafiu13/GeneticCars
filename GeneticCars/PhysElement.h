@@ -29,8 +29,8 @@ public:
 	~PhysElement();
 	b2Body * getBody();
 	float getDensity() const;
-	void setBody(b2Body *);
-	void setDensity(float);
+	void setBody(b2Body * body);
+	void setDensity(float density);
 
 };
 

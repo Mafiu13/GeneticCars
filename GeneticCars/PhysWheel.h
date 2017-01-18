@@ -31,17 +31,18 @@ public:
 	PhysWheel();
 	~PhysWheel();
 	float getRadius() const;
-	void setRadius(float);
+	void setRadius(float radius);
 	ShapePoint getJointPoint() const;
-	void setJointPoint(ShapePoint);
+	void setJointPoint(ShapePoint point);
 	/**
-	* Metoda uaktulniajaca predkosc katowa kol
+	* Metoda uaktulniajaca predkosc katowa kol, dbanie o ich stala predkosc
 	*/
 	void updateVelocity();
 	/**
 	* Metoda tworzaca kolo w silniku fizycznym
+	* @param world - symulaowany swiat fizyczny
 	*/
-	void createWheel(b2World &);
+	void createWheel(b2World& world);
 };
 
 

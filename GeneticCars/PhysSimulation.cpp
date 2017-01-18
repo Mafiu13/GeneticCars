@@ -64,21 +64,21 @@ void PhysSimulation::updateSimulation()
 	drawing_->drawCars(population_->getCars());
 }
 
-void PhysSimulation::setWorldParams(float g, float f, int i1, int i2, int i3)
+void PhysSimulation::setWorldParams(float g, float time, int steps, int vel, int pos)
 {
 	gravity_ = g;
-	simTime_ = f;
-	simSteps_ = i1;
-	velocityIt_ = i2;
-	positionIt_ = i3;
+	simTime_ = time;
+	simSteps_ = steps;
+	velocityIt_ = vel;
+	positionIt_ = pos;
 }
 
-void PhysSimulation::setTrackParams(int i1, int i2, int i3, int i4)
+void PhysSimulation::setTrackParams(int delta_h, int h0, int d, int n)
 {
-	h1_ = i1;
-	h2_ = i2;
-	d_ = i3;
-	n_ = i4;
+	h1_ = delta_h;
+	h2_ = h0;
+	d_ = d;
+	n_ = n;
 }
 
 
