@@ -40,7 +40,7 @@ void PhysSimulation::setPopulation(PPhysPopulation p)
 void PhysSimulation::createTrack()
 {
 	track_ = boost::make_shared<PhysTrack>(n_);
-	track_->generateTrack(h1_, h2_, d_, n_);
+	track_->generateTrack(h1_, h2_, d_);
 	track_->createTrack(*this->world_.get(), n_);
 }
 

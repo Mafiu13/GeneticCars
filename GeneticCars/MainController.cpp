@@ -80,7 +80,6 @@ std::vector<float> MainController::getDistancesFromPhysCars()
 	{
 		out.push_back(car->getBodyShape()->getBody()->GetPosition().x);
 	}
-	std::cout << out.size() << endl;
 	return out;
 }
 
@@ -130,7 +129,7 @@ std::vector<Car> MainController::getInPop() const
 
 void MainController::setInPop(std::vector<Car> c)
 {
-	for (int i = 0; i < c.size(); ++i) {
+	for (int i = 0; i < inPop_.size(); ++i) {
 		inPop_[i] = c[i];
 	}
 }
