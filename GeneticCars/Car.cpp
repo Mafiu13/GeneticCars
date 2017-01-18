@@ -8,7 +8,6 @@ Car::Car(Chromosome chromosome)
 	this->distance = -1;
 }
 
-
 Car::~Car()
 {
 }

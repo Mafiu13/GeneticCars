@@ -11,14 +11,15 @@ public:
 
 	vector<Car> generateInitialPopulation();
 	vector<Car> generateNextPopulation(const vector<Car> currentPopulation);
-	Car getBestCar(const vector<Car> populationWithDistance);
+	pair<float, int> getBestCarInfo(const vector<Car> populationWithDistance);
 
 private:
 	const int populationSize;
 
 	EvolutionaryService evolutionaryService;
 
-	shared_ptr<Car> bestCar;
+	pair<float, int> bestCarInfo;
+	int currentPopulationNr;
 };
 
 #endif
