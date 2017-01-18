@@ -6,7 +6,7 @@
 #include "PhysTrack.h"
 #include "PhysWheel.h"
 #include "PhysBodyShape.h"
-#include "const.h"
+#include "CarConst.h"
 
 /**
 *\class Drawing

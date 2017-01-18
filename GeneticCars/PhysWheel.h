@@ -2,9 +2,10 @@
 #define PHYSWHEEL_H
 
 #include <Box2D/Box2D.h>
-#include "const.h"
+#include "CarConst.h"
 #include "PhysElement.h"
 #include "ShapePoint.h"
+
 
 /**
 * \class PhysWheel
@@ -22,6 +23,7 @@ class PhysWheel : public PhysElement
 	* Punkt doloaczenia kola do pojazdu
 	*/
 	ShapePoint jointPoint_;
+
 public:
 	PhysWheel();
 	~PhysWheel();
@@ -38,5 +40,6 @@ public:
 	*/
 	void createWheel(b2World &);
 };
+
 
 #endif

@@ -88,7 +88,7 @@ void MainController::simulatePupulation()
 	simulation_->updateSimulation();
 	window_->drawAll(simulation_->getDrawing());
 	window_->getWindow().display();
-	window_->getView().setCenter(sf::Vector2f(simulation_->getPopulation()->getTheFastestX() * SCALE, 300));
+	window_->getView().setCenter(sf::Vector2f(simulation_->getPopulation()->getFollowX() * SCALE, 300));
 	window_->setViewToWindow();
 }
 
@@ -100,10 +100,10 @@ bool MainController::finishCheck()
 		finish = true;
 	}
 	for (PPhysCar car : simulation_->getPopulation()->getCars()) {
-		if (car->getBodyShape()->getBody()->GetLinearVelocity().x > 0.01 || (abs(car->getBodyShape()->getBody()->GetLinearVelocity().y) > 0.01))
+		if (car->getBodyShape()->getBody()->GetLinearVelocity().x > 0.1 || (abs(car->getBodyShape()->getBody()->GetLinearVelocity().y) > 0.1))
 		{
 			finish = false;
-			if (car->getBodyShape()->getBody()->GetLinearVelocity().y > 10)
+			if (car->getBodyShape()->getBody()->GetLinearVelocity().y > 20)
 			{
 				finish = true;
 			}

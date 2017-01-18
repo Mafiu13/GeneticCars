@@ -14,7 +14,7 @@
 #include "ShapePoint.h"
 #include "PhysCar.h"
 #include "Drawing.h"
-#include "const.h"
+#include "CarConst.h"
 #include "PhysPopulation.h"
 #include "Car.h"
 
@@ -60,15 +60,13 @@ class PhysSimulation
 	*/
 	float gravity_;
 	/**
-	* parametry trasy: h1 - przedzial wysokosci, h0 - wysokosc poczatkowa, d - dlugosc odcinka
+	* parametry trasy: h1 - przedzial wysokosci, h0 - wysokosc poczatkowa, d - dlugosc odcinka, n - ilosc odcinkow
 	*/
 	int h1_;
 	int h2_;
 	int d_;
 	int n_;
-	/**
-	* parametry trasy: h1 - przedzial wysokosci, h0 - wysokosc poczatkowa, d - dlugosc odcinka
-	*/
+
 public:
 	PhysSimulation();
 	~PhysSimulation();

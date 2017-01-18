@@ -51,7 +51,8 @@ void PhysTrack::generateTrack(int delta_h, int h0, int d, int n)
 	int temp = 0;
 
 	srand(time(NULL));
-	for (int i = 0; i < n; ++i) {
+	for (int i = 0; i < n; ++i) 
+	{
 		l1 = (std::rand() % delta_h) + h0;
 		do
 		{
@@ -62,6 +63,9 @@ void PhysTrack::generateTrack(int delta_h, int h0, int d, int n)
 		b1 += d;
 		b2 += d;
 		arr_[i] = b2Vec2(l2 / SCALE, l1 / SCALE);
+	}
+	for (int i = 0; i < 6; ++i) {
+		arr_[i].y = h0 / SCALE;
 	}
 	arr_[0].x = -d;
 	n_ = n;

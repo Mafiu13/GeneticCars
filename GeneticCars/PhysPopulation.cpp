@@ -23,7 +23,22 @@ float PhysPopulation::getTheFastestX() const
 {
 	float first = 0;
 	for (PPhysCar car : cars_) {
-		if (car->getBodyShape()->getBody()->GetPosition().x > first && car->getBodyShape()->getBody()->GetPosition().y < 20) {
+		if (car->getBodyShape()->getBody()->GetPosition().x > first && car->getBodyShape()->getBody()->GetPosition().y < 20)
+		{
+			first = car->getBodyShape()->getBody()->GetPosition().x;
+		}
+	}
+	return first;
+}
+
+float PhysPopulation::getFollowX() const
+{
+	float first = 0;
+	for (PPhysCar car : cars_) {
+		if (car->getBodyShape()->getBody()->GetPosition().x > first &&
+			car->getBodyShape()->getBody()->GetPosition().y < 20 &&
+			car->getBodyShape()->getBody()->GetLinearVelocity().x > 0.1)
+		{
 			first = car->getBodyShape()->getBody()->GetPosition().x;
 		}
 	}
