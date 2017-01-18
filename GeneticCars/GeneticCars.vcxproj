@@ -219,6 +219,8 @@
     <ClCompile Include="ShapePoint.cpp" />
     <ClCompile Include="PhysSimulation.cpp" />
     <ClCompile Include="PhysTrack.cpp" />
+    <ClCompile Include="TestPhysBodyShape.cpp" />
+    <ClCompile Include="TestPhysCar.cpp" />
     <ClCompile Include="TestPhysWheel.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
