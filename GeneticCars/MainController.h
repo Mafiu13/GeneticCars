@@ -9,13 +9,19 @@
 typedef boost::shared_ptr <PhysSimulation> PPhysSimulation;
 typedef boost::shared_ptr <PopulationManager> PPopulationManager;
 typedef boost::shared_ptr <AppWindow> PAppWindow;
+
 class MainController
 {
 	PPhysSimulation simulation;
 	PPopulationManager populationManager;
 	PAppWindow window;
+	int size;
+	float rate;
+	std::vector<Car> inPop;
+	std::vector<Car> nextPop;
 public:
 	MainController();
+	MainController(int, float);
 	~MainController();
 	PPhysSimulation getSimualation();
 	PPopulationManager getPopulationManager();
@@ -27,6 +33,15 @@ public:
 	std::vector<float> getDistances();
 	void simulatePupulation();
 	bool finishCheck();
+	void createAll();
+	void setSize(int);
+	void setRate(float);
+	int getSize();
+	float getRate();
+	std::vector<Car> getInPop();
+	void setInPop(std::vector<Car>);
+	void setDistances();
+	void runAll();
 };
 
 #endif

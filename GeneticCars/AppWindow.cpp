@@ -2,16 +2,23 @@
 
 
 
-AppWindow::AppWindow()
+AppWindow::AppWindow(boost::shared_ptr<MainController> c)
+{
+	controller = c;
+}
+
+AppWindow::~AppWindow()
 {
 }
 
-AppWindow::AppWindow(int width, int height, int bitsPerPixel, std::string name)
+
+AppWindow::AppWindow(boost::shared_ptr<MainController> c, int width, int height, int bitsPerPixel, std::string name)
 {
 	window.create(sf::VideoMode(width, height, bitsPerPixel), name);
 	view.setCenter(sf::Vector2f(width / 2, height / 2));
 	view.setSize(sf::Vector2f(width, height));
 	window.setView(view);
+	controller = c;
 }
 
 sf::RenderWindow & AppWindow::getWindow()
@@ -42,6 +49,4 @@ void AppWindow::setViewToWindow()
 }
 
 
-AppWindow::~AppWindow()
-{
-}
+

@@ -23,7 +23,7 @@ public:
 	b2Vec2 * getArr();
 
 	void createTrack(b2World &);
-	void generateTrack(int h1, int h2, int d);
+	void generateTrack(int, int, int);
 };
 
 #endif

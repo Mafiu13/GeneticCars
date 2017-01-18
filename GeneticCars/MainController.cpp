@@ -6,6 +6,12 @@ MainController::MainController()
 {
 }
 
+MainController::MainController(int size, float rate)
+{
+	populationManager = boost::make_shared<PopulationManager>(size, rate);
+	simulation = boost::make_shared<PhysSimulation>();
+}
+
 
 MainController::~MainController()
 {
@@ -95,3 +101,74 @@ bool MainController::finishCheck()
 	}
 	return finish;
 }
+
+void MainController::createAll()
+{
+	simulation->createSimulation();
+
+	inPop = populationManager->generateInitialPopulation();
+	getSimualation()->getPopulation()->setCars(convertPhysCarToCar(inPop));
+	simulation->getPopulation()->createCars(*simulation->getWorld());
+}
+
+void MainController::setSize(int i)
+{
+	size = i;
+}
+
+void MainController::setRate(float f)
+{
+	rate = f;
+}
+
+int MainController::getSize()
+{
+	return size;
+}
+
+float MainController::getRate()
+{
+	return rate;
+}
+
+std::vector<Car> MainController::getInPop()
+{
+	return inPop;
+}
+
+void MainController::setInPop(std::vector<Car> c)
+{
+	inPop = c;
+}
+
+void MainController::setDistances()
+{
+	for (int i = 0; i < inPop.size(); ++i)
+	{
+		inPop[i].setDistance(getDistances()[i]);
+	}
+}
+
+void MainController::runAll()
+{
+	for (int i = 0; i < simulation->getSimSteps(); ++i) {
+		sf::Event zdarzenie;
+		while (window->getWindow().pollEvent(zdarzenie))
+		{
+			if (zdarzenie.type == sf::Event::Closed)
+				window->getWindow().close();
+			if (zdarzenie.type == sf::Event::KeyPressed && zdarzenie.key.code == sf::Keyboard::Escape)
+				window->getWindow().close();//obsluga zdarzenia wcisniecia ESC	
+		}
+		if (finishCheck() == true) {
+			setDistances();
+			nextPop.clear();
+			nextPop = populationManager->generateNextPopulation(inPop);
+			simulation->getPopulation()->setCars(convertPhysCarToCar(nextPop));
+			simulation->getPopulation()->createCars(*simulation->getWorld());
+			setInPop(nextPop);
+		}
+		simulatePupulation();
+	}
+}
+
