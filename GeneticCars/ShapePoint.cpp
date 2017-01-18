@@ -17,12 +17,12 @@ ShapePoint::~ShapePoint()
 {
 }
 
-float ShapePoint::getX()
+float ShapePoint::getX() const
 {
 	return x;
 }
 
-float ShapePoint::getY()
+float ShapePoint::getY() const
 {
 	return y;
 }

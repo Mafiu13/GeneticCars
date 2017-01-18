@@ -12,12 +12,12 @@ Car::~Car()
 {
 }
 
-Chromosome Car::getChromosome()
+Chromosome Car::getChromosome() const
 {
 	return chromosome;
 }
 
-float Car::getDistance()
+float Car::getDistance() const
 {
 	return distance;
 }

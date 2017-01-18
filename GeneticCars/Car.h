@@ -4,13 +4,24 @@
 #include "CarConst.h"
 #include "Chromosome.h"
 
+/**
+* \class Car
+*
+* \brief Pojazd
+*
+*/
 class Car
 {
 public:
-	Car(Chromosome);
+	/**
+	* Konstruktor Car
+	* \param chromosome chromosom pojazdu
+	*
+	*/
+	Car(Chromosome chromosome);
 	~Car();
-	Chromosome getChromosome();
-	float getDistance();
+	Chromosome getChromosome() const;
+	float getDistance() const;
 	void setDistance(float);
 private:
 	Chromosome chromosome;

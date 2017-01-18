@@ -7,15 +7,42 @@
 #include <map>
 
 using namespace std;
-
+/**
+* \class IndividualService
+*
+* \brief Serwis zarzadzajacy cechami pojazdu
+*
+*/
 class IndividualService
 {
 public:
-	IndividualService(float const);
+	/**
+	* Konstruktor IndividualService
+	* \param mutationRate stopien mutacji
+	*
+	*/
+	IndividualService(float const mutationRate);
 	~IndividualService();
 
+	/**
+	* Metoda zwraca pojazd o randomowych cechach
+	*
+	*/
 	Car getRandomCar();
+
+	/**
+	* Metoda zwraca pojazd posiadajacy skrzyzowanie cechu dwoch rodzicow-pojazdow
+	* \param parentA pierwszy z rodizcow
+	* \param parentA drugi z rodizcow
+	*
+	*/
 	vector<Car> getCrossoveredCars(Car parentA, Car parentB);
+
+	/**
+	* Metoda mutuj i zwraca pojazd o zmutowanych cechach
+	* \param pojazd ktorego cechy maja byc zmutowane
+	*
+	*/
 	Car getMutatedCar(Car car);
 
 private:

@@ -4,12 +4,24 @@
 #include "ShapePoint.h"
 #include <vector>
 
+/**
+* \class BodyShape
+*
+* \brief Nadwozie pojazdu
+*
+*/
 class BodyShape
 {
 public:
-	BodyShape(std::vector<ShapePoint>, float);
+	/**
+	* Konstruktor BodyShape
+	* \param shapePoints punkty okreslajace ksztalt nadwozia
+	* \param density gestosc nadwozia
+	*
+	*/
+	BodyShape(std::vector<ShapePoint> shapePoints, float density);
 	~BodyShape();
-	std::vector<ShapePoint> getShapePoints();
+	std::vector<ShapePoint> getShapePoints() const;
 	float getDensity();
 private:
 	std::vector<ShapePoint> shapePoints;

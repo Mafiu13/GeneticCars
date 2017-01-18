@@ -14,7 +14,7 @@ BodyShape::~BodyShape()
 {
 }
 
-std::vector<ShapePoint> BodyShape::getShapePoints()
+std::vector<ShapePoint> BodyShape::getShapePoints() const
 {
 	return shapePoints;
 }

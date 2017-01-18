@@ -86,6 +86,9 @@ vector<float> EvolutionaryService::getPopulationScores(const vector<Car> populat
 	{
 		distanceSum += car.getDistance();
 	}
+	if (distanceSum == 0) {
+		distanceSum = 0.1;
+	}
 	for (Car car : population)
 	{
 		float score = car.getDistance() / distanceSum;
@@ -97,6 +100,7 @@ vector<float> EvolutionaryService::getPopulationScores(const vector<Car> populat
 
 int EvolutionaryService::getCarIndexFromRoulletteWheel(vector<float> roulletteWheel)
 {
+	float maxPocket = *max_element(roulletteWheel.begin(), roulletteWheel.end());
 	float randomPocket = randomService.getRandomFloat(0.0, 1.0);
 	for (int i = 0; i < roulletteWheel.size(); ++i)
 	{

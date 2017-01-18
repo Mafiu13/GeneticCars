@@ -13,12 +13,12 @@ Chromosome::~Chromosome()
 {
 }
 
-BodyShape Chromosome::getBodyShape()
+BodyShape Chromosome::getBodyShape() const
 {
 	return bodyShape;
 }
 
-std::vector<Wheel> Chromosome::getWheels()
+std::vector<Wheel> Chromosome::getWheels() const
 {
 	return wheels;
 }
