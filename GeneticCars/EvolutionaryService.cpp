@@ -34,9 +34,8 @@ vector<Car> EvolutionaryService::createNextPopulation(const vector<Car> previous
 	return nextPopulation;
 }
 
-Car EvolutionaryService::getBestCarInPopulation(const vector<Car> population)
+float EvolutionaryService::getBestCarDistanceInPopulation(const vector<Car> population)
 {
-	shared_ptr<Car> bestCar;
 	float longestDistance = 0.0;
 	for (Car car : population)
 	{
@@ -44,10 +43,10 @@ Car EvolutionaryService::getBestCarInPopulation(const vector<Car> population)
 		if (longestDistance < distance)
 		{
 			longestDistance = distance;
-			*bestCar = car;
+
 		}
 	}
-	return *bestCar;
+	return longestDistance;
 }
 
 void EvolutionaryService::generateParentsForNextPopulation(const vector<Car> previousPopulation)

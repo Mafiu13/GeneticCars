@@ -8,7 +8,7 @@ int main()
 {
 	// Krotki opis dzialania - PopulationManager
 
-	const int size = 2; // rozmiar populacji 
+	const int size = 10; // rozmiar populacji 
 	const float rate = 0.0; // wspolczynnik mutacji od 0.0 - 1.0 - im wiekszy tym wieksza sznasa na mutacje, przy 0 nie ma mutacji
 	PopulationManager *pm = new PopulationManager(size, rate); // robisz managera do populacji
 	std::vector<Car> inPop = pm->generateInitialPopulation(); // generujesz pierwsza populacje ( z randomowymi wartosciami w carach)
@@ -24,7 +24,7 @@ int main()
 	}
 	std::cout << "\n";
 	// //Nie uzywaj tego jeszcze, nie dziala dobrze ;/
-	//Car bestCar = pm->getBestCar(inPop); // zwraca ci najlepszy samocho z wszytskich dotychczasowych populacji wlacznie z ta ktora podajesz/ wazne musisz podac populacje carow z wstawionymi wartosciami distance inaczej wybuchnie
+	pair<float, int> bci = pm->getBestCarInfo(inPop); // zwraca ci najlepszy samocho z wszytskich dotychczasowych populacji wlacznie z ta ktora podajesz/ wazne musisz podac populacje carow z wstawionymi wartosciami distance inaczej wybuchnie
 	std::vector<Car> newPop = pm->generateNextPopulation(inPop); // dajesz w parametrze poprzednia populacje z wstawionymi wartosciami distance i dostajesz nowa populacje / dalej uzywasz juz tej metody i tworzysz kolejne populacje
 	for (Car &car : newPop)
 	{

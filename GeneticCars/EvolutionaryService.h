@@ -14,7 +14,7 @@ public:
 
 	vector<Car> createFirstPopulation();
 	vector<Car> createNextPopulation(const vector<Car> previousPopulation);
-	Car getBestCarInPopulation(const vector<Car> population);
+	float getBestCarDistanceInPopulation(const vector<Car> population);
 
 private:
 
