@@ -25,14 +25,14 @@ void Drawing::drawCar(PhysCar * car)
 	for (PPhysWheel wheel : car->getWheels()) {
 		circle = this->drawCircle(wheel.get());
 		pos = wheel->getBody()->GetPosition();
-		circle.setPosition(pos.x*SCALE, pos.y*SCALE);
+		circle.setPosition(pos.x * SCALE, pos.y * SCALE);
 		circles_.push_back(circle);
 	}
 
 	sf::ConvexShape polygon = this->drawPolygon(car->getBodyShape());
 
 	pos = car->getBodyShape()->getBody()->GetPosition();
-	polygon.setPosition(pos.x*SCALE, pos.y*SCALE);
+	polygon.setPosition(pos.x * SCALE, pos.y * SCALE);
 	
 	polygons_.push_back(polygon);
 }
@@ -86,8 +86,8 @@ sf::ConvexShape Drawing::drawPolygon(PhysBodyShape * bodyShape)
 {
 	int transparency = (int)(200 * (bodyShape->getDensity()) + 50);
 	sf::ConvexShape polygon;
-	polygon.setPointCount(V);
-	for (int i = 0; i < V; ++i) {
+	polygon.setPointCount(NR_OF_POINTS_IN_BODYSHAPE);
+	for (int i = 0; i < NR_OF_POINTS_IN_BODYSHAPE; ++i) {
 		polygon.setPoint(i, sf::Vector2f(bodyShape->getVertices()[i].x * SCALE, bodyShape->getVertices()[i].y * SCALE));
 	}
 	polygon.setOrigin(0, 0);

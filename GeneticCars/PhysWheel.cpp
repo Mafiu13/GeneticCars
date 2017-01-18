@@ -49,13 +49,13 @@ void PhysWheel::createWheel(b2World & world)
 	circleFixture.filter.maskBits = 0x0001;
 
 	circle->CreateFixture(&circleFixture);
-	circle->SetAngularVelocity(Velocity);
+	circle->SetAngularVelocity(VELOCITY);
 	
 	this->setBody(circle);
 }
 
 void PhysWheel::updateVelocity()
 {
-	this->getBody()->SetAngularVelocity(Velocity);
+	this->getBody()->SetAngularVelocity(VELOCITY);
 }
 

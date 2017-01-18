@@ -7,7 +7,7 @@
 #include "ShapePoint.h"
 #include "PhysBodyShape.h"
 #include "PhysWheel.h"
-#include "const.h"
+#include "CarConst.h"
 
 typedef boost::shared_ptr <PhysWheel> PPhysWheel;
 typedef boost::shared_ptr <PhysBodyShape> PPhysBodyShape;
@@ -26,7 +26,6 @@ class PhysCar
 	* wektor wskaznikow na polaczenia kol z nadwoziem
 	*/
 	std::vector<b2RevoluteJoint*> joints_;
-
 public:
 	PhysCar();
 	~PhysCar();

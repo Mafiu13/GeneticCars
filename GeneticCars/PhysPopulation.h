@@ -2,7 +2,7 @@
 #define PHYSPOPULATION_H
 
 #include<Box2D/Box2D.h>
-#include "const.h"
+#include "CarConst.h"
 #include "PhysCar.h"
 #include "Car.h"
 #include "PhysTrack.h"
@@ -20,6 +20,10 @@ class PhysPopulation
 	* Wektor sprytnych wskaznikow na pojazdy
 	*/
 	std::vector<PPhysCar> cars_;
+	/**
+	* ilosc wierzcholkow pojazdow
+	*/
+	int vec_;
 
 public:
 	PhysPopulation();
@@ -30,6 +34,10 @@ public:
 	* Metoda zwracajaca polozenie najszybszego pojazdu
 	*/
 	float getTheFastestX() const;
+	/**
+	* Metoda zwracajaca auto do sledzenia
+	*/
+	float getFollowX() const;
 	/**
 	* Metoda uaktualniajaca predkosc aut
 	*/

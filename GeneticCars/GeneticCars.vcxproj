@@ -219,9 +219,9 @@
     <ClCompile Include="ShapePoint.cpp" />
     <ClCompile Include="PhysSimulation.cpp" />
     <ClCompile Include="PhysTrack.cpp" />
+    <ClCompile Include="testPhysWheel.cpp" />
     <ClCompile Include="Wheel.cpp" />
     <ClCompile Include="PhysWheel.cpp" />
-    <ClCompile Include="const.cpp" />
     <ClCompile Include="PhysPopulation.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -235,7 +235,6 @@
     <ClInclude Include="Drawing.h" />
     <ClInclude Include="PhysElement.h" />
     <ClInclude Include="EvolutionaryService.h" />
-    <ClInclude Include="const.h" />
     <ClInclude Include="CarConst.h" />
     <ClInclude Include="EvolutionaryConst.h" />
     <ClInclude Include="IndividualService.h" />

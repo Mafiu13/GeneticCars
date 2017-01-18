@@ -2,7 +2,7 @@
 
 PhysBodyShape::PhysBodyShape()
 {
-	vertices_ = std::make_unique<b2Vec2[]>(V);
+	vertices_ = std::make_unique<b2Vec2[]>(NR_OF_POINTS_IN_BODYSHAPE);
 }
 
 
@@ -19,7 +19,7 @@ void PhysBodyShape::createBodyShape(b2World& world)
 
 	b2PolygonShape polygonShape;
 	
-	polygonShape.Set(this->getVertices(), V);
+	polygonShape.Set(this->getVertices(), NR_OF_POINTS_IN_BODYSHAPE);
 
 	b2FixtureDef polygonFixture;
 	polygonFixture.shape = &polygonShape;
