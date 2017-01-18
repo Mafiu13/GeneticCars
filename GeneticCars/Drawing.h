@@ -40,23 +40,26 @@ public:
 	/**
 	* Metoda rysujaca obiekt odpowiadajacy trasie
 	*/
-	void drawTrack(PhysTrack *);
+	void drawTrack(PhysTrack * track);
 	/**
 	* Metoda rysujaca kola pojazdow
+	* @param ko³o do narysowania
 	*/
-	sf::CircleShape drawCircle(PhysWheel *);
+	sf::CircleShape drawCircle(PhysWheel * wheel);
 	/**
 	* Metoda rysujaca nadwozia pojazdow
+	* @param nadwozie do narysowania
 	*/
-	sf::ConvexShape drawPolygon(PhysBodyShape *);
+	sf::ConvexShape drawPolygon(PhysBodyShape * bodyShape);
 	/**
 	* Metoda rysujaca pojedynczy pojazd
 	*/
-	void drawCar(PhysCar *);
+	void drawCar(PhysCar * car);
 	/**
 	* Metoda rysujaca pojazdy z calej populacji
+	* @param wektor pokazdow
 	*/
-	void drawCars(std::vector<PPhysCar>);
+	void drawCars(std::vector<PPhysCar> cars);
 };
 
 #endif

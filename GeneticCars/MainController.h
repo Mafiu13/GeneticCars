@@ -39,20 +39,20 @@ class MainController
 	std::vector<Car> nextPop_;
 public:
 	MainController();
-	MainController(int, float);
+	MainController(int size, float rate);
 	~MainController();
 	PPhysSimulation getSimualation() const;
 	PPopulationManager getPopulationManager() const;
 	PAppWindow getWindow() const;
 	std::vector<Car> getInPop() const;
-	void setSimulation(PPhysSimulation);
-	void setPopulationManager(PPopulationManager);
-	void setWindow(PAppWindow);
-	void setInPop(std::vector<Car>);
+	void setSimulation(PPhysSimulation simulation);
+	void setPopulationManager(PPopulationManager pm);
+	void setWindow(PAppWindow window);
+	void setInPop(std::vector<Car> cars);
 	/**
 	* Metoda konwertujaca pojazdy modelu ewolucyjnego na pojazdy wykorzystywane w silniku fizycznym
 	*/
-	std::vector<PPhysCar> convertPhysCarToCar(std::vector<Car>);
+	std::vector<PPhysCar> convertPhysCarToCar(std::vector<Car> cars);
 	/**
 	* Metoda zwracajaca wektor odleglosci pojazdow
 	*/

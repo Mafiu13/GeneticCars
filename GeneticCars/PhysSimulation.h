@@ -75,8 +75,15 @@ public:
 	b2World* getWorld() const;
 	int getSimSteps() const;
 	void setPopulation(PPhysPopulation);
-	void setWorldParams(float, float, int, int, int);
-	void setTrackParams(int, int, int, int);
+	void setWorldParams(float g, float time, int steps, int vel, int pos);
+	/**
+	* ustawienie parametrow trasy
+	* @param delta_h - wysokosc uskokow
+	* @param h0 - wysokosc bazowa
+	* @param d - dlugosc odcinkow trasy
+	* @param n - liczba odcinkow trasy (dlugosc trasy n*d)
+	*/
+	void setTrackParams(int delta_h, int h0, int d, int n);
 	/**
 	* metoda tworzaca trase 
 	*/

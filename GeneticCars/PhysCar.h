@@ -31,17 +31,18 @@ public:
 	~PhysCar();
 	std::vector<PPhysWheel> getWheels() const;
 	PhysBodyShape * getBodyShape() const;
-	void setBodyShape(PPhysBodyShape);
-	void setWheels(std::vector<PPhysWheel>);
-	void setParts(std::vector<PPhysWheel>, PPhysBodyShape);
+	void setBodyShape(PPhysBodyShape body);
+	void setWheels(std::vector<PPhysWheel> wheels);
+	void setParts(std::vector<PPhysWheel> wheels, PPhysBodyShape body);
 	/**
 	* Metoda tworzaca polaczenie kola z nadwoziem
 	*/
-	void createJoint(b2World&, PPhysWheel);
+	void createJoint(b2World& world, PPhysWheel wheel);
 	/**
 	* Metoda wszystkie polaczenia kol z nadwoziem
+	* @param - symulowany swiat fizyczny
 	*/
-	void createJoints(b2World&);
+	void createJoints(b2World& world);
 	/**
 	* Metoda uaktualniajaca predkosc kol pojazdu
 	*/

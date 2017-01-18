@@ -18,15 +18,15 @@ ShapePoint PhysWheel::getJointPoint() const
 	return jointPoint_;
 }
 
-void PhysWheel::setRadius(float r)
+void PhysWheel::setRadius(float radius)
 {
-	radius_ = r;
+	radius_ = radius;
 }
 
-void PhysWheel::setJointPoint(ShapePoint p)
+void PhysWheel::setJointPoint(ShapePoint point)
 {
-	jointPoint_.setX(p.getX());
-	jointPoint_.setY(p.getY());
+	jointPoint_.setX(point.getX());
+	jointPoint_.setY(point.getY());
 }
 
 

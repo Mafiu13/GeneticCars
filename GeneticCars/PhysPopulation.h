@@ -26,7 +26,7 @@ public:
 	PhysPopulation();
 	~PhysPopulation();
 	std::vector<PPhysCar> getCars() const;
-	void setCars(std::vector<PPhysCar>);
+	void setCars(std::vector<PPhysCar> cars);
 	/**
 	* Metoda zwracajaca polozenie najszybszego pojazdu
 	*/
@@ -41,8 +41,9 @@ public:
 	void updateVelocity();
 	/**
 	* Metoda tworzaca auta w silniku fizycznym
+	* @param world - symulowany swiat fizyczny
 	*/
-	void createCars(b2World&);
+	void createCars(b2World& world);
 };
 
 #endif

@@ -23,7 +23,7 @@ int PhysTrack::getN() const
 	return n_;
 }
 
-void PhysTrack::createTrack(b2World & world, int n)
+void PhysTrack::createTrack(b2World& world, int n)
 {
 	b2BodyDef chainDefinition;
 	chainDefinition.type = b2_staticBody;
