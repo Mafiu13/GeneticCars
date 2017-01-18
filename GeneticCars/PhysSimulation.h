@@ -30,19 +30,25 @@ class PhysSimulation
 	// te dwie wartosci maja wplyw na dokladnosc symulacji. Im wieksze wartosci, tym fizyka bedzie dokladniejsza, ale wolniejsza
 	int velocityIt;
 	int positionIt;
+	float gravity;
+	//parametry trasy
+	int h1;
+	int h2;
+	int d;
 	
 public:
 	PhysSimulation();
-	PhysSimulation(float, int, int, int);
 	~PhysSimulation();
 	PhysPopulation* getPopulation();
 	boost::shared_ptr<Drawing> getDrawing();
 	b2World* getWorld();
 	int getSimSteps();
 	void setPopulation(boost::shared_ptr<PhysPopulation>);
-	void createTrack(int, int, int);
+	void createTrack();
 	void createSimulation();
 	void updateSimulation();
+	void setWorldParams(float, float, int, int, int);
+	void setTrackParams(int, int, int);
 };
 
 #endif

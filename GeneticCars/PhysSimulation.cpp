@@ -3,28 +3,11 @@
 
 PhysSimulation::PhysSimulation()
 {
-	b2Vec2 g(0, Gravity);
-	world = boost::make_shared<b2World>(g);
-	world->Step(simTime/simSteps, velocityIt, positionIt);
 	population = boost::make_shared<PhysPopulation>();
 	drawing = boost::make_shared<Drawing>();
 	track = boost::make_shared<PhysTrack>();
 }
 
-PhysSimulation::PhysSimulation(float time, int steps, int vel, int pos)
-{
-	b2Vec2 g(0, Gravity);
-	world = boost::make_shared<b2World>(g);
-	world->Step(simTime / simSteps, velocityIt, positionIt);
-	population = boost::make_shared<PhysPopulation>();
-	drawing = boost::make_shared<Drawing>();
-	track = boost::make_shared<PhysTrack>();
-
-	simTime = time;
-	simSteps = steps;
-	velocityIt = vel;
-	positionIt = pos;
-}
 
 PhysSimulation::~PhysSimulation()
 {
@@ -56,16 +39,20 @@ void PhysSimulation::setPopulation(boost::shared_ptr<PhysPopulation> p)
 	population = p;
 }
 
-void PhysSimulation::createTrack(int h1, int h2, int d)
+void PhysSimulation::createTrack()
 {
 	track->generateTrack(h1, h2, d);
 	track->createTrack(*this->world.get());
 }
 
-
-//testowa symulacja
 void PhysSimulation::createSimulation()
 {
+	b2Vec2 g(0, gravity);
+	world = boost::make_shared<b2World>(g);
+	world->Step(simTime / simSteps, velocityIt, positionIt);
+
+	createTrack();
+
 	population->updateVelocity();
 	drawing->drawCars(population->getCars());
 	drawing->drawTrack(track.get());
@@ -76,6 +63,22 @@ void PhysSimulation::updateSimulation()
 	world->Step(simTime / simSteps, velocityIt, positionIt);
 	population->updateVelocity();
 	drawing->drawCars(population->getCars());
+}
+
+void PhysSimulation::setWorldParams(float g, float f, int i1, int i2, int i3)
+{
+	gravity = g;
+	simTime = f;
+	simSteps = i1;
+	velocityIt = i2;
+	positionIt = i3;
+}
+
+void PhysSimulation::setTrackParams(int i1, int i2, int i3)
+{
+	h1 = i1;
+	h2 = i2;
+	d = i3;
 }
 
 
