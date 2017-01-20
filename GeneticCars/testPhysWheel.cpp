@@ -10,5 +10,4 @@ BOOST_AUTO_TEST_CASE(TestPhysWheel_Attributes)
 	wheel->setRadius(0.4);
 	BOOST_CHECK_EQUAL(wheel->getDensity(), 0.5);
 	BOOST_CHECK_EQUAL(wheel->getRadius(), 0.4);
-
 }

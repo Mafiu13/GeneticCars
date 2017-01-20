@@ -20,5 +20,4 @@ BOOST_AUTO_TEST_CASE(TestPhysWheel_Attributes)
 	BOOST_CHECK_EQUAL(bodyShape->getVertices()[0].y, 0);
 	BOOST_CHECK_EQUAL(bodyShape->getVertices()[2].x, -1);
 	BOOST_CHECK_EQUAL(bodyShape->getVertices()[2].y, 1);
-
 }

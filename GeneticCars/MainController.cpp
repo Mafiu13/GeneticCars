@@ -95,22 +95,26 @@ void MainController::simulatePupulation()
 bool MainController::finishCheck()
 {
 	bool finish = false;
+	int cnt = 0;
 
-	for (PPhysCar car : simulation_->getPopulation()->getCars()) 
+	if (simulation_->getPopulation()->getTheFastestX() > 1)
+		finish = true;
+
+	do
 	{
-		if (car->getBodyShape()->getBody()->GetPosition().y > 0 && simulation_->getPopulation()->getTheFastestX() > 1) {
-			finish = true;
-		}
-
-		if (car->getBodyShape()->getBody()->GetLinearVelocity().x > 0.05 || (abs(car->getBodyShape()->getBody()->GetLinearVelocity().y) > 0.05))
+		for (PPhysCar car : simulation_->getPopulation()->getCars())
 		{
-			finish = false;
-			if (car->getBodyShape()->getBody()->GetLinearVelocity().y > 20)
+			if (abs(car->getBodyShape()->getBody()->GetLinearVelocity().x) > 0.001 || (abs(car->getBodyShape()->getBody()->GetLinearVelocity().y) > 0.001))
 			{
-				finish = true;
+				finish = false;
+				if (car->getBodyShape()->getBody()->GetPosition().y > 20)
+					finish = true;
 			}
 		}
-	}
+		if (finish == true)
+			++cnt;
+	} while (finish != false && cnt < 3);
+
 	return finish;
 }
 

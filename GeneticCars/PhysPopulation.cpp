@@ -38,7 +38,7 @@ float PhysPopulation::getFollowX() const
 	for (PPhysCar car : cars_) {
 		if (car->getBodyShape()->getBody()->GetPosition().x > first &&
 			car->getBodyShape()->getBody()->GetPosition().y < 20 &&
-			car->getBodyShape()->getBody()->GetLinearVelocity().x > 0.1)
+			car->getBodyShape()->getBody()->GetLinearVelocity().x > 0.01)
 		{
 			first = car->getBodyShape()->getBody()->GetPosition().x;
 		}
