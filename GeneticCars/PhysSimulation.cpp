@@ -64,6 +64,11 @@ void PhysSimulation::updateSimulation()
 	drawing_->drawCars(population_->getCars());
 }
 
+void PhysSimulation::destroyTrack()
+{
+	world_.get()->DestroyBody(track_->getBody());
+}
+
 void PhysSimulation::setWorldParams(float g, float time, int steps, int vel, int pos)
 {
 	gravity_ = g;

@@ -44,6 +44,8 @@ public:
 	* @param world - symulowany swiat fizyczny
 	*/
 	void createCars(b2World& world);
+
+	void destroyCars(b2World & world);
 };
 
 #endif

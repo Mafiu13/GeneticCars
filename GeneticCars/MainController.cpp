@@ -163,6 +163,7 @@ void MainController::runAll()
 		}
 		if (finishCheck() == true) 
 		{
+			simulation_->getPopulation()->destroyCars(*simulation_->getWorld());
 			setDistancesToCars();
 			nextPop_.clear();
 			nextPop_ = populationManager_->generateNextPopulation(inPop_);
@@ -172,5 +173,8 @@ void MainController::runAll()
 		}
 		simulatePupulation();
 	}
+	//tam gdzie masz tworzenie nowej symulacji wywolaj przed tym funkcje destroyCars() z PhysPopulation i nastepnie destroyTrack() z physSimulation
+	// to usunie najpierws pojazdy ze swiata a pozniej sciezke
+
 }
 

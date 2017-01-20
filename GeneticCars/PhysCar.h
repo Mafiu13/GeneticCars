@@ -31,6 +31,7 @@ public:
 	~PhysCar();
 	std::vector<PPhysWheel> getWheels() const;
 	PhysBodyShape * getBodyShape() const;
+	std::vector<b2RevoluteJoint*> getJoints();
 	void setBodyShape(PPhysBodyShape body);
 	void setWheels(std::vector<PPhysWheel> wheels);
 	void setParts(std::vector<PPhysWheel> wheels, PPhysBodyShape body);

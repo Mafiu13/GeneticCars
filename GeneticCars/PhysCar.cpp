@@ -6,10 +6,6 @@ PhysCar::PhysCar()
 
 PhysCar::~PhysCar()
 {
-	b2World * world = bodyShape_->getBody()->GetWorld();
-	for (b2RevoluteJoint* joint : joints_) {
-		world->DestroyJoint(joint);
-	}
 }
 
 
@@ -21,6 +17,11 @@ std::vector<PPhysWheel> PhysCar::getWheels() const
 PhysBodyShape * PhysCar::getBodyShape() const
 {
 	return bodyShape_.get();
+}
+
+std::vector<b2RevoluteJoint*> PhysCar::getJoints()
+{
+	return joints_;
 }
 
 void PhysCar::setBodyShape(PPhysBodyShape b)
