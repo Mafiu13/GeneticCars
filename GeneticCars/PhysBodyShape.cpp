@@ -8,6 +8,8 @@ PhysBodyShape::PhysBodyShape()
 
 PhysBodyShape::~PhysBodyShape()
 {
+	b2World * world = getBody()->GetWorld();
+	world->DestroyBody(getBody());
 }
 
 void PhysBodyShape::createBodyShape(b2World& world)

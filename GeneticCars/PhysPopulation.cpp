@@ -63,4 +63,3 @@ void PhysPopulation::createCars(b2World& world)
 		car->createJoints(world);
 	}
 }
-

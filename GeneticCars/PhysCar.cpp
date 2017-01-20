@@ -10,10 +10,6 @@ PhysCar::~PhysCar()
 	for (b2RevoluteJoint* joint : joints_) {
 		world->DestroyJoint(joint);
 	}
-	for (PPhysWheel wheel : wheels_) {
-		world->DestroyBody(wheel->getBody());
-	}
-	world->DestroyBody(bodyShape_->getBody());
 }
 
 
