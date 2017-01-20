@@ -96,6 +96,8 @@ public:
 	* uaktualnienie obiektow symulacji
 	*/
 	void updateSimulation();
+
+	void destroyTrack();
 };
 
 #endif

@@ -63,3 +63,17 @@ void PhysPopulation::createCars(b2World& world)
 		car->createJoints(world);
 	}
 }
+
+void PhysPopulation::destroyCars(b2World & world)
+{
+
+	for (PPhysCar car : cars_) {
+		for(b2RevoluteJoint * joint : car->getJoints()){ 
+			world.DestroyJoint(joint);
+		}
+		for (PPhysWheel wheel : car->getWheels()) {
+			world.DestroyBody(wheel->getBody());
+		}
+		world.DestroyBody(car->getBodyShape()->getBody());
+	}
+}

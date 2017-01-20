@@ -6,8 +6,6 @@ PhysWheel::PhysWheel()
 
 PhysWheel::~PhysWheel()
 {
-	b2World * world = getBody()->GetWorld();
-	world->DestroyBody(getBody());
 }
 
 float PhysWheel::getRadius() const
