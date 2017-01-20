@@ -10,10 +10,10 @@ BOOST_AUTO_TEST_CASE(TestPhysCar_Attributes)
 	std::vector<PPhysWheel> wheels;
 	PPhysWheel wheel = boost::make_shared<PhysWheel>();
 	wheels.push_back(wheel);
-	car->setWheels(wheels);
-	BOOST_CHECK(car->getWheels()[0] == wheel);
-
 	wheels.push_back(boost::make_shared<PhysWheel>());
+	car->setWheels(wheels);
+
+	BOOST_CHECK(car->getWheels()[0] == wheel);
 	BOOST_CHECK_EQUAL(car->getWheels().size(), 2);
 
 	PPhysBodyShape body = boost::make_shared<PhysBodyShape>();
