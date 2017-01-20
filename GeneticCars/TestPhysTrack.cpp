@@ -11,5 +11,4 @@ BOOST_AUTO_TEST_CASE(TestPhysTrack_Attributes)
 	track->generateTrack(50, 300, 100);
 	BOOST_CHECK_EQUAL(track->getN(), 10);
 	BOOST_CHECK(track->getArr()[5].y < 351 / SCALE && track->getArr()[5].y > 299 / SCALE);
-
 }
