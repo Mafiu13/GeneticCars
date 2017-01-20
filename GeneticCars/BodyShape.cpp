@@ -1,8 +1,6 @@
 #include "BodyShape.h"
 
 
-
-
 BodyShape::BodyShape(std::vector<ShapePoint> shapePoints, float density)
 {
 	this->shapePoints = shapePoints;

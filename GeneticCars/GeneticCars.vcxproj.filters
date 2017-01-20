@@ -192,6 +192,21 @@
     <ClCompile Include="TestPhysTrack.cpp">
       <Filter>GeneticCars\Model\PhysicalEngine\PhysTrack</Filter>
     </ClCompile>
+    <ClCompile Include="TestShapePoint.cpp">
+      <Filter>GeneticCars\Model\Data\ShapePoint</Filter>
+    </ClCompile>
+    <ClCompile Include="TestWheel.cpp">
+      <Filter>GeneticCars\Model\Data\Wheel</Filter>
+    </ClCompile>
+    <ClCompile Include="TestBodyShape.cpp">
+      <Filter>GeneticCars\Model\Data\BodyShape</Filter>
+    </ClCompile>
+    <ClCompile Include="TestChromosome.cpp">
+      <Filter>GeneticCars\Model\Data\Chromosome</Filter>
+    </ClCompile>
+    <ClCompile Include="TestCar.cpp">
+      <Filter>GeneticCars\Model\Data\Car</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Chromosome.h">
