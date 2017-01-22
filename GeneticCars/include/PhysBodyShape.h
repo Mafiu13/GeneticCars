@@ -1,4 +1,4 @@
-#ifndef PHYSBODYSHAPE_H 
+#ifndef PHYSBODYSHAPE_H
 #define PHYSBODYSHAPE_H
 
 #include <vector>
@@ -28,11 +28,14 @@ class PhysBodyShape : public PhysElement
 public:
 	PhysBodyShape();
 	~PhysBodyShape();
+        /**
+        * metoda zwracajaca wskzanik na tablice wierzcholkow nadwozia
+        */
 	b2Vec2 * getVertices() const;
 	/**
 	* metoda kopiujaca wartosci z podanego wektora do wskaznikow w tablicy  vertices_
 	*/
-	void setVerticesFromShapePoints(std::vector<ShapePoint> points);
+        void setVerticesFromShapePoints(const std::vector<ShapePoint>& points);
 	/**
 	* metoda tworzaca nadwozie w silniku fizycznym
 	* @param world - symulowany swiat fizyczny

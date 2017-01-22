@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\DELL\Documents\GeneticCars\GeneticCars\build\CMakeFiles\6e6da74b149eac28eb6edccc704e548e\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{F5F92D21-1D27-34D0-BE21-F5F804E99AB7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

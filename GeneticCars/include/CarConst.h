@@ -1,6 +1,6 @@
 #ifndef CARCONST_H 
 #define CARCONST_H
-#include <boost\math\constants\constants.hpp>
+#include <boost/math/constants/constants.hpp>
 
 const static int NR_OF_POINTS_IN_BODYSHAPE = 8;
 const static int NR_OF_WHEELS = 2;

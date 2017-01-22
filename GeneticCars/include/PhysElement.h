@@ -27,10 +27,22 @@ class PhysElement
 public:
 	PhysElement();
 	~PhysElement();
+        /**
+        * Metoda zwracajaca wskaznik na cialo w silniku fizycznym
+        */
 	b2Body * getBody();
+        /**
+        * Metoda zwracajaca gestosc ciala
+        */
 	float getDensity() const;
+        /**
+        * Metoda ustawiajaca wskaznik na cialo
+        */
 	void setBody(b2Body * body);
-	void setDensity(float density);
+        /**
+        * Metoda ustawiajaca gestosc
+        */
+        void setDensity(float const& density);
 
 };
 

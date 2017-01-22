@@ -10,6 +10,23 @@ PhysBodyShape::~PhysBodyShape()
 {
 }
 
+// metody [get]
+
+b2Vec2 * PhysBodyShape::getVertices() const
+{
+    return vertices_.get();
+}
+
+// metody [set]
+
+void PhysBodyShape::setVerticesFromShapePoints(const std::vector<ShapePoint>& vec)
+{
+    for (int i = 0; i < vec.size(); ++i) {
+        vertices_[i].x = vec[i].getX();
+        vertices_[i].y = vec[i].getY();
+    }
+}
+
 void PhysBodyShape::createBodyShape(b2World& world)
 {
 	b2BodyDef polygonDefinition;
@@ -32,17 +49,4 @@ void PhysBodyShape::createBodyShape(b2World& world)
 	polygon->CreateFixture(&polygonFixture);
 
 	this->setBody(polygon);
-}
-
-void PhysBodyShape::setVerticesFromShapePoints(std::vector<ShapePoint> vec)
-{
-	for (int i = 0; i < vec.size(); ++i) {
-		vertices_[i].x = vec[i].getX();
-		vertices_[i].y = vec[i].getY();
-	}
-}
-
-b2Vec2 * PhysBodyShape::getVertices() const
-{
-	return vertices_.get();
 }

@@ -29,12 +29,26 @@ class PhysCar
 public:
 	PhysCar();
 	~PhysCar();
+        /**
+        * Metoda zwracajaca wektor wskaznikow na kola pojazdu
+        */
 	std::vector<PPhysWheel> getWheels() const;
+        /**
+        * Metoda zwracajaca wskaznik na nadwozie pojazdu
+        */
 	PhysBodyShape * getBodyShape() const;
-	std::vector<b2RevoluteJoint*> getJoints();
+        /**
+        * Metoda zwracajaca wektor zloczen kol z nadwoziem
+        */
+        std::vector<b2RevoluteJoint*> getJoints();
+        /**
+        * Metoda ustawiajaca wskaznik nadwozia
+        */
 	void setBodyShape(PPhysBodyShape body);
+        /**
+        * Metoda ustawiajaca wektor wskaznikow na kola
+        */
 	void setWheels(std::vector<PPhysWheel> wheels);
-	void setParts(std::vector<PPhysWheel> wheels, PPhysBodyShape body);
 	/**
 	* Metoda tworzaca polaczenie kola z nadwoziem
 	*/
@@ -47,7 +61,7 @@ public:
 	/**
 	* Metoda uaktualniajaca predkosc kol pojazdu
 	*/
-	void updateVelocity();
+        void updateVelocity(const float& value);
 };
 
 #endif

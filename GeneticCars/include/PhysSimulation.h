@@ -1,11 +1,10 @@
-#ifndef PHYSSIMULATION_H 
+#ifndef PHYSSIMULATION_H
 #define PHYSSIMULATION_H
 #include <boost/shared_ptr.hpp>
 
 #include <Box2D/Box2D.h>
 #include <SFML/Graphics.hpp>
 #include <memory>
-#include <iostream>
 #include <boost/smart_ptr/make_unique.hpp>
 #include <boost/smart_ptr/make_shared.hpp>
 #include "PhysWheel.h"
@@ -70,11 +69,29 @@ class PhysSimulation
 public:
 	PhysSimulation();
 	~PhysSimulation();
-	PhysPopulation* getPopulation() const;
-	PDrawing getDrawing() const;
-	b2World* getWorld() const;
+        /**
+        * metoda zwracajaca populacje
+        */
+        PhysPopulation* getPopulation();
+        /**
+        * metoda zwracajaca rysunek
+        */
+        PDrawing getDrawing();
+        /**
+        * metoda zwracajaca wskaznik na symulowany swiat
+        */
+        b2World* getWorld();
+        /**
+        * metoda zwracajaca liczbe krokow symulacja
+        */
 	int getSimSteps() const;
-	void setPopulation(PPhysPopulation);
+        /**
+        * metoda ustawiajaca wskznik populacji
+        */
+        void setPopulation(PPhysPopulation population);
+        /**
+        * metoda ustawiajaca parametry dymulowanego swiata
+        */
 	void setWorldParams(float g, float time, int steps, int vel, int pos);
 	/**
 	* ustawienie parametrow trasy
@@ -96,8 +113,10 @@ public:
 	* uaktualnienie obiektow symulacji
 	*/
 	void updateSimulation();
-
-	void destroyTrack();
+        /**
+        * metoda usuwajaca trase z symulowanego swiata fizycznego
+        */
+        void destroyTrack();
 };
 
 #endif

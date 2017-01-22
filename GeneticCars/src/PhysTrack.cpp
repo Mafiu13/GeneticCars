@@ -1,21 +1,20 @@
 #include "PhysTrack.h"
-#include "const.h"
 
 
-PhysTrack::PhysTrack(int n)
+PhysTrack::PhysTrack(const int& n)
 {
 	arr_ = std::make_unique<b2Vec2[]>(n);
 	n_ = n;
 }
 
-
 PhysTrack::~PhysTrack()
 {
 }
 
+// ------------------metody [get]---------------
 b2Vec2 * PhysTrack::getArr() const
 {
-	return arr_.get();
+    return arr_.get();
 }
 
 int PhysTrack::getN() const
@@ -65,7 +64,7 @@ void PhysTrack::generateTrack(int delta_h, int h0, int d)
 		b2 += d;
 		arr_[i] = b2Vec2(l2 / SCALE, l1 / SCALE);
 	}
-	for (int i = 0; i < n_ * 0.1; ++i) {
+    for (int i = 0; i < 10; ++i) {
 		arr_[i].y = h0 / SCALE;
 	}
 	arr_[0].x = -5 * d / SCALE;

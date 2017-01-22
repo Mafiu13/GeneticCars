@@ -1,4 +1,4 @@
-#ifndef PHYSTRACK_H 
+#ifndef PHYSTRACK_H
 #define PHYSTRACK_H
 
 #include <boost/smart_ptr/make_unique.hpp>
@@ -30,9 +30,15 @@ class PhysTrack : public PhysElement
 	int n_;
 
 public:
-	PhysTrack(int n);
+        PhysTrack(const int& n);
 	~PhysTrack();
+        /**
+        * metoda zwracajaca tablice wierzcholkow trasy
+        */
 	b2Vec2 * getArr() const;
+        /**
+        * metoda zwracajaca liczbe wierzcholkow trasy
+        */
 	int getN() const;
 	/**
 	* metoda generujaca generujaca trase na podstawie podanych parametrow
