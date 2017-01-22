@@ -1,0 +1,4 @@
+C:/Users/DELL/Documents/GeneticCars/GeneticCars/build/CMakeFiles/geneticcars.dir
+C:/Users/DELL/Documents/GeneticCars/GeneticCars/build/CMakeFiles/program.dir
+C:/Users/DELL/Documents/GeneticCars/GeneticCars/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/DELL/Documents/GeneticCars/GeneticCars/build/CMakeFiles/ZERO_CHECK.dir
