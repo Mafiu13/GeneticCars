@@ -3,7 +3,7 @@
 
 
 RandomService::RandomService()
-	:randomEngine(randomDevice())
+	:randomEngine_(randomDevice_())
 {
 }
 
@@ -12,23 +12,23 @@ RandomService::~RandomService()
 {
 }
 
-int RandomService::getRandomInt(int min, int max)
+int RandomService::getRandomInt(const int& min, const int& max)
 {
 	uniform_int_distribution<int> dist(min, max);
-	int randomInt = dist(randomEngine);
+	int randomInt = dist(randomEngine_);
 	return randomInt;
 }
 
-double RandomService::getRandomDouble(double min, double max)
+double RandomService::getRandomDouble(const double& min, const double& max)
 {
 	uniform_real_distribution<double> dist(min, max);
-	double randomDouble = dist(randomEngine);
+	double randomDouble = dist(randomEngine_);
 	return randomDouble;
 }
 
-float RandomService::getRandomFloat(float min, float max)
+float RandomService::getRandomFloat(const float& min, const float& max)
 {
 	uniform_real_distribution<float> dist(min, max);
-	float randomFloat = dist(randomEngine);
+	float randomFloat = dist(randomEngine_);
 	return randomFloat;
 }

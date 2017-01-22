@@ -2,11 +2,11 @@
 
 
 
-PopulationManager::PopulationManager(int const populationSize, float const mutationRate)
-	: populationSize(populationSize),
-	evolutionaryService(populationSize, mutationRate),
-	currentPopulationNr(0),
-	bestCarInfo(0.0, 0)
+PopulationManager::PopulationManager(const int& populationSize, const float& mutationRate)
+	: populationSize_(populationSize),
+	evolutionaryService_(populationSize, mutationRate),
+	currentPopulationNr_(0),
+	bestCarInfo_(0.0, 0)
 {
 }
 
@@ -19,25 +19,25 @@ PopulationManager::~PopulationManager()
 vector<Car> PopulationManager::generateInitialPopulation()
 {
 	vector<Car> initialPopulation;
-	initialPopulation = evolutionaryService.createFirstPopulation();
+	initialPopulation = evolutionaryService_.createFirstPopulation();
 	return initialPopulation;
 }
 
-vector<Car> PopulationManager::generateNextPopulation(const vector<Car> currentPopulation)
+vector<Car> PopulationManager::generateNextPopulation(const vector<Car>& currentPopulation)
 {
 	vector<Car> nextPopulation;
-	nextPopulation = evolutionaryService.createNextPopulation(currentPopulation);
-	++currentPopulationNr;
+	nextPopulation = evolutionaryService_.createNextPopulation(currentPopulation);
+	++currentPopulationNr_;
 	return nextPopulation;
 }
 
-pair<float, int> PopulationManager::getBestCarInfo(const vector<Car> populationWithDistance)
+pair<float, int> PopulationManager::getBestCarInfo(const vector<Car>& populationWithDistance)
 {
-	float distance = evolutionaryService.getBestCarDistanceInPopulation(populationWithDistance);
-	if (bestCarInfo.first < distance)
+	float distance = evolutionaryService_.getBestCarDistanceInPopulation(populationWithDistance);
+	if (bestCarInfo_.first < distance)
 	{
-		bestCarInfo.first = distance;
-		bestCarInfo.second = currentPopulationNr;
+		bestCarInfo_.first = distance;
+		bestCarInfo_.second = currentPopulationNr_;
 	}
-	return bestCarInfo;
+	return bestCarInfo_;
 }

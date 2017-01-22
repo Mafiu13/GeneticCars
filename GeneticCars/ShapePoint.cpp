@@ -2,10 +2,10 @@
 
 
 
-ShapePoint::ShapePoint(float x, float y)
+ShapePoint::ShapePoint(const float& x, const float& y)
 {
-	this->x = x;
-	this->y = y;
+	this->x_ = x;
+	this->y_ = y;
 }
 
 ShapePoint::ShapePoint()
@@ -19,20 +19,20 @@ ShapePoint::~ShapePoint()
 
 float ShapePoint::getX() const
 {
-	return x;
+	return x_;
 }
 
 float ShapePoint::getY() const
 {
-	return y;
+	return y_;
 }
 
-void ShapePoint::setX(float a)
+void ShapePoint::setX(const float& a)
 {
-	x = a;
+	x_ = a;
 }
 
-void ShapePoint::setY(float b)
+void ShapePoint::setY(const float& b)
 {
-	y = b;
+	y_ = b;
 }

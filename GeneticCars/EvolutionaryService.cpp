@@ -2,10 +2,10 @@
 
 
 
-EvolutionaryService::EvolutionaryService(int const populationSize, float const mutationRate)
-	:populationSize(populationSize),
-	individualService(mutationRate),
-	randomService()
+EvolutionaryService::EvolutionaryService(const int& populationSize, const float& mutationRate)
+	:populationSize_(populationSize),
+	individualService_(mutationRate),
+	randomService_()
 {
 }
 
@@ -17,15 +17,15 @@ EvolutionaryService::~EvolutionaryService()
 vector<Car> EvolutionaryService::createFirstPopulation()
 {
 	vector<Car> firstPopulation;
-	for (int i = 0; i < populationSize; ++i)
+	for (int i = 0; i < populationSize_; ++i)
 	{
-		Car randomCar = individualService.getRandomCar();
+		Car randomCar = individualService_.getRandomCar();
 		firstPopulation.push_back(randomCar);
 	}
 	return firstPopulation;
 }
 
-vector<Car> EvolutionaryService::createNextPopulation(const vector<Car> previousPopulation)
+vector<Car> EvolutionaryService::createNextPopulation(const vector<Car>& previousPopulation)
 {
 	vector<Car> nextPopulation;
 	generateParentsForNextPopulation(previousPopulation);
@@ -34,7 +34,7 @@ vector<Car> EvolutionaryService::createNextPopulation(const vector<Car> previous
 	return nextPopulation;
 }
 
-float EvolutionaryService::getBestCarDistanceInPopulation(const vector<Car> population)
+float EvolutionaryService::getBestCarDistanceInPopulation(const vector<Car>& population)
 {
 	float longestDistance = 0.0;
 	for (Car car : population)
@@ -49,7 +49,7 @@ float EvolutionaryService::getBestCarDistanceInPopulation(const vector<Car> popu
 	return longestDistance;
 }
 
-void EvolutionaryService::generateParentsForNextPopulation(const vector<Car> previousPopulation)
+void EvolutionaryService::generateParentsForNextPopulation(const vector<Car>& previousPopulation)
 {
 	vector<Car> parentsA;
 	vector<Car> parentsB;
@@ -60,7 +60,7 @@ void EvolutionaryService::generateParentsForNextPopulation(const vector<Car> pre
 
 	int indexA;
 	int indexB;
-	for (int i = 0; i < populationSize / 2; ++i)
+	for (int i = 0; i < populationSize_ / 2; ++i)
 	{
 		indexA = getCarIndexFromRoulletteWheel(roulletteWheel);
 		parentsA.push_back(previousPopulation[indexA]);
@@ -73,11 +73,11 @@ void EvolutionaryService::generateParentsForNextPopulation(const vector<Car> pre
 	}
 	// TODO - jezeli populationSize nieparzysty to losujemy jednego ziomka i dajemy go 2x na koniec
 
-	this->parentsA = parentsA;
-	this->parentsB = parentsB;
+	this->parentsA_ = parentsA;
+	this->parentsB_ = parentsB;
 }
 
-vector<float> EvolutionaryService::getPopulationScores(const vector<Car> population)
+vector<float> EvolutionaryService::getPopulationScores(const vector<Car>& population)
 {
 	vector<float> scores;
 	float distanceSum = 0.0;
@@ -98,10 +98,10 @@ vector<float> EvolutionaryService::getPopulationScores(const vector<Car> populat
 	return scores;
 }
 
-int EvolutionaryService::getCarIndexFromRoulletteWheel(vector<float> roulletteWheel)
+int EvolutionaryService::getCarIndexFromRoulletteWheel(const vector<float>& roulletteWheel)
 {
 	float maxPocket = *max_element(roulletteWheel.begin(), roulletteWheel.end());
-	float randomPocket = randomService.getRandomFloat(0.0, 1.0);
+	float randomPocket = randomService_.getRandomFloat(0.0, 1.0);
 	for (int i = 0; i < roulletteWheel.size(); ++i)
 	{
 		float pocket = roulletteWheel[i];
@@ -115,11 +115,11 @@ int EvolutionaryService::getCarIndexFromRoulletteWheel(vector<float> roulletteWh
 vector<Car> EvolutionaryService::crossoverParents()
 {
 	vector<Car> newPopulation;
-	for (int i = 0; i < populationSize / 2; ++i)
+	for (int i = 0; i < populationSize_ / 2; ++i)
 	{
-		Car parentA = parentsA[i];
-		Car parentB = parentsB[i];
-		vector<Car> crossoveredCars = individualService.getCrossoveredCars(parentA, parentB);
+		Car parentA = parentsA_[i];
+		Car parentB = parentsB_[i];
+		vector<Car> crossoveredCars = individualService_.getCrossoveredCars(parentA, parentB);
 		for (Car childCar : crossoveredCars)
 		{
 			newPopulation.push_back(childCar);
@@ -128,12 +128,12 @@ vector<Car> EvolutionaryService::crossoverParents()
 	return newPopulation;
 }
 
-vector<Car> EvolutionaryService::mutateNewPopulation(vector<Car> newPopulation)
+vector<Car> EvolutionaryService::mutateNewPopulation(const vector<Car>& newPopulation)
 {
 	vector<Car> mutatedPopulation;
 	for (Car childCar : newPopulation)
 	{
-		Car mutatedCar = individualService.getMutatedCar(childCar);
+		Car mutatedCar = individualService_.getMutatedCar(childCar);
 		mutatedPopulation.push_back(mutatedCar);
 	}
 	return mutatedPopulation;

@@ -1,10 +1,10 @@
 #include "BodyShape.h"
 
 
-BodyShape::BodyShape(std::vector<ShapePoint> shapePoints, float density)
+BodyShape::BodyShape(const std::vector<ShapePoint>& shapePoints, const float& density)
 {
-	this->shapePoints = shapePoints;
-	this->density = density;
+	this->shapePoints_ = shapePoints;
+	this->density_ = density;
 }
 
 
@@ -14,10 +14,10 @@ BodyShape::~BodyShape()
 
 std::vector<ShapePoint> BodyShape::getShapePoints() const
 {
-	return shapePoints;
+	return shapePoints_;
 }
 
-float BodyShape::getDensity()
+float BodyShape::getDensity() const
 {
-	return density;
+	return density_;
 }

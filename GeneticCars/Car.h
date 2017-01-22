@@ -18,14 +18,14 @@ public:
 	* \param chromosome chromosom pojazdu
 	*
 	*/
-	Car(Chromosome chromosome);
+	Car(const Chromosome& chromosome);
 	~Car();
 	Chromosome getChromosome() const;
 	float getDistance() const;
-	void setDistance(float);
+	void setDistance(const float& distance);
 private:
-	Chromosome chromosome;
-	float distance;
+	Chromosome chromosome_;
+	float distance_;
 };
 
 #endif

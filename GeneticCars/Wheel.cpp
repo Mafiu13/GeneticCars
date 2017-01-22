@@ -1,12 +1,12 @@
 #include "Wheel.h"
 
 
-Wheel::Wheel(float radius, float density, int index, ShapePoint shapePoint)
-	:shapePoint(shapePoint)
+Wheel::Wheel(const float& radius, const float& density, const int& index, const ShapePoint& shapePoint)
+	:shapePoint_(shapePoint)
 {
-	this->radius = radius;
-	this->density = density;
-	this->shapePointsIndex = index;
+	this->radius_ = radius;
+	this->density_ = density;
+	this->shapePointsIndex_ = index;
 }
 
 
@@ -14,19 +14,19 @@ Wheel::~Wheel()
 {
 }
 
-float Wheel::getRadius()
+float Wheel::getRadius() const
 {
-	return radius;
+	return radius_;
 }
-float Wheel::getDensity()
+float Wheel::getDensity() const
 {
-	return density;
+	return density_;
 }
-int Wheel::getShapePointsIndex()
+int Wheel::getShapePointsIndex() const
 {
-	return shapePointsIndex;
+	return shapePointsIndex_;
 }
-ShapePoint Wheel::getShapePoint()
+ShapePoint Wheel::getShapePoint()const
 {
-	return shapePoint;
+	return shapePoint_;
 }

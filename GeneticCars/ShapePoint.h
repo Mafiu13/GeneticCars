@@ -9,8 +9,8 @@
 */
 class ShapePoint
 {
-	float x;
-	float y;
+	float x_;
+	float y_;
 public:
 	/**
 	* Konstruktor ShapePoint
@@ -18,13 +18,13 @@ public:
 	* \param y wsporzedna y punktu
 	*
 	*/
-	ShapePoint(float x, float y);
+	ShapePoint(const float& x, const float& y);
 	ShapePoint();
 	~ShapePoint();
 	float getX() const;
 	float getY() const;
-	void setX(float);
-	void setY(float);
+	void setX(const float& x);
+	void setY(const float& y);
 };
 
 #endif

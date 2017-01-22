@@ -25,23 +25,23 @@ public:
 	* Metoda zwraca losowego intigera
 	*
 	*/
-	int getRandomInt(int min, int max);
+	int getRandomInt(const int& min, const int& max);
 
 	/**
 	* Metoda zwraca losowego double
 	*
 	*/
-	double getRandomDouble(double min, double max);
+	double getRandomDouble(const double& min, const double& max);
 
 	/**
 	* Metoda zwraca losowego floata
 	*
 	*/
-	float getRandomFloat(float min, float max);
+	float getRandomFloat(const float& min, const float& max);
 
 private:
-	random_device randomDevice;
-	mt19937 randomEngine;
+	random_device randomDevice_;
+	mt19937 randomEngine_;
 };
 
 #endif

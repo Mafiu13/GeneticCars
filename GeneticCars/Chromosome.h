@@ -13,13 +13,13 @@
 class Chromosome
 {
 public:
-	Chromosome(BodyShape bodyShape, std::vector<Wheel> wheels);
+	Chromosome(const BodyShape& bodyShape, const std::vector<Wheel>& wheels);
 	~Chromosome();
 	BodyShape getBodyShape() const;
 	std::vector<Wheel> getWheels() const;
 private:
-	BodyShape bodyShape;
-	std::vector<Wheel> wheels;
+	BodyShape bodyShape_;
+	std::vector<Wheel> wheels_;
 };
 
 #endif

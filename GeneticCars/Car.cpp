@@ -2,10 +2,10 @@
 
 
 
-Car::Car(Chromosome chromosome)
-	:chromosome(chromosome)
+Car::Car(const Chromosome& chromosome)
+	:chromosome_(chromosome)
 {
-	this->distance = -1;
+	this->distance_ = -1;
 }
 
 Car::~Car()
@@ -14,15 +14,15 @@ Car::~Car()
 
 Chromosome Car::getChromosome() const
 {
-	return chromosome;
+	return chromosome_;
 }
 
 float Car::getDistance() const
 {
-	return distance;
+	return distance_;
 }
 
-void Car::setDistance(float distance)
+void Car::setDistance(const float& distance)
 {
-	this->distance = distance;
+	this->distance_ = distance;
 }

@@ -20,7 +20,7 @@ public:
 	* \param mutationRate stopien mutacji
 	*
 	*/
-	PopulationManager(int const populationSize, float const mutationRate);
+	PopulationManager(const int& populationSize, const float& mutationRate);
 	~PopulationManager();
 
 	/**
@@ -34,7 +34,7 @@ public:
 	* \param currentPopulation aktualna populacja 
 	*
 	*/
-	vector<Car> generateNextPopulation(const vector<Car> currentPopulation);
+	vector<Car> generateNextPopulation(const vector<Car>& currentPopulation);
 
 	/**
 	* Metoda zwraca najlepszy dotychczas przejechany dystnas ze wszystkich poprzednich populacji oraz 
@@ -42,15 +42,15 @@ public:
 	* \param populationWithDistance aktualna populacja z pojazdami ktore przebyly juz trase
 	*
 	*/
-	pair<float, int> getBestCarInfo(const vector<Car> populationWithDistance);
+	pair<float, int> getBestCarInfo(const vector<Car>& populationWithDistance);
 
 private:
-	const int populationSize;
+	const int populationSize_;
 
-	EvolutionaryService evolutionaryService;
+	EvolutionaryService evolutionaryService_;
 
-	pair<float, int> bestCarInfo;
-	int currentPopulationNr;
+	pair<float, int> bestCarInfo_;
+	int currentPopulationNr_;
 };
 
 #endif

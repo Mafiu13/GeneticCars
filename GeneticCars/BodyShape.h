@@ -19,13 +19,13 @@ public:
 	* \param density gestosc nadwozia
 	*
 	*/
-	BodyShape(std::vector<ShapePoint> shapePoints, float density);
+	BodyShape(const std::vector<ShapePoint>& shapePoints, const float& density);
 	~BodyShape();
 	std::vector<ShapePoint> getShapePoints() const;
-	float getDensity();
+	float getDensity() const;
 private:
-	std::vector<ShapePoint> shapePoints;
-	float density;
+	std::vector<ShapePoint> shapePoints_;
+	float density_;
 };
 
 #endif

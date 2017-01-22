@@ -2,10 +2,10 @@
 
 
 
-Chromosome::Chromosome(BodyShape bodyShape, std::vector<Wheel> wheels)
-	:bodyShape(bodyShape)
+Chromosome::Chromosome(const BodyShape& bodyShape, const std::vector<Wheel>& wheels)
+	:bodyShape_(bodyShape)
 {
-	this->wheels = wheels;
+	this->wheels_ = wheels;
 }
 
 
@@ -15,10 +15,10 @@ Chromosome::~Chromosome()
 
 BodyShape Chromosome::getBodyShape() const
 {
-	return bodyShape;
+	return bodyShape_;
 }
 
 std::vector<Wheel> Chromosome::getWheels() const
 {
-	return wheels;
+	return wheels_;
 }

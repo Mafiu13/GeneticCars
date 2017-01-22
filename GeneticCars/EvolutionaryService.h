@@ -21,7 +21,7 @@ public:
 	* \param mutationRate stopien mutacji
 	*
 	*/
-	EvolutionaryService(int const populationSize, float const mutationRate);
+	EvolutionaryService(const int& populationSize, const float& mutationRate);
 	~EvolutionaryService();
 
 	/**
@@ -35,30 +35,30 @@ public:
 	* \param previousPopulation poprzednia populacja
 	*
 	*/
-	vector<Car> createNextPopulation(const vector<Car> previousPopulation);
+	vector<Car> createNextPopulation(const vector<Car>& previousPopulation);
 
 	/**
 	* Metoda zwraca najdluzsza przejechana trase w podanej populacji
 	* \param population populacja w ktorej szukamy najdluzszej trasy
 	*
 	*/
-	float getBestCarDistanceInPopulation(const vector<Car> population);
+	float getBestCarDistanceInPopulation(const vector<Car>& population);
 
 private:
 
-	const int populationSize;
+	const int populationSize_;
 	
-	IndividualService individualService;
-	RandomService randomService;
+	IndividualService individualService_;
+	RandomService randomService_;
 
-	vector<Car> parentsA;
-	vector<Car> parentsB;
+	vector<Car> parentsA_;
+	vector<Car> parentsB_;
 
-	void generateParentsForNextPopulation(const vector<Car> previousPopulation);
-	vector<float> getPopulationScores(const vector<Car> population);
-	int getCarIndexFromRoulletteWheel(vector<float> roulletteWheel);
+	void generateParentsForNextPopulation(const vector<Car>& previousPopulation);
+	vector<float> getPopulationScores(const vector<Car>& population);
+	int getCarIndexFromRoulletteWheel(const vector<float>& roulletteWheel);
 	vector<Car> crossoverParents();
-	vector<Car> mutateNewPopulation(vector<Car> newPopulation);
+	vector<Car> mutateNewPopulation(const vector<Car>& newPopulation);
 };
 
 #endif

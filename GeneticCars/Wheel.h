@@ -19,22 +19,22 @@ public:
 	* \param shapePoint punkt okreslajacy srodek kola
 	*
 	*/
-	Wheel(float radius, float density, int index, ShapePoint shapePoint);
+	Wheel(const float& radius, const float& density, const int& index, const ShapePoint& shapePoint);
 	~Wheel();
-	float getRadius();
-	float getDensity();
+	float getRadius() const;
+	float getDensity() const;
 
 	/**
 	* Metoda zwraca index punktu nadwozia pojazdu, ktory jest punktem zaczepienia srodka kola
 	*
 	*/
-	int getShapePointsIndex();
-	ShapePoint getShapePoint();
+	int getShapePointsIndex() const;
+	ShapePoint getShapePoint() const;
 private:
-	float radius;
-	float density;
-	int shapePointsIndex;
-	ShapePoint shapePoint;
+	float radius_;
+	float density_;
+	int shapePointsIndex_;
+	ShapePoint shapePoint_;
 };
 
 #endif
