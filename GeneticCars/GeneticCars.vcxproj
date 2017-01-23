@@ -195,15 +195,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AppWindow.cpp" />
-    <ClCompile Include="BodyShape.cpp" />
-    <ClCompile Include="MainController.cpp" />
-    <ClCompile Include="PhysBodyShape.cpp" />
-    <ClCompile Include="Car.cpp" />
-    <ClCompile Include="PhysCar.cpp" />
     <ClCompile Include="Chromosome.cpp" />
-    <ClCompile Include="Drawing.cpp" />
-    <ClCompile Include="PhysElement.cpp" />
     <ClCompile Include="EvolutionaryService.cpp" />
     <ClCompile Include="IndividualService.cpp" />
     <ClCompile Include="mainTest.cpp">
@@ -217,19 +209,17 @@
     </ClCompile>
     <ClCompile Include="RandomService.cpp" />
     <ClCompile Include="ShapePoint.cpp" />
-    <ClCompile Include="PhysSimulation.cpp" />
-    <ClCompile Include="PhysTrack.cpp" />
-    <ClCompile Include="TestCar.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='UnitTests|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
+    <ClCompile Include="src\AppWindow.cpp" />
+    <ClCompile Include="src\BodyShape.cpp" />
+    <ClCompile Include="src\Drawing.cpp" />
+    <ClCompile Include="src\MainController.cpp" />
+    <ClCompile Include="src\PhysCar.cpp" />
+    <ClCompile Include="src\PhysElement.cpp" />
+    <ClCompile Include="src\PhysPopulation.cpp" />
+    <ClCompile Include="src\PhysSimulation.cpp" />
+    <ClCompile Include="src\PhysTrack.cpp" />
+    <ClCompile Include="src\PhysWheel.cpp" />
     <ClCompile Include="TestChromosome.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='UnitTests|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="TestBodyShape.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='UnitTests|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -244,65 +234,34 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='UnitTests|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="TestPhysBodyShape.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="TestPhysCar.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="TestPhysPopulation.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="TestPhysSimulation.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="TestPhysTrack.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="TestPhysWheel.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='UnitTests|Win32'">false</ExcludedFromBuild>
-    </ClCompile>
+    <ClCompile Include="test\TestPhysBodyShape.cpp" />
+    <ClCompile Include="test\TestPhysCar.cpp" />
+    <ClCompile Include="test\TestPhysElement.cpp" />
+    <ClCompile Include="test\TestPhysPopulation.cpp" />
+    <ClCompile Include="test\TestPhysSimulation.cpp" />
+    <ClCompile Include="test\TestPhysTrack.cpp" />
+    <ClCompile Include="test\TestPhysWheel.cpp" />
     <ClCompile Include="Wheel.cpp" />
-    <ClCompile Include="PhysWheel.cpp" />
-    <ClCompile Include="PhysPopulation.cpp" />
-    <ClCompile Include="TestPhysElement.cpp">
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </DeploymentContent>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </DeploymentContent>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AppWindow.h" />
-    <ClInclude Include="BodyShape.h" />
-    <ClInclude Include="MainController.h" />
-    <ClInclude Include="PhysBodyShape.h" />
-    <ClInclude Include="Car.h" />
-    <ClInclude Include="PhysCar.h" />
+    <ClInclude Include="include\AppWindow.h" />
+    <ClInclude Include="include\BodyShape.h" />
+    <ClInclude Include="include\Drawing.h" />
+    <ClInclude Include="include\MainController.h" />
+    <ClInclude Include="include\PhysCar.h" />
+    <ClInclude Include="include\PhysElement.h" />
+    <ClInclude Include="include\PhysPopulation.h" />
+    <ClInclude Include="include\PhysSimulation.h" />
+    <ClInclude Include="include\PhysTrack.h" />
+    <ClInclude Include="include\PhysWheel.h" />
     <ClInclude Include="Chromosome.h" />
-    <ClInclude Include="Drawing.h" />
-    <ClInclude Include="PhysElement.h" />
     <ClInclude Include="EvolutionaryService.h" />
-    <ClInclude Include="CarConst.h" />
     <ClInclude Include="EvolutionaryConst.h" />
     <ClInclude Include="IndividualService.h" />
     <ClInclude Include="PopulationManager.h" />
     <ClInclude Include="RandomService.h" />
     <ClInclude Include="ShapePoint.h" />
-    <ClInclude Include="PhysSimulation.h" />
-    <ClInclude Include="PhysTrack.h" />
     <ClInclude Include="Wheel.h" />
-    <ClInclude Include="PhysWheel.h" />
-    <ClInclude Include="PhysPopulation.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -5,7 +5,7 @@ AppWindow::~AppWindow()
 {
 }
 
-AppWindow::AppWindow(PMainController c,const int& width, const int& height, const int& bitsPerPixel, const std::string& name)
+AppWindow::AppWindow(PMainController c, const float& width, const float& height, const int& bitsPerPixel, const std::string& name)
 {
     window_.create(sf::VideoMode(width, height, bitsPerPixel), name, sf::Style::Close | sf::Style::Titlebar);
     default_view_.setCenter(sf::Vector2f(width / 2, height / 2));

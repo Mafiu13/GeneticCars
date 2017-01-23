@@ -29,6 +29,11 @@ b2World * PhysSimulation::getWorld()
 	return world_.get();
 }
 
+PPhysTrack PhysSimulation::getTrack()
+{
+	return track_;
+}
+
 int PhysSimulation::getSimSteps() const
 {
 	return simSteps_;
