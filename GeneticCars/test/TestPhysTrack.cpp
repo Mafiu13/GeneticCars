@@ -6,9 +6,25 @@
 
 BOOST_AUTO_TEST_CASE(TestPhysTrack_Attributes)
 {
-	PPhysTrack track = boost::make_shared<PhysTrack>(10);
-	
+	int n = 10;
+	PPhysTrack track = boost::make_shared<PhysTrack>(n);
+
 	track->generateTrack(50, 300, 100);
-	BOOST_CHECK_EQUAL(track->getN(), 10);
-	BOOST_CHECK(track->getArr()[5].y < 351 / SCALE && track->getArr()[5].y > 299 / SCALE);
+	BOOST_CHECK_EQUAL(track->getN(), n);
+	for (int i = 0; i < n; i++) 
+	{
+		BOOST_CHECK(track->getArr()[i].y < 351 / SCALE && track->getArr()[i].y > 299 / SCALE);
+	}
+}
+
+BOOST_AUTO_TEST_CASE(TestPhysTrack_CreateInWorld)
+{
+	int n = 10;
+	b2World world(b2Vec2(0, 5));
+	PPhysTrack track = boost::make_shared<PhysTrack>(n);
+	track->generateTrack(50, 300, 100);
+
+	track->createTrack(world, n);
+	BOOST_CHECK(track->getBody() != NULL);
+	BOOST_CHECK(track->getBody()->GetWorld() == &world);
 }

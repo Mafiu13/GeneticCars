@@ -45,7 +45,7 @@ public:
         /**
         * Metoda ustawiajaca punkt dolaczenia kola do nadwozia
         */
-	void setJointPoint(ShapePoint point);
+	void setJointPoint(const ShapePoint& point);
 	/**
 	* Metoda uaktulniajaca predkosc katowa kol, dbanie o ich stala predkosc
 	*/

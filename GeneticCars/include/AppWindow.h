@@ -80,7 +80,7 @@ public:
     * @param bitsPerPixel - ilosc bitow na pixel, jakosc kolorow
     * @param name - nazwa aplikacji
     */
-    AppWindow(PMainController c,const int& width, const int& height, const int& bitsPerPixel, const std::string& name);
+    AppWindow(PMainController c,const float& width, const float& height, const int& bitsPerPixel, const std::string& name);
     ~AppWindow();
     /**
     * Metoda zwracajaca referencje na okno

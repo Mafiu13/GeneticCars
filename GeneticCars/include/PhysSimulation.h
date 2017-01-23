@@ -81,6 +81,10 @@ public:
         * metoda zwracajaca wskaznik na symulowany swiat
         */
         b2World* getWorld();
+		/**
+        * metoda zwracajaca wskaznik na trase
+        */
+        PPhysTrack getTrack();
         /**
         * metoda zwracajaca liczbe krokow symulacja
         */

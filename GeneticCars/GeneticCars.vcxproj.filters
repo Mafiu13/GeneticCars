@@ -111,12 +111,6 @@
     <ClCompile Include="Chromosome.cpp">
       <Filter>GeneticCars\Model\Data\Chromosome</Filter>
     </ClCompile>
-    <ClCompile Include="Car.cpp">
-      <Filter>GeneticCars\Model\Data\Car</Filter>
-    </ClCompile>
-    <ClCompile Include="BodyShape.cpp">
-      <Filter>GeneticCars\Model\Data\BodyShape</Filter>
-    </ClCompile>
     <ClCompile Include="Wheel.cpp">
       <Filter>GeneticCars\Model\Data\Wheel</Filter>
     </ClCompile>
@@ -128,9 +122,6 @@
     </ClCompile>
     <ClCompile Include="EvolutionaryService.cpp">
       <Filter>GeneticCars\Model\EvolutionaryAlgorithm\EvolutionaryService</Filter>
-    </ClCompile>
-    <ClCompile Include="Drawing.cpp">
-      <Filter>GeneticCars\View\Drawing</Filter>
     </ClCompile>
     <ClCompile Include="ShapePoint.cpp">
       <Filter>GeneticCars\Model\Data\ShapePoint</Filter>
@@ -144,82 +135,73 @@
     <ClCompile Include="mainTest.cpp">
       <Filter>GeneticCars\Main</Filter>
     </ClCompile>
-    <ClCompile Include="PhysBodyShape.cpp">
-      <Filter>GeneticCars\Model\PhysicalEngine\PhysBodyShape</Filter>
-    </ClCompile>
-    <ClCompile Include="PhysCar.cpp">
-      <Filter>GeneticCars\Model\PhysicalEngine\PhysCar</Filter>
-    </ClCompile>
-    <ClCompile Include="PhysElement.cpp">
-      <Filter>GeneticCars\Model\PhysicalEngine\PhysElement</Filter>
-    </ClCompile>
-    <ClCompile Include="PhysWheel.cpp">
-      <Filter>GeneticCars\Model\PhysicalEngine\PhysWheel</Filter>
-    </ClCompile>
-    <ClCompile Include="PhysTrack.cpp">
-      <Filter>GeneticCars\Model\PhysicalEngine\PhysTrack</Filter>
-    </ClCompile>
-    <ClCompile Include="PhysPopulation.cpp">
-      <Filter>GeneticCars\Model\PhysicalEngine\PhysPopulation</Filter>
-    </ClCompile>
-    <ClCompile Include="PhysSimulation.cpp">
-      <Filter>GeneticCars\Model\PhysicalEngine\PhysSimulation</Filter>
-    </ClCompile>
-    <ClCompile Include="AppWindow.cpp">
-      <Filter>GeneticCars\View\AppWindow</Filter>
-    </ClCompile>
-    <ClCompile Include="MainController.cpp">
-      <Filter>GeneticCars\MainController</Filter>
-    </ClCompile>
-    <ClCompile Include="TestPhysWheel.cpp">
-      <Filter>GeneticCars\Model\PhysicalEngine\PhysWheel</Filter>
-    </ClCompile>
-    <ClCompile Include="TestPhysCar.cpp">
-      <Filter>GeneticCars\Model\PhysicalEngine\PhysCar</Filter>
-    </ClCompile>
-    <ClCompile Include="TestPhysBodyShape.cpp">
-      <Filter>GeneticCars\Model\PhysicalEngine\PhysBodyShape</Filter>
-    </ClCompile>
-    <ClCompile Include="TestPhysElement.cpp">
-      <Filter>GeneticCars\Model\PhysicalEngine\PhysElement</Filter>
-    </ClCompile>
-    <ClCompile Include="TestPhysPopulation.cpp">
-      <Filter>GeneticCars\Model\PhysicalEngine\PhysPopulation</Filter>
-    </ClCompile>
-    <ClCompile Include="TestPhysSimulation.cpp">
-      <Filter>GeneticCars\Model\PhysicalEngine\PhysSimulation</Filter>
-    </ClCompile>
-    <ClCompile Include="TestPhysTrack.cpp">
-      <Filter>GeneticCars\Model\PhysicalEngine\PhysTrack</Filter>
-    </ClCompile>
     <ClCompile Include="TestShapePoint.cpp">
       <Filter>GeneticCars\Model\Data\ShapePoint</Filter>
     </ClCompile>
     <ClCompile Include="TestWheel.cpp">
       <Filter>GeneticCars\Model\Data\Wheel</Filter>
     </ClCompile>
-    <ClCompile Include="TestBodyShape.cpp">
-      <Filter>GeneticCars\Model\Data\BodyShape</Filter>
-    </ClCompile>
     <ClCompile Include="TestChromosome.cpp">
       <Filter>GeneticCars\Model\Data\Chromosome</Filter>
     </ClCompile>
-    <ClCompile Include="TestCar.cpp">
-      <Filter>GeneticCars\Model\Data\Car</Filter>
+    <ClCompile Include="src\BodyShape.cpp">
+      <Filter>GeneticCars\Model\PhysicalEngine\PhysBodyShape</Filter>
+    </ClCompile>
+    <ClCompile Include="test\TestPhysBodyShape.cpp">
+      <Filter>GeneticCars\Model\PhysicalEngine\PhysBodyShape</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PhysCar.cpp">
+      <Filter>GeneticCars\Model\PhysicalEngine\PhysCar</Filter>
+    </ClCompile>
+    <ClCompile Include="test\TestPhysCar.cpp">
+      <Filter>GeneticCars\Model\PhysicalEngine\PhysCar</Filter>
+    </ClCompile>
+    <ClCompile Include="test\TestPhysElement.cpp">
+      <Filter>GeneticCars\Model\PhysicalEngine\PhysElement</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PhysElement.cpp">
+      <Filter>GeneticCars\Model\PhysicalEngine\PhysElement</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PhysPopulation.cpp">
+      <Filter>GeneticCars\Model\PhysicalEngine\PhysPopulation</Filter>
+    </ClCompile>
+    <ClCompile Include="test\TestPhysPopulation.cpp">
+      <Filter>GeneticCars\Model\PhysicalEngine\PhysPopulation</Filter>
+    </ClCompile>
+    <ClCompile Include="test\TestPhysSimulation.cpp">
+      <Filter>GeneticCars\Model\PhysicalEngine\PhysSimulation</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PhysSimulation.cpp">
+      <Filter>GeneticCars\Model\PhysicalEngine\PhysSimulation</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PhysTrack.cpp">
+      <Filter>GeneticCars\Model\PhysicalEngine\PhysTrack</Filter>
+    </ClCompile>
+    <ClCompile Include="test\TestPhysTrack.cpp">
+      <Filter>GeneticCars\Model\PhysicalEngine\PhysTrack</Filter>
+    </ClCompile>
+    <ClCompile Include="test\TestPhysWheel.cpp">
+      <Filter>GeneticCars\Model\PhysicalEngine\PhysWheel</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PhysWheel.cpp">
+      <Filter>GeneticCars\Model\PhysicalEngine\PhysWheel</Filter>
+    </ClCompile>
+    <ClCompile Include="src\AppWindow.cpp">
+      <Filter>GeneticCars\View\AppWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Drawing.cpp">
+      <Filter>GeneticCars\View\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MainController.cpp">
+      <Filter>GeneticCars\MainController</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Chromosome.h">
       <Filter>GeneticCars\Model\Data\Chromosome</Filter>
     </ClInclude>
-    <ClInclude Include="Car.h">
-      <Filter>GeneticCars\Model\Data\Car</Filter>
-    </ClInclude>
     <ClInclude Include="ShapePoint.h">
       <Filter>GeneticCars\Model\Data\ShapePoint</Filter>
-    </ClInclude>
-    <ClInclude Include="BodyShape.h">
-      <Filter>GeneticCars\Model\Data\BodyShape</Filter>
     </ClInclude>
     <ClInclude Include="Wheel.h">
       <Filter>GeneticCars\Model\Data\Wheel</Filter>
@@ -230,14 +212,8 @@
     <ClInclude Include="EvolutionaryService.h">
       <Filter>GeneticCars\Model\EvolutionaryAlgorithm\EvolutionaryService</Filter>
     </ClInclude>
-    <ClInclude Include="Drawing.h">
-      <Filter>GeneticCars\View\Drawing</Filter>
-    </ClInclude>
     <ClInclude Include="IndividualService.h">
       <Filter>GeneticCars\Model\EvolutionaryAlgorithm\IndividualService</Filter>
-    </ClInclude>
-    <ClInclude Include="CarConst.h">
-      <Filter>GeneticCars\Model\Data\CarConst</Filter>
     </ClInclude>
     <ClInclude Include="EvolutionaryConst.h">
       <Filter>GeneticCars\Model\EvolutionaryAlgorithm\EvolutionaryConst</Filter>
@@ -245,31 +221,34 @@
     <ClInclude Include="RandomService.h">
       <Filter>GeneticCars\Model\EvolutionaryAlgorithm\RandomService</Filter>
     </ClInclude>
-    <ClInclude Include="PhysBodyShape.h">
+    <ClInclude Include="include\BodyShape.h">
       <Filter>GeneticCars\Model\PhysicalEngine\PhysBodyShape</Filter>
     </ClInclude>
-    <ClInclude Include="PhysCar.h">
+    <ClInclude Include="include\PhysCar.h">
       <Filter>GeneticCars\Model\PhysicalEngine\PhysCar</Filter>
     </ClInclude>
-    <ClInclude Include="PhysElement.h">
+    <ClInclude Include="include\PhysElement.h">
       <Filter>GeneticCars\Model\PhysicalEngine\PhysElement</Filter>
     </ClInclude>
-    <ClInclude Include="PhysWheel.h">
-      <Filter>GeneticCars\Model\PhysicalEngine\PhysWheel</Filter>
-    </ClInclude>
-    <ClInclude Include="PhysTrack.h">
-      <Filter>GeneticCars\Model\PhysicalEngine\PhysTrack</Filter>
-    </ClInclude>
-    <ClInclude Include="PhysPopulation.h">
+    <ClInclude Include="include\PhysPopulation.h">
       <Filter>GeneticCars\Model\PhysicalEngine\PhysPopulation</Filter>
     </ClInclude>
-    <ClInclude Include="PhysSimulation.h">
+    <ClInclude Include="include\PhysSimulation.h">
       <Filter>GeneticCars\Model\PhysicalEngine\PhysSimulation</Filter>
     </ClInclude>
-    <ClInclude Include="AppWindow.h">
+    <ClInclude Include="include\PhysTrack.h">
+      <Filter>GeneticCars\Model\PhysicalEngine\PhysTrack</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysWheel.h">
+      <Filter>GeneticCars\Model\PhysicalEngine\PhysWheel</Filter>
+    </ClInclude>
+    <ClInclude Include="include\AppWindow.h">
       <Filter>GeneticCars\View\AppWindow</Filter>
     </ClInclude>
-    <ClInclude Include="MainController.h">
+    <ClInclude Include="include\Drawing.h">
+      <Filter>GeneticCars\View\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MainController.h">
       <Filter>GeneticCars\MainController</Filter>
     </ClInclude>
   </ItemGroup>

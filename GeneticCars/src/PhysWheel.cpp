@@ -27,7 +27,7 @@ void PhysWheel::setRadius(const float& radius)
 	radius_ = radius;
 }
 
-void PhysWheel::setJointPoint(ShapePoint point)
+void PhysWheel::setJointPoint(const ShapePoint& point)
 {
 	jointPoint_.setX(point.getX());
 	jointPoint_.setY(point.getY());
