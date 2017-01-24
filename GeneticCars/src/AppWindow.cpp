@@ -128,7 +128,7 @@ void AppWindow::drawAll(PDrawing drawing)
 	background.setFillColor(sf::Color::White);
 	window_.draw(background);
 	window_.draw(drawing->getLine());
-	for (sf::CircleShape circle : drawing->getCircle()) {
+	for (sf::CircleShape circle : drawing->getCircles()) {
 		window_.draw(circle);
 	}
 	for (sf::ConvexShape polygon : drawing->getPolygons()) {
