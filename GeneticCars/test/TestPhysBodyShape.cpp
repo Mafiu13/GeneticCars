@@ -32,11 +32,17 @@ BOOST_AUTO_TEST_CASE(TestPhysBodyShape_CreateInWorld)
 	std::vector<ShapePoint> vec;
 	vec.push_back(ShapePoint(0, 0));
 	vec.push_back(ShapePoint(1, 1));
+	vec.push_back(ShapePoint(2, 1));
+	vec.push_back(ShapePoint(4, -1));
+	vec.push_back(ShapePoint(0, -2));
+	vec.push_back(ShapePoint(-1, -1));
+	vec.push_back(ShapePoint(-2, 0));
 	vec.push_back(ShapePoint(-1, 1));
 	bodyShape->setVerticesFromShapePoints(vec);
 
 	b2World world(b2Vec2(0, 5));
-	bodyShape->createBodyShape(world);
+	bodyShape->createBodyShape(&world);
 	BOOST_CHECK(bodyShape->getBody() != NULL);
 	BOOST_CHECK(bodyShape->getBody()->GetWorld() == &world);
+	BOOST_CHECK_EQUAL(world.GetBodyCount(), 1);
 }

@@ -15,9 +15,9 @@ BOOST_AUTO_TEST_CASE(TestPhysElement_Attributes)
 	def.position.Set(0, 0);
 
 	b2World world(b2Vec2(0, 5));
-	b2Body * body = world.CreateBody(&def);
+	b2Body* body = world.CreateBody(&def);
 	elem->setBody(body);
 	BOOST_CHECK(elem->getBody() == body);
 	BOOST_CHECK(elem->getBody()->GetWorld() == &world);
-
+	BOOST_CHECK_EQUAL(world.GetBodyCount(), 1);
 }

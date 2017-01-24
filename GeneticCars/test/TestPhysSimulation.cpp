@@ -23,7 +23,14 @@ BOOST_AUTO_TEST_CASE(TestPhysSimulation_Creating)
 	sim->createSimulation();
 	BOOST_CHECK(sim->getWorld() != NULL);
 	BOOST_CHECK(sim->getTrack() != NULL);
-	
+	BOOST_CHECK_EQUAL(sim->getTrack()->getN(), 20);
+	BOOST_CHECK(sim->getTrack()->getBody() != NULL);
+
+	b2World* w = sim->getWorld();
+	BOOST_CHECK_EQUAL(w->GetGravity().y, 10.0f);
+	BOOST_CHECK_EQUAL(w->GetBodyCount(), 1);
+
 	sim->destroyTrack();
-	BOOST_CHECK(sim->getTrack()->getBody(), NULL);
+	BOOST_CHECK_EQUAL(w->GetBodyCount(), 0);
 }
+

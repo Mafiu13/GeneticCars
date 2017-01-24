@@ -24,7 +24,8 @@ BOOST_AUTO_TEST_CASE(TestPhysTrack_CreateInWorld)
 	PPhysTrack track = boost::make_shared<PhysTrack>(n);
 	track->generateTrack(50, 300, 100);
 
-	track->createTrack(world, n);
+	track->createTrack(&world, n);
 	BOOST_CHECK(track->getBody() != NULL);
+	BOOST_CHECK_EQUAL(world.GetBodyCount(), 1);
 	BOOST_CHECK(track->getBody()->GetWorld() == &world);
 }

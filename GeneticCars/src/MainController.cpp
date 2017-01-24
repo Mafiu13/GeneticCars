@@ -2,7 +2,6 @@
 
 MainController::MainController()
 {
-
     current_gen_ = 0;
 }
 
