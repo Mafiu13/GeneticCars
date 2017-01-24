@@ -26,7 +26,7 @@ void PhysTrack::createTrack(b2World* world, int n)
 {
 	b2BodyDef chainDefinition;
 	chainDefinition.type = b2_staticBody;
-	b2Body* chain = world->CreateBody(&chainDefinition);
+	b2Body* chain(world->CreateBody(&chainDefinition));
 	b2ChainShape chainShape; // stanowi krawedz, lancuch odcinkow, nie ma grubosci ani masy
 	
 	chainShape.CreateChain(arr_.get(), n);

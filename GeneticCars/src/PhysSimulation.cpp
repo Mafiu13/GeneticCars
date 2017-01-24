@@ -9,8 +9,10 @@ PhysSimulation::PhysSimulation()
 
 PhysSimulation::~PhysSimulation()
 {
-    destroyTrack();
-    population_->destroyCars(getWorld());
+	if (!world_ && world_->GetBodyCount() > 0) {
+		destroyTrack();
+		population_->destroyCars(getWorld());
+	}
 }
 
 // ------------------metody [get]----------------------
@@ -89,7 +91,7 @@ void PhysSimulation::updateSimulation()
 
 void PhysSimulation::destroyTrack()
 {
-    world_.get()->DestroyBody(track_->getBody());
+    getWorld()->DestroyBody(getTrack()->getBody());
 }
 
 

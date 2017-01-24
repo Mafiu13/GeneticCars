@@ -8,7 +8,7 @@ Drawing::~Drawing()
 {
 }
 
-std::vector<sf::CircleShape> Drawing::getCircle() const
+std::vector<sf::CircleShape> Drawing::getCircles() const
 {
 	return circles_;
 }

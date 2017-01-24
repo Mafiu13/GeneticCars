@@ -34,7 +34,7 @@ class Drawing
 public:
 	Drawing();
 	~Drawing();
-	std::vector<sf::CircleShape> getCircle() const;
+	std::vector<sf::CircleShape> getCircles() const;
 	std::vector<sf::ConvexShape> getPolygons() const;
 	sf::VertexArray getLine() const;
 	/**

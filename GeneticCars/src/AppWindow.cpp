@@ -13,7 +13,7 @@ AppWindow::AppWindow(PMainController c, const float& width, const float& height,
     window_.setView(default_view_);
     setUpGUI();
     controller_ = c;
-    running_=false;
+    running_ = false;
 }
 
 // --------metody [get] -----------
@@ -32,7 +32,7 @@ void AppWindow::drawAll(PDrawing drawing)
     window_.setView(sim_view_);
     window_.pushGLStates();
     window_.draw(drawing->getLine());
-	for (sf::CircleShape circle : drawing->getCircle()) {
+	for (sf::CircleShape circle : drawing->getCircles()) {
         window_.draw(circle);
 	}
 	for (sf::ConvexShape polygon : drawing->getPolygons()) {
