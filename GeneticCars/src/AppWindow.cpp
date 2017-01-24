@@ -212,7 +212,7 @@ void AppWindow::onRunButtonClick()
         controller_->setSimulation(boost::make_shared<PhysSimulation>());
         controller_->getSimualation()->setWorldParams(gravity,1.0,60,8,3);
         controller_->getSimualation()->setTrackParams(steep, 300, 100,length);
-        controller_->getSimualation()->getPopulation()->setVelocity(20.0f);
+        controller_->getSimualation()->getPopulation()->setVelocity(10.0f);
         controller_->createAll();
 
         running_=true;
