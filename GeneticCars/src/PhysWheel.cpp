@@ -38,13 +38,13 @@ void PhysWheel::updateVelocity(const float& value)
     this->getBody()->SetAngularVelocity(value);
 }
 
-void PhysWheel::createWheel(b2World & world)
+void PhysWheel::createWheel(b2World* world)
 {
 	b2BodyDef circleDefinition;
 	circleDefinition.type = b2_dynamicBody;
 	circleDefinition.position.Set(jointPoint_.getX(), jointPoint_.getY());
 
-	b2Body * circle =  world.CreateBody(&circleDefinition);
+	b2Body* circle =  world->CreateBody(&circleDefinition);
 
 	b2CircleShape circleShape;
 	circleShape.m_radius = this->radius_;

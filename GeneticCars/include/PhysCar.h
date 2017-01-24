@@ -36,7 +36,7 @@ public:
         /**
         * Metoda zwracajaca wskaznik na nadwozie pojazdu
         */
-	PhysBodyShape * getBodyShape() const;
+	PhysBodyShape* getBodyShape() const;
         /**
         * Metoda zwracajaca wektor zloczen kol z nadwoziem
         */
@@ -52,12 +52,12 @@ public:
 	/**
 	* Metoda tworzaca polaczenie kola z nadwoziem
 	*/
-	void createJoint(b2World& world, PPhysWheel wheel);
+	void createJoint(b2World* world, PPhysWheel wheel);
 	/**
 	* Metoda wszystkie polaczenia kol z nadwoziem
 	* @param - symulowany swiat fizyczny
 	*/
-	void createJoints(b2World& world);
+	void createJoints(b2World* world);
 	/**
 	* Metoda uaktualniajaca predkosc kol pojazdu
 	*/

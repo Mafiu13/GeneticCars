@@ -30,31 +30,31 @@ class PhysWheel : public PhysElement
 public:
 	PhysWheel();
 	~PhysWheel();
-        /**
-        * Metoda zwracajaca promien
-        */
+    /**
+    * Metoda zwracajaca promien
+    */
 	float getRadius() const;
-        /**
-        * Metoda zwracajaca punkt dolaczenia kola do nadwozia
-        */
-        ShapePoint getJointPoint() const;
-        /**
-        * Metoda ustawiajaca promien
-        */
-        void setRadius(const float& radius);
-        /**
-        * Metoda ustawiajaca punkt dolaczenia kola do nadwozia
-        */
+    /**
+    * Metoda zwracajaca punkt dolaczenia kola do nadwozia
+    */
+    ShapePoint getJointPoint() const;
+    /**
+    * Metoda ustawiajaca promien
+    */
+    void setRadius(const float& radius);
+    /**
+    * Metoda ustawiajaca punkt dolaczenia kola do nadwozia
+    */
 	void setJointPoint(const ShapePoint& point);
 	/**
 	* Metoda uaktulniajaca predkosc katowa kol, dbanie o ich stala predkosc
 	*/
-        void updateVelocity(const float& value);
+    void updateVelocity(const float& value);
 	/**
 	* Metoda tworzaca kolo w silniku fizycznym
 	* @param world - symulaowany swiat fizyczny
 	*/
-	void createWheel(b2World& world);
+	void createWheel(b2World* world);
 };
 
 

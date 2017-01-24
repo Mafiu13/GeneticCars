@@ -59,12 +59,12 @@ public:
 	* Metoda tworzaca auta w silniku fizycznym
 	* @param world - symulowany swiat fizyczny
 	*/
-	void createCars(b2World& world);
+	void createCars(b2World* world);
         /**
 	* Metoda usuwajaca pojazdy z symulowanego swiata fizycznego
 	* @param world - referencja na symulowany swia
 	*/
-        void destroyCars(b2World & world);
+        void destroyCars(b2World* world);
 };
 
 #endif

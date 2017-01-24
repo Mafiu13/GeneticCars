@@ -59,7 +59,7 @@ void PhysPopulation::updateVelocity()
 	}
 }
 
-void PhysPopulation::createCars(b2World& world)
+void PhysPopulation::createCars(b2World* world)
 {
 	for (PPhysCar car : this->cars_) {
 		car->getBodyShape()->createBodyShape(world);
@@ -71,13 +71,13 @@ void PhysPopulation::createCars(b2World& world)
 	}
 }
 
-void PhysPopulation::destroyCars(b2World & world)
+void PhysPopulation::destroyCars(b2World* world)
 {
     for (PPhysCar car : this->cars_) {
         for (b2RevoluteJoint * joint : car->getJoints())
-            world.DestroyJoint(joint);
+            world->DestroyJoint(joint);
         for (PPhysWheel wheel : car->getWheels())
-            world.DestroyBody(wheel->getBody());
-        world.DestroyBody(car->getBodyShape()->getBody());
+            world->DestroyBody(wheel->getBody());
+        world->DestroyBody(car->getBodyShape()->getBody());
     }
 }

@@ -27,12 +27,12 @@ void PhysBodyShape::setVerticesFromShapePoints(const std::vector<ShapePoint>& ve
     }
 }
 
-void PhysBodyShape::createBodyShape(b2World& world)
+void PhysBodyShape::createBodyShape(b2World* world)
 {
 	b2BodyDef polygonDefinition;
 	polygonDefinition.type = b2_dynamicBody;
 	polygonDefinition.position.Set(0, 0);
-	b2Body * polygon = world.CreateBody(&polygonDefinition);
+	b2Body* polygon = world->CreateBody(&polygonDefinition);
 
 	b2PolygonShape polygonShape;
 	

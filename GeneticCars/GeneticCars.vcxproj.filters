@@ -144,9 +144,6 @@
     <ClCompile Include="TestChromosome.cpp">
       <Filter>GeneticCars\Model\Data\Chromosome</Filter>
     </ClCompile>
-    <ClCompile Include="src\BodyShape.cpp">
-      <Filter>GeneticCars\Model\PhysicalEngine\PhysBodyShape</Filter>
-    </ClCompile>
     <ClCompile Include="test\TestPhysBodyShape.cpp">
       <Filter>GeneticCars\Model\PhysicalEngine\PhysBodyShape</Filter>
     </ClCompile>
@@ -195,6 +192,9 @@
     <ClCompile Include="src\MainController.cpp">
       <Filter>GeneticCars\MainController</Filter>
     </ClCompile>
+    <ClCompile Include="src\PhysBodyShape.cpp">
+      <Filter>GeneticCars\Model\PhysicalEngine\PhysBodyShape</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Chromosome.h">
@@ -220,9 +220,6 @@
     </ClInclude>
     <ClInclude Include="RandomService.h">
       <Filter>GeneticCars\Model\EvolutionaryAlgorithm\RandomService</Filter>
-    </ClInclude>
-    <ClInclude Include="include\BodyShape.h">
-      <Filter>GeneticCars\Model\PhysicalEngine\PhysBodyShape</Filter>
     </ClInclude>
     <ClInclude Include="include\PhysCar.h">
       <Filter>GeneticCars\Model\PhysicalEngine\PhysCar</Filter>
@@ -250,6 +247,9 @@
     </ClInclude>
     <ClInclude Include="include\MainController.h">
       <Filter>GeneticCars\MainController</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysBodyShape.h">
+      <Filter>GeneticCars\Model\PhysicalEngine\PhysBodyShape</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

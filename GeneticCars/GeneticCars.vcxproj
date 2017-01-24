@@ -210,9 +210,9 @@
     <ClCompile Include="RandomService.cpp" />
     <ClCompile Include="ShapePoint.cpp" />
     <ClCompile Include="src\AppWindow.cpp" />
-    <ClCompile Include="src\BodyShape.cpp" />
     <ClCompile Include="src\Drawing.cpp" />
     <ClCompile Include="src\MainController.cpp" />
+    <ClCompile Include="src\PhysBodyShape.cpp" />
     <ClCompile Include="src\PhysCar.cpp" />
     <ClCompile Include="src\PhysElement.cpp" />
     <ClCompile Include="src\PhysPopulation.cpp" />
@@ -245,9 +245,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\AppWindow.h" />
-    <ClInclude Include="include\BodyShape.h" />
     <ClInclude Include="include\Drawing.h" />
     <ClInclude Include="include\MainController.h" />
+    <ClInclude Include="include\PhysBodyShape.h" />
     <ClInclude Include="include\PhysCar.h" />
     <ClInclude Include="include\PhysElement.h" />
     <ClInclude Include="include\PhysPopulation.h" />
