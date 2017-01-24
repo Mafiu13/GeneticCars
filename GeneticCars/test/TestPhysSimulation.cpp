@@ -12,8 +12,6 @@ BOOST_AUTO_TEST_CASE(TestPhysSimulation_Creating)
 
 	PPhysPopulation pop(boost::make_shared<PhysPopulation>());
 
-	BOOST_CHECK(sim->getPopulation(), pop);
-
 	sim->setWorldParams(10.0f, 1.0f, 100, 4, 5);
 
 	BOOST_CHECK_EQUAL(sim->getSimSteps(), 100);

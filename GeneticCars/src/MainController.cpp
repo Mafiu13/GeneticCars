@@ -182,9 +182,11 @@ void MainController::runAll()
             }
             simulatePupulation();
         }
+		if (!window_->isRunning())
+			current_gen_ = 0;
         if(current_gen_ == max_gen_)
         {
             window_->stopSimulation();
-            current_gen_=0;
+            current_gen_ = 0;
         }
 }

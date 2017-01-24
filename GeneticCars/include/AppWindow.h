@@ -53,7 +53,7 @@ class AppWindow
     /**
     * Sprytne wskazniki na widzety wprowadzania tekstu
     */
-    sfg::Entry::Ptr size_entry_,rate_entry_,max_gen_entry_,gravity_entry_,steep_entry_,length_entry_;
+	sfg::Entry::Ptr size_entry_, rate_entry_, max_gen_entry_, gravity_entry_, steep_entry_, length_entry_, velocity_entry_;
     /**
     * Sprytny wskaznik na kontener z lista najlepszych osobnikow z kazdej populacji
     */

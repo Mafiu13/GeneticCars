@@ -69,9 +69,14 @@ void AppWindow::setUpGUI()
     lower_left_vertical_box->Pack(lower_left_horizonal_box2,false);
     auto lower_left_horizonal_box3 = sfg::Box::Create(sfg::Box::Orientation::HORIZONTAL, 5.f);
     length_entry_ = sfg::Entry::Create("1000");
-    lower_left_horizonal_box3->Pack(sfg::Label::Create("Liczba odcinkow trasy:"),false);
+    lower_left_horizonal_box3->Pack(sfg::Label::Create("Liczba czlonow trasy:"),false);
     lower_left_horizonal_box3->Pack(length_entry_);
     lower_left_vertical_box->Pack(lower_left_horizonal_box3,false);
+	auto lower_left_horizonal_box4 = sfg::Box::Create(sfg::Box::Orientation::HORIZONTAL, 5.f);
+	velocity_entry_ = sfg::Entry::Create("10.0");
+	lower_left_horizonal_box4->Pack(sfg::Label::Create("Predkosc pojazdow:"), false);
+	lower_left_horizonal_box4->Pack(velocity_entry_);
+	lower_left_vertical_box->Pack(lower_left_horizonal_box4, false);
 
     upper_left_frame->Add(upper_left_vertical_box);
     lower_left_frame->Add(lower_left_vertical_box);
@@ -175,7 +180,7 @@ void AppWindow::updateList(const int& gen, const float& m)
 {
     best_list_box_->Pack(sfg::Label::Create(std::string(
                             "Pokolenie " + boost::lexical_cast<string>(gen+1) + " , Dystans " +
-                            boost::lexical_cast<string>(m) + " m")),false);
+                            boost::lexical_cast<string>(static_cast<int>(m)) + " m")),false);
 }
 
 void AppWindow::onRunButtonClick()
@@ -184,7 +189,7 @@ void AppWindow::onRunButtonClick()
     {
         clearList();
         int size,max_gen,steep,length;
-        float gravity,rate;
+        float gravity,rate,velocity;
         updateInfo(" ");
         try
         {
@@ -194,6 +199,7 @@ void AppWindow::onRunButtonClick()
             gravity = boost::lexical_cast<float>(std::string(gravity_entry_->GetText()));
             steep = boost::lexical_cast<int>(std::string(steep_entry_->GetText()));
             length = boost::lexical_cast<int>(std::string(length_entry_->GetText()));
+			velocity = boost::lexical_cast<float>(std::string(velocity_entry_->GetText()));
         }
         catch(const boost::bad_lexical_cast& e)
         {
@@ -212,15 +218,19 @@ void AppWindow::onRunButtonClick()
             gravity = -gravity;
         if(steep < 0)
             steep = -steep;
+		if (steep > 300)
+			steep = 300;
         if(length < 0)
             length = -length;
+		if (velocity < 0)
+			velocity = -velocity;
         controller_->setSize(size);
         controller_->setRate(rate);
         controller_->setMaxGen(max_gen);
         controller_->setSimulation(boost::make_shared<PhysSimulation>());
         controller_->getSimualation()->setWorldParams(gravity,1.0,60,8,3);
         controller_->getSimualation()->setTrackParams(steep, 300, 100,length);
-        controller_->getSimualation()->getPopulation()->setVelocity(10.0f);
+        controller_->getSimualation()->getPopulation()->setVelocity(velocity);
         controller_->createAll();
 
         running_=true;
