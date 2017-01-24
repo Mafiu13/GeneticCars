@@ -13,7 +13,7 @@ AppWindow::AppWindow(PMainController c, const float& width, const float& height,
     window_.setView(default_view_);
     setUpGUI();
     controller_ = c;
-    running_ = false;
+    running_=false;
 }
 
 // --------metody [get] -----------
@@ -25,22 +25,6 @@ sf::RenderWindow & AppWindow::getWindow()
 sf::View & AppWindow::getView()
 {
     return sim_view_;
-}
-
-void AppWindow::drawAll(PDrawing drawing)
-{
-    window_.setView(sim_view_);
-    window_.pushGLStates();
-    window_.draw(drawing->getLine());
-	for (sf::CircleShape circle : drawing->getCircles()) {
-        window_.draw(circle);
-	}
-	for (sf::ConvexShape polygon : drawing->getPolygons()) {
-        window_.draw(polygon);
-    }
-    window_.popGLStates();
-    window_.display();
-    window_.setView(default_view_);
 }
 
 void AppWindow::setUpGUI()
@@ -85,7 +69,7 @@ void AppWindow::setUpGUI()
     lower_left_vertical_box->Pack(lower_left_horizonal_box2,false);
     auto lower_left_horizonal_box3 = sfg::Box::Create(sfg::Box::Orientation::HORIZONTAL, 5.f);
     length_entry_ = sfg::Entry::Create("1000");
-    lower_left_horizonal_box3->Pack(sfg::Label::Create("Dlugosc trasy:"),false);
+    lower_left_horizonal_box3->Pack(sfg::Label::Create("Liczba odcinkow trasy:"),false);
     lower_left_horizonal_box3->Pack(length_entry_);
     lower_left_vertical_box->Pack(lower_left_horizonal_box3,false);
 
@@ -96,7 +80,10 @@ void AppWindow::setUpGUI()
     left_vertical_box->Pack(lower_left_frame,false);
     auto run_button = sfg::Button::Create("Uruchom symulacje");
     run_button->GetSignal( sfg::Widget::OnLeftClick ).Connect( std::bind( &AppWindow::onRunButtonClick, this ) );
+	auto stop_button = sfg::Button::Create("Przerwij symulacje");
+	stop_button->GetSignal(sfg::Widget::OnLeftClick).Connect(std::bind(&AppWindow::stopSimulation, this));
     left_vertical_box->Pack(run_button,false);
+	left_vertical_box->Pack(stop_button, false);
 
     auto scroll_window = sfg::ScrolledWindow::Create();
     best_list_box_ = sfg::Box::Create( sfg::Box::Orientation::VERTICAL );
@@ -104,13 +91,13 @@ void AppWindow::setUpGUI()
     scroll_window->AddWithViewport( best_list_box_ );
     //scrolledwindow->SetRequisition( sf::Vector2f( 500.f, 100.f ) );
     list_frame->Add(scroll_window);
-    left_vertical_box->Pack(list_frame);
+    left_vertical_box->Pack(list_frame,true,true);
 
     upper_box->Pack(left_vertical_box,false);
     upper_box->Pack(simulation_frame,true,true);
 
     lower_box->Pack(sfg::Separator::Create(sfg::Separator::Orientation::HORIZONTAL),false);
-    info_label_ = sfg::Label::Create("Info Label");
+    info_label_ = sfg::Label::Create();
     lower_box->Pack(info_label_,false);
 
     main_box->Pack(upper_box);
@@ -125,12 +112,33 @@ void AppWindow::setUpGUI()
     sim_view_.setSize(simulation_frame->GetAllocation().width, simulation_frame->GetAllocation().height);
     sim_view_.setViewport(
                 sf::FloatRect(
-                    simulation_frame->GetAbsolutePosition().x / window_.getSize().x,
-                    simulation_frame->GetAbsolutePosition().y / window_.getSize().y,
-                    simulation_frame->GetAllocation().width / window_.getSize().x,
-                    simulation_frame->GetAllocation().height / window_.getSize().y
+                    (simulation_frame->GetAbsolutePosition().x / window_.getSize().x),
+                    (simulation_frame->GetAbsolutePosition().y / window_.getSize().y),
+                    (simulation_frame->GetAllocation().width / window_.getSize().x),
+                    (simulation_frame->GetAllocation().height / window_.getSize().y)*0.98
                     ));
 }
+
+void AppWindow::drawAll(PDrawing drawing)
+{
+	window_.setView(sim_view_);
+	window_.pushGLStates();
+	sf::RectangleShape background(sf::Vector2f(sim_view_.getSize().x *2, sim_view_.getSize().y * 2));
+	background.setPosition(sim_view_.getCenter().x-background.getSize().x/2, sim_view_.getCenter().y - background.getSize().y / 2);
+	background.setFillColor(sf::Color::White);
+	window_.draw(background);
+	window_.draw(drawing->getLine());
+	for (sf::CircleShape circle : drawing->getCircles()) {
+		window_.draw(circle);
+	}
+	for (sf::ConvexShape polygon : drawing->getPolygons()) {
+		window_.draw(polygon);
+	}
+	window_.popGLStates();
+	window_.display();
+	window_.setView(default_view_);
+}
+
 
 void AppWindow::updateGUI()
 {
@@ -142,9 +150,11 @@ void AppWindow::updateGUI()
         window_.display();
 }
 
-void AppWindow::updateBest(const float& best)
+void AppWindow::updateState(const float& best, const float& current, const float& track_length)
 {
-    updateInfo(std::string("Pozycja obserwowanego osobnika: " + boost::lexical_cast<string>(best) + " m"));
+    updateInfo(std::string("Dlugosc trasy: " + boost::lexical_cast<string>(static_cast<int>(track_length)) + " m | " +
+		"Pozycja najlepszego osobnika: " + boost::lexical_cast<string>(static_cast<int>(best)) + " m | "  +
+		" Pozycja obserwowanego osobnika: " + boost::lexical_cast<string>(static_cast<int>(current)) + " m |"  ));
 }
 void AppWindow::updateFollow(const float& follow)
 {
@@ -202,8 +212,6 @@ void AppWindow::onRunButtonClick()
             gravity = -gravity;
         if(steep < 0)
             steep = -steep;
-        if(steep > 300)
-            steep=300;
         if(length < 0)
             length = -length;
         controller_->setSize(size);
