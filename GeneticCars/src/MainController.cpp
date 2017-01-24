@@ -128,7 +128,7 @@ void MainController::simulatePupulation()
     if(window_->isRunning())
     {
         simulation_->updateSimulation();
-        window_->updateBest(simulation_->getPopulation()->getTheFastestX());
+        window_->updateState(simulation_->getPopulation()->getTheFastestX(), simulation_->getPopulation()->getFollowX(),simulation_->getTrack()->getArr()[simulation_->getTrack()->getN()-1].x);
         window_->updateFollow(simulation_->getPopulation()->getFollowX());
         window_->drawAll(simulation_->getDrawing());
     }

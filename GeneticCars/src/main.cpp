@@ -10,7 +10,7 @@ typedef boost::shared_ptr <MainController> PMainController;
 int main()
 {
     PMainController controller = boost::make_shared<MainController>();
-    boost::shared_ptr<AppWindow> window = boost::make_shared<AppWindow>(controller, 1000, 600, 32, "Genetic cars");
+    boost::shared_ptr<AppWindow> window = boost::make_shared<AppWindow>(controller, 1200, 800, 32, "Genetic cars");
 	controller->setWindow(window);
 
     while (controller->getWindow()->getWindow().isOpen()) {

@@ -7,17 +7,13 @@ set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules" ${CMAKE_MODULE_PATH})
 
 add_definitions(-DBOOST_ALL_NO_LIB)
 
-#set(Boost_ROOT "/usr")
-#set(Boost_INCLUDE_DIRS "${Boost_ROOT}/include")
-#set(Boost_LIBRARY_DIRS "${Boost_ROOT}/lib")
-
 find_package(Boost COMPONENTS
 	system
 	regex
-        coroutine
-        context
+	coroutine
+    context
 	thread
-        chrono
+    chrono
 	unit_test_framework
 	REQUIRED
 )
@@ -33,8 +29,6 @@ find_package(Box2D REQUIRED)
 
 find_package(SFGUI REQUIRED)
 
-#set(SFML_INCLUDE_DIRS ${SFML_INCLUDE_DIR})
-#set(BOX2D_INCLUDE_DIRS ${BOX2D_INCLUDE_DIR})
 include_directories(
 	${Boost_INCLUDE_DIRS}
 )
@@ -95,4 +89,22 @@ target_link_libraries(program
 	geneticcars
 )
 
+enable_testing()
 
+add_subdirectory(test)
+
+add_test ( NAME testappwindow COMMAND Test_AppWindow )
+add_test ( NAME testbodyshape COMMAND Test_BodyShape )
+add_test ( NAME testcar COMMAND Test_Car )
+add_test ( NAME testchromosome COMMAND Test_Chromosome )
+add_test ( NAME testdrawing COMMAND Test_Drawing )
+add_test ( NAME testmaincontroller COMMAND Test_MainController )
+add_test ( NAME testphysbodyshape COMMAND Test_PhysBodyShape )
+add_test ( NAME testphyscar COMMAND Test_PhysCar )
+add_test ( NAME testphyselement COMMAND Test_PhysElement )
+add_test ( NAME testphyspopulation COMMAND Test_PhysPopulation )
+add_test ( NAME testphyssimulation COMMAND Test_PhysSimulation )
+add_test ( NAME testphystrack COMMAND Test_PhysTrack )
+add_test ( NAME testphyswheel COMMAND Test_PhysWheel )
+add_test ( NAME testshapepoint COMMAND Test_ShapePoint )
+add_test ( NAME testwheel COMMAND Test_Wheel )

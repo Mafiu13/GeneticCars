@@ -111,10 +111,12 @@ public:
     */
     void updateInfo(const std::string& info);
     /**
-    * Metoda wyswietlajaca wynik najlepszego osobnika w generacji
-    *@param best - aktualny wynik najlepszego osobnika w generacji
+    * Metoda wyswietlajaca informację na temat obecnego przejazdu
+    *@param best - wynik najlepszego osobnika w generacji
+	*@param current - wynik aktualnie obserwowanego osobnika
+	*@param track_length - długość trasy
     */
-    void updateBest(const float& best);
+    void updateState(const float& best, const float& current, const float& track_length);
     /**
     * Metoda uaktualniajaca pozycje widoku
     *@param follow - polozenie sledzonego pojazdu
