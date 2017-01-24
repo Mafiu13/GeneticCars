@@ -24,7 +24,7 @@ BOOST_AUTO_TEST_CASE(TestCar_Attributes)
 	}
 	Chromosome ch = Chromosome(bs, whs);
 	Car car = Car(ch);
-	BOOST_CHECK_EQUAL(car.getChromosome().getBodyShape().getShapePoints().size, NR_OF_POINTS_IN_BODYSHAPE);
+	BOOST_CHECK_EQUAL(car.getChromosome().getBodyShape().getShapePoints().size(), NR_OF_POINTS_IN_BODYSHAPE);
 	BOOST_CHECK_EQUAL(car.getDistance(), -1.0);
 
 	car.setDistance(1.0);

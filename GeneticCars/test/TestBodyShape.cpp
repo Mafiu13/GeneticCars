@@ -16,5 +16,5 @@ BOOST_AUTO_TEST_CASE(TestBodyShape_Attributes)
 	BodyShape bs = BodyShape(sps, 1.0);
 
 	BOOST_CHECK_EQUAL(bs.getDensity(), 1.0);
-	BOOST_CHECK_EQUAL(bs.getShapePoints().size, NR_OF_POINTS_IN_BODYSHAPE);
+	BOOST_CHECK_EQUAL(bs.getShapePoints().size(), NR_OF_POINTS_IN_BODYSHAPE);
 }

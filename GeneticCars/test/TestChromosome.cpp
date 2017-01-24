@@ -25,6 +25,6 @@ BOOST_AUTO_TEST_CASE(TestChromosome_Attributes)
 
 	Chromosome ch = Chromosome(bs, whs);
 
-	BOOST_CHECK_EQUAL(ch.getBodyShape().getShapePoints().size, NR_OF_POINTS_IN_BODYSHAPE);
-	BOOST_CHECK_EQUAL(ch.getWheels().size, NR_OF_WHEELS);
+	BOOST_CHECK_EQUAL(ch.getBodyShape().getShapePoints().size(), NR_OF_POINTS_IN_BODYSHAPE);
+	BOOST_CHECK_EQUAL(ch.getWheels().size(), NR_OF_WHEELS);
 }
