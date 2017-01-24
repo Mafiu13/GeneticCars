@@ -19,7 +19,7 @@ class PhysElement
 	/**
 	* wskaznik na cialo elementu w silniku fizyczniym
 	*/
-	b2Body * body_;
+	b2Body* body_;
 	/**
 	* gestosc ciala
 	*/
@@ -30,7 +30,7 @@ public:
         /**
         * Metoda zwracajaca wskaznik na cialo w silniku fizycznym
         */
-	b2Body * getBody();
+	b2Body* getBody();
         /**
         * Metoda zwracajaca gestosc ciala
         */
@@ -38,7 +38,7 @@ public:
         /**
         * Metoda ustawiajaca wskaznik na cialo
         */
-	void setBody(b2Body * body);
+	void setBody(b2Body* body);
         /**
         * Metoda ustawiajaca gestosc
         */

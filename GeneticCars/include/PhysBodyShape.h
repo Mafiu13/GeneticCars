@@ -31,7 +31,7 @@ public:
         /**
         * metoda zwracajaca wskzanik na tablice wierzcholkow nadwozia
         */
-	b2Vec2 * getVertices() const;
+	b2Vec2* getVertices() const;
 	/**
 	* metoda kopiujaca wartosci z podanego wektora do wskaznikow w tablicy  vertices_
 	*/
@@ -40,7 +40,7 @@ public:
 	* metoda tworzaca nadwozie w silniku fizycznym
 	* @param world - symulowany swiat fizyczny
 	*/
-	void createBodyShape(b2World& world);
+	void createBodyShape(b2World* world);
 };
 
 #endif

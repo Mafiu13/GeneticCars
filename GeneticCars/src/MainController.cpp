@@ -154,7 +154,7 @@ void MainController::createAll()
     simulation_->createSimulation();
     in_pop_ = population_manager_->generateInitialPopulation();
     getSimualation()->getPopulation()->setCars(convertPhysCarToCar(in_pop_));
-    simulation_->getPopulation()->createCars(*simulation_->getWorld());
+    simulation_->getPopulation()->createCars(simulation_->getWorld());
 }
 
 void MainController::runAll()
@@ -177,7 +177,7 @@ void MainController::runAll()
                 next_pop_.clear();
                 next_pop_ = population_manager_->generateNextPopulation(in_pop_);
                 simulation_->getPopulation()->setCars(convertPhysCarToCar(next_pop_));
-                simulation_->getPopulation()->createCars(*simulation_->getWorld());
+                simulation_->getPopulation()->createCars(simulation_->getWorld());
                 setInPop(next_pop_);
                 ++current_gen_;
             }

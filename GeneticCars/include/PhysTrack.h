@@ -30,15 +30,15 @@ class PhysTrack : public PhysElement
 	int n_;
 
 public:
-        PhysTrack(const int& n);
+    PhysTrack(const int& n);
 	~PhysTrack();
-        /**
-        * metoda zwracajaca tablice wierzcholkow trasy
-        */
-	b2Vec2 * getArr() const;
-        /**
-        * metoda zwracajaca liczbe wierzcholkow trasy
-        */
+    /**
+    * metoda zwracajaca tablice wierzcholkow trasy
+    */
+	b2Vec2* getArr() const;
+    /**
+    * metoda zwracajaca liczbe wierzcholkow trasy
+    */
 	int getN() const;
 	/**
 	* metoda generujaca generujaca trase na podstawie podanych parametrow
@@ -50,7 +50,7 @@ public:
 	/**
 	* metoda tworzaca trase w silniku fizycznym
 	*/
-	void createTrack(b2World & world, int n);
+	void createTrack(b2World* world, int n);
 };
 
 #endif

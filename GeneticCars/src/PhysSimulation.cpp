@@ -10,7 +10,7 @@ PhysSimulation::PhysSimulation()
 PhysSimulation::~PhysSimulation()
 {
     destroyTrack();
-    population_->destroyCars(*getWorld());
+    population_->destroyCars(getWorld());
 }
 
 // ------------------metody [get]----------------------
@@ -66,7 +66,7 @@ void PhysSimulation::createTrack()
 {
 	track_ = boost::make_shared<PhysTrack>(n_);
 	track_->generateTrack(h1_, h2_, d_);
-	track_->createTrack(*this->world_.get(), n_);
+	track_->createTrack(world_.get(), n_);
 }
 
 void PhysSimulation::createSimulation()
